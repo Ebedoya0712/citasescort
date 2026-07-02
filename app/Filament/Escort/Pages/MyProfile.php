@@ -56,6 +56,7 @@ class MyProfile extends Page implements HasForms
                                     ->hiddenLabel()
                                     ->avatar()
                                     ->imageEditor()
+                                    ->disk('public')
                                     ->directory('escort-avatars')
                                     ->imagePreviewHeight('250')
                                     ->extraAttributes([
