@@ -6,8 +6,6 @@
     
     <!-- Yape Single Logo -->
     <div class="flex justify-center items-center h-24 select-none">
-        <div class="flex items-center justify-center p-4 rounded-2xl bg-purple-900/10 dark:bg-purple-950/20 border border-purple-500/20 dark:border-purple-500/30 shadow-sm hover:border-purple-500/50 hover:-translate-y-1 transition-all duration-300">
-            <img src="{{ asset('images/yape-seeklogo.png') }}" alt="Yape" class="h-16 w-auto object-contain drop-shadow-md">
-        </div>
+        <img src="{{ asset('images/yape-seeklogo.png') }}" alt="Yape" class="h-16 w-auto object-contain hover:-translate-y-1 hover:scale-105 transition-all duration-300 rounded-2xl shadow-lg shadow-purple-900/20 cursor-default">
     </div>
 </section>
