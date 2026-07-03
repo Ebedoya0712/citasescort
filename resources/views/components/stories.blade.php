@@ -292,9 +292,7 @@
                         const diffInHours = Math.floor(diffInMinutes / 60);
                         if (diffInHours < 24) return `HACE ${diffInHours} HORAS`;
                         
-                        const diffInDays = Math.floor(diffInHours / 24);
-                        if (diffInDays === 1) return "HACE 1 DÍA";
-                        return `HACE ${diffInDays} DÍAS`;
+                        return "HACE 24 HORAS";
                     },
 
                     scrollLeft() {
