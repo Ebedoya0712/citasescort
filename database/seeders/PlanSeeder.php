@@ -20,10 +20,10 @@ class PlanSeeder extends Seeder
         ]);
 
         Plan::create([
-            'name' => 'Plata',
+            'name' => 'Diamante',
             'price' => 50.00,
             'duration_days' => 90,
-            'description' => 'Plan Plata de 3 meses con mejor posicionamiento y badge plateado destacado.',
+            'description' => 'Plan Diamante de 3 meses con el mejor posicionamiento y badge de diamante destacado.',
         ]);
     }
 }

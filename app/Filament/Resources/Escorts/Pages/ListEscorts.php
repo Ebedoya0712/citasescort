@@ -22,9 +22,9 @@ class ListEscorts extends ListRecords
         return [
             'all' => \Filament\Schemas\Components\Tabs\Tab::make('Todos'),
             'diamond' => \Filament\Schemas\Components\Tabs\Tab::make('Diamante')
-                ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('level', 'diamond')),
+                ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('level', 'diamante')),
             'silver' => \Filament\Schemas\Components\Tabs\Tab::make('Plata')
-                ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('level', 'silver')),
+                ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('level', 'plata')),
             'pending' => \Filament\Schemas\Components\Tabs\Tab::make('Pendientes')
                 ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('verified', false))
                 ->badge(\App\Models\Escort::where('verified', false)->count()),

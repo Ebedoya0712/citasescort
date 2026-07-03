@@ -38,7 +38,7 @@ class UpgradePlan extends Page implements HasActions
             ->label('Pagar con Yape')
             ->modalHeading('Datos de Yape / Transferencia')
             ->modalDescription(function(array $arguments) {
-                $number = config('settings.yape_number', '');
+                $number = config('settings.yape_number', '+51 921 519 687');
                 
                 $priceSoles = '';
                 if (isset($arguments['amount'])) {

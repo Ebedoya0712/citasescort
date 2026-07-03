@@ -54,9 +54,9 @@ class EscortsTable
             ->filters([
                 \Filament\Tables\Filters\SelectFilter::make('level')
                     ->options([
-                        'standard' => 'Standard',
-                        'silver' => 'Silver',
-                        'diamond' => 'Diamond',
+                        'general' => 'General',
+                        'plata' => 'Plata',
+                        'diamante' => 'Diamante',
                     ]),
                 \Filament\Tables\Filters\Filter::make('pending_verification')
                     ->query(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('verified', false))
