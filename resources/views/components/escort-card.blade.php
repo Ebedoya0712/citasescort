@@ -16,7 +16,7 @@
 @endphp
 
 <a href="{{ route('profile.show', $escort->id) }}"
-    class="bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-300 hover:-translate-y-1 block hover:ring-2 hover:ring-red-600">
+    class="bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-300 hover:-translate-y-1 block hover:ring-2 hover:ring-red-600">
     <!-- Image Area -->
     <div class="relative aspect-[4/5] overflow-hidden bg-gray-200 dark:bg-zinc-800">
         @if(!empty($escort->photos) && isset($escort->photos[0]))
@@ -98,7 +98,7 @@
                         }
                     }
                 }" @click.prevent.stop="toggleLike()"
-                class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center hover:bg-black/60 transition-colors border border-white/10 shadow-sm group/btn">
+                class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center hover:bg-black/60 transition-colors border border-white/10 shadow-sm group/btn">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-all duration-300"
                     :class="liked ? 'text-brand-pink fill-current scale-110' : 'text-white group-hover/btn:text-brand-pink'"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -108,7 +108,7 @@
             </button>
 
             <span
-                class="bg-black/60 backdrop-blur-md text-white text-xs font-bold px-2.5 py-1 rounded tracking-tighter border border-white/10 shadow-sm">{{ number_format($escort->price, 0) }}
+                class="bg-black/60 backdrop-blur-md text-white text-[10px] md:text-xs font-bold px-1.5 md:px-2.5 py-0.5 md:py-1 rounded tracking-tighter border border-white/10 shadow-sm">{{ number_format($escort->price, 0) }}
                 {{ $escort->currency ?? 'UYU' }}</span>
 
             @if($photoCount > 0)
@@ -123,12 +123,12 @@
 
         <!-- Availability Bar Overlay -->
         <div
-            class="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-sm rounded-full py-2 px-3 flex items-center gap-2 border border-white/5 shadow-sm">
-            <div class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></div>
-            <span class="text-emerald-400 text-xs font-semibold truncate">Disponible</span>
+            class="absolute bottom-2 left-2 right-2 md:bottom-3 md:left-3 md:right-3 bg-black/60 backdrop-blur-sm rounded-full py-1.5 md:py-2 px-2 md:px-3 flex items-center gap-1 md:gap-2 border border-white/5 shadow-sm">
+            <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-green-500 animate-pulse"></div>
+            <span class="text-emerald-400 text-[10px] md:text-xs font-semibold truncate">Disponible</span>
             @if(!empty($escort->attends_in))
-                <span class="text-gray-400 text-xs mx-1">|</span>
-                <span class="text-white text-xs font-semibold truncate">{{ implode(', ', $escort->attends_in) }}</span>
+                <span class="text-gray-400 text-[10px] md:text-xs mx-0.5 md:mx-1">|</span>
+                <span class="text-white text-[10px] md:text-xs font-semibold truncate">{{ implode(', ', $escort->attends_in) }}</span>
             @endif
         </div>
 
@@ -146,10 +146,10 @@
 
     <!-- Info Area -->
     <div
-        class="p-4 bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300">
-        <div class="space-y-0.5 max-w-[70%]">
-            <h4 class="text-brand-pink font-bold text-sm truncate">{{ $escort->name }}</h4>
-            <div class="flex items-center gap-1.5 text-black dark:text-gray-100 font-bold text-xs">
+        class="p-2.5 md:p-4 bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300">
+        <div class="space-y-0.5 max-w-[70%] min-w-0">
+            <h4 class="text-brand-pink font-bold text-xs md:text-sm truncate">{{ $escort->name }}</h4>
+            <div class="flex items-center gap-1 md:gap-1.5 text-black dark:text-gray-100 font-bold text-[10px] md:text-xs">
                 <!-- Gender Icon -->
                 @if($escort->gender === 'Mujer' || $escort->gender === 'female')
                     <span class="text-pink-500" title="Mujer">

@@ -1,4 +1,4 @@
-<section class="relative h-[650px] flex items-center justify-center overflow-hidden hero-video">
+<section class="relative h-[480px] sm:h-[550px] md:h-[650px] flex items-center justify-center overflow-hidden hero-video">
     <!-- Video Background -->
     <video 
         autoplay 

@@ -17,7 +17,7 @@
                 <h2 class="text-brand-pink text-2xl font-bold italic mb-8 flex items-center gap-2">
                     Escorts Generales 🌹
                 </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
                     @foreach($generalPublications as $publication)
                         <x-publication-card :publication="$publication" />
                     @endforeach
@@ -47,7 +47,7 @@
             scrollToTop() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-         }" @scroll.window="updateScroll()" class="fixed bottom-8 right-8 z-50 transform transition-all duration-300"
+         }" @scroll.window="updateScroll()" class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 transform transition-all duration-300"
             :class="{ 'translate-y-0 opacity-100': showButton, 'translate-y-10 opacity-0 pointer-events-none': !showButton }">
 
             <button @click="scrollToTop()"

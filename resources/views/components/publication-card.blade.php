@@ -16,7 +16,7 @@
 @endphp
 
 <a href="{{ route('publications.show', $publication->id) }}"
-    class="bg-white dark:bg-zinc-900 rounded-2xl shadow-lg group cursor-pointer transition-all duration-300 hover:-translate-y-2 block relative hover:ring-2 hover:ring-red-600 @if(!$publication->escort || !in_array($publication->escort->level, ['diamante', 'plata'])) hover:shadow-xl @endif">
+    class="bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl shadow-lg group cursor-pointer transition-all duration-300 hover:-translate-y-2 block relative hover:ring-2 hover:ring-red-600 @if(!$publication->escort || !in_array($publication->escort->level, ['diamante', 'plata'])) hover:shadow-xl @endif">
     
     <!-- Animated Border Overlay -->
     @if($publication->escort && $publication->escort->level === 'diamante')
@@ -27,7 +27,7 @@
         <div class="absolute inset-0 rounded-2xl ring-4 ring-gray-400/60 ring-offset-2 ring-offset-zinc-900 pointer-events-none z-10"></div>
     @endif
     <!-- Image Area -->
-    <div class="relative aspect-[4/5] overflow-hidden rounded-t-2xl bg-gray-200 dark:bg-zinc-800">
+    <div class="relative aspect-[4/5] overflow-hidden rounded-t-xl md:rounded-t-2xl bg-gray-200 dark:bg-zinc-800">
         @if(!empty($publication->photos) && isset($publication->photos[0]))
             @php
                 $photo = $publication->photos[0];
@@ -38,7 +38,7 @@
 
             <!-- Watermark Frontend -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 z-10 select-none">
-                <span class="text-xl font-extrabold tracking-wider drop-shadow-lg uppercase"><span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span></span>
+                <span class="text-xl md:text-3xl font-extrabold tracking-wider drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] uppercase w-full text-center truncate px-2"><span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span></span>
             </div>
         @else
             <div class="w-full h-full flex items-center justify-center text-gray-400">
@@ -139,22 +139,22 @@
 
         <!-- Availability Bar Overlay -->
         <div
-            class="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-sm rounded-full py-2 px-3 flex items-center gap-2 border border-white/5 shadow-sm">
-            <div class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></div>
-            <span class="text-emerald-400 text-xs font-semibold truncate">Disponible</span>
+            class="absolute bottom-2 left-2 right-2 md:bottom-3 md:left-3 md:right-3 bg-black/60 backdrop-blur-sm rounded-full py-1.5 md:py-2 px-2 md:px-3 flex items-center gap-1 md:gap-2 border border-white/5 shadow-sm">
+            <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-green-500 animate-pulse"></div>
+            <span class="text-emerald-400 text-[10px] md:text-xs font-semibold truncate">Disponible</span>
             @if(!empty($publication->attends_in))
-                <span class="text-gray-400 text-xs mx-1">|</span>
-                <span class="text-white text-xs font-semibold truncate">{{ implode(', ', $publication->attends_in) }}</span>
+                <span class="text-gray-400 text-[10px] md:text-xs mx-0.5 md:mx-1">|</span>
+                <span class="text-white text-[10px] md:text-xs font-semibold truncate">{{ implode(', ', $publication->attends_in) }}</span>
             @endif
         </div>
     </div>
 
     <!-- Info Area -->
     <div
-        class="p-4 bg-white dark:bg-zinc-900 rounded-b-2xl border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300">
-        <div class="space-y-0.5 max-w-[70%]">
-            <h4 class="text-brand-pink font-bold text-sm truncate">{{ $publication->title }}</h4>
-            <div class="flex items-center gap-1.5 text-black dark:text-gray-100 font-bold text-xs">
+        class="p-2.5 md:p-4 bg-white dark:bg-zinc-900 rounded-b-xl md:rounded-b-2xl border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300">
+        <div class="space-y-0.5 max-w-[70%] min-w-0">
+            <h4 class="text-brand-pink font-bold text-xs md:text-sm truncate">{{ $publication->title }}</h4>
+            <div class="flex items-center gap-1 md:gap-1.5 text-black dark:text-gray-100 font-bold text-[10px] md:text-xs">
                 <!-- Gender Icon -->
                 @if($publication->gender === 'Mujer' || $publication->gender === 'female')
                     <span class="text-pink-500" title="Mujer">

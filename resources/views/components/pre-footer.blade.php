@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 relative border-t border-zinc-800 pt-12">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 relative border-t border-zinc-800 pt-12">
         <div class="space-y-6">
             <a href="/" class="inline-flex items-center gap-0.5 font-black text-xl tracking-tighter select-none">
                 @if(config('settings.site_logo'))

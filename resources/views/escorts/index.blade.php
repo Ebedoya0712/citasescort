@@ -91,7 +91,7 @@
     <div class="bg-zinc-50 dark:bg-zinc-950 min-h-screen py-8 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
                 @foreach($escorts as $escort)
                     <x-escort-card :escort="$escort" />
                 @endforeach

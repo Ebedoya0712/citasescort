@@ -1,8 +1,8 @@
 <x-main-layout no-hero>
     <div
-        class="h-[calc(100vh-135px)] flex flex-col md:flex-row bg-white dark:bg-black transition-colors duration-300 overflow-hidden">
+        class="min-h-[calc(100vh-135px)] flex flex-col md:flex-row bg-white dark:bg-black transition-colors duration-300 overflow-hidden">
         <!-- Form Section (Left) -->
-        <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-8 lg:p-12 overflow-y-auto">
+        <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-4 sm:p-8 lg:p-12 overflow-y-auto">
             <div class="w-full max-w-2xl space-y-10" x-data="{ 
                     showPass: false,
                     email: '',
