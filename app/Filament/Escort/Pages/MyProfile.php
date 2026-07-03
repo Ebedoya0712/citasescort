@@ -77,7 +77,7 @@ class MyProfile extends Page implements HasForms
                                     ->label('Edad')
                                     ->numeric(),
                                 Forms\Components\Select::make('city')
-                                    ->label('Departamento -> Distrito')
+                                    ->label('Departamento')
                                     ->searchable()
                                     ->options(\App\Models\City::getGroupedOptions())
                                     ->required(),
