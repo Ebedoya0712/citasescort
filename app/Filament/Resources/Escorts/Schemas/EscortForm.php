@@ -46,9 +46,9 @@ class EscortForm
                         'trans' => 'Trans',
                     ]),
                 Select::make('city')
-                    ->label('Departamento -> Distrito')
+                    ->label('Ubicación (Ciudad)')
                     ->searchable()
-                    ->options(\App\Models\City::getGroupedOptions()),
+                    ->options(\App\Models\City::pluck('name', 'name')),
 
                 \Filament\Schemas\Components\Section::make('Verificación de Identidad')
                     ->columnSpanFull()

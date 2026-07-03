@@ -87,9 +87,9 @@ class EditProfile extends Page implements HasForms
                     ->description('Cómo pueden encontrarte los clientes.')
                     ->schema([
                         Select::make('city')
-                            ->label('Departamento -> Distrito')
+                            ->label('Ubicación / Departamento')
                             ->searchable()
-                            ->options(\App\Models\City::getGroupedOptions())
+                            ->options(\App\Models\City::pluck('name', 'name'))
                             ->required(),
                         TextInput::make('address')
                             ->label('Dirección')
