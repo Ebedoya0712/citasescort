@@ -3,6 +3,7 @@
         Citasescort - Escorts en Perú
         </x-slot>
 
+        <x-hero />
         <x-stories />
 
         <!-- Filters moved to sidebar -->
@@ -29,7 +30,7 @@
             </section>
         </div>
 
-        <x-hero />
+        <x-features />
         <x-faq />
         <x-pre-footer />
         <x-payment-logos />
