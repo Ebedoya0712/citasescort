@@ -262,9 +262,9 @@
                             </div>
                             <div class="text-gray-300 text-sm space-y-1">
                                 @if($escort->price)
-                                <div>1 hora - {{ number_format($escort->price, 0) }} {{ $escort->currency ?? 'UYU' }}</div> @endif
+                                <div>1 hora - S/{{ number_format($escort->price, 0) }}</div> @endif
                                 @if($escort->cost_30m)
-                                <div>30 minutos - ${{ number_format($escort->cost_30m, 0) }}</div> @endif
+                                <div>30 minutos - S/{{ number_format($escort->cost_30m, 0) }}</div> @endif
                             </div>
                         </div>
 

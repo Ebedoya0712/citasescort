@@ -116,7 +116,7 @@ class PublicationFormNew
                                 TextInput::make('price')
                                     ->label('Tarifa')
                                     ->numeric()
-                                    ->prefix('$'),
+                                    ->prefix('S/'),
                                 TextInput::make('waist')
                                     ->label('Cintura')
                                     ->placeholder('Ej: 60cm'),
@@ -127,16 +127,8 @@ class PublicationFormNew
                                     ->label('Busto')
                                     ->placeholder('Ej: 36 B'),
                             ]),
-                        \Filament\Forms\Components\Radio::make('currency')
-                            ->label('Moneda')
-                            ->options([
-                                'PEN' => 'PEN',
-                                'USD' => 'USD',
-                            ])
-                            ->default('PEN')
-                            ->inline()
-                            ->inlineLabel(false)
-                            ->columnSpanFull(),
+                        \Filament\Forms\Components\Hidden::make('currency')
+                            ->default('PEN'),
                     ]),
 
                 \Filament\Schemas\Components\Section::make('Contacto')

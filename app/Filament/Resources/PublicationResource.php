@@ -60,17 +60,9 @@ class PublicationResource extends Resource
                         Forms\Components\TextInput::make('price')
                             ->label('Tarifa')
                             ->numeric()
-                            ->prefix('$'),
-                        Forms\Components\Select::make('currency')
-                            ->label('Moneda')
-                            ->options([
-                                'UYU' => 'UYU',
-                                'USD' => 'USD',
-                                'EUR' => 'EUR',
-                                'ARS' => 'ARS',
-                                'BRL' => 'BRL',
-                            ])
-                            ->default('UYU'),
+                            ->prefix('S/'),
+                        Forms\Components\Hidden::make('currency')
+                            ->default('PEN'),
                         Forms\Components\Toggle::make('is_active')
                             ->label('Visible')
                             ->default(true),
@@ -117,7 +109,7 @@ class PublicationResource extends Resource
                                 SchemaGrid::make(1)->schema([
                                     TextEntry::make('price')
                                         ->hiddenLabel()
-                                        ->money(fn ($record) => $record->currency ?? 'UYU')
+                                        ->money(fn ($record) => $record->currency ?? 'PEN')
                                         ->alignEnd()
                                         ->extraAttributes([
                                             'style' => 'font-size: 1.5rem; font-weight: 900; line-height: 1.1; color: rgb(34, 197, 94);'
