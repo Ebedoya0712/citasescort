@@ -1188,12 +1188,30 @@
                 x-show="showStories" x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
                 x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0" class="fixed inset-0 z-50 flex items-center justify-center bg-black"
+                x-transition:leave-end="opacity-0" class="fixed inset-0 z-[100] flex items-center justify-center bg-black"
                 style="display: none;">
 
+                <!-- Navigation Arrows -->
+                <button @click.stop="prevStory()"
+                    class="hidden md:block absolute left-8 top-1/2 -translate-y-1/2 z-[130] text-red-600 hover:text-red-500 transition-all hover:scale-110 p-4 rounded-full bg-black/20 backdrop-blur-sm">
+                    <svg class="w-12 h-12 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button @click.stop="nextStory()"
+                    class="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-[130] text-red-600 hover:text-red-500 transition-all hover:scale-110 p-4 rounded-full bg-black/20 backdrop-blur-sm">
+                    <svg class="w-12 h-12 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
 
-
-                <!-- Mobile-style Story Card -->
+                <!-- Close Button -->
+                <button @click="closeStories()"
+                    class="absolute top-4 right-4 z-[130] text-white hover:text-red-600 transition-colors p-2 bg-black/20 rounded-full backdrop-blur-sm">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>                <!-- Mobile-style Story Card -->
                 <div
                     class="relative w-full h-full max-w-[450px] max-h-[90vh] mx-auto flex flex-col items-center justify-center p-0 md:p-4">
 

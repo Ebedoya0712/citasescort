@@ -63,10 +63,29 @@
 
         <!-- Full Screen Story Viewer -->
         <div x-show="showModal" x-transition.opacity.duration.300ms
-            class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-0 md:p-4" style="display: none;">
+            class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-0 md:p-4" style="display: none;">
 
+            <!-- Close Button -->
+            <button @click="closeModal"
+                class="absolute top-4 right-4 text-white hover:text-red-600 z-[130] p-2 transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
 
-
+            <!-- Desktop Arrows (Outside Container) -->
+            <button @click.stop="prevStory"
+                class="hidden md:block absolute left-4 lg:left-32 z-[130] text-red-600 hover:text-white p-2 transition-all hover:scale-125">
+                <svg class="w-16 h-16 drop-shadow-2xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button @click.stop="nextStory"
+                class="hidden md:block absolute right-4 lg:right-32 z-[130] text-red-600 hover:text-white p-2 transition-all hover:scale-125">
+                <svg class="w-16 h-16 drop-shadow-2xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
             <template x-if="currentEscort">
                 <div
                     class="relative w-full h-full max-w-[450px] max-h-[90vh] mx-auto flex flex-col items-center justify-center p-0 md:p-4">
