@@ -12,6 +12,11 @@ class PublicationController extends Controller
         $publication = Publication::with('escort.user', 'escort.reviews', 'escort.stories')->findOrFail($id);
         $escort = $publication->escort;
 
+        // Incrementar el contador de vistas
+        if ($escort) {
+            $escort->increment('views_count');
+        }
+
         return view('publications.show', compact('publication', 'escort'));
     }
 }

@@ -11,6 +11,9 @@ class EscortController extends Controller
     {
         $escort = Escort::with('user', 'reviews', 'stories')->findOrFail($id);
         
+        // Incrementar el contador de vistas
+        $escort->increment('views_count');
+        
         // Similar Escorts: 4 random active escorts excluding current
         $similarEscorts = Escort::where('id', '!=', $id)
             ->where('is_active', true)
@@ -108,5 +111,15 @@ class EscortController extends Controller
         $review->save();
 
         return back()->with('success', '¡Gracias por tu opinión! Tu comentario se ha enviado correctamente.');
+    }
+
+    public function trackWhatsappClick(Escort $escort)
+    {
+        $escort->increment('whatsapp_clicks_count');
+        
+        return response()->json([
+            'status' => 'success',
+            'clicks' => $escort->whatsapp_clicks_count
+        ]);
     }
 }

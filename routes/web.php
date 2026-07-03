@@ -126,6 +126,7 @@ Route::get('/porque-elegirnos', function () {
 })->name('why-choose-us');
 
 Route::get('/escorts', [EscortController::class, 'index'])->name('escorts.index');
+Route::post('/escorts/{escort}/whatsapp-click', [EscortController::class, 'trackWhatsappClick'])->name('escorts.whatsapp-click');
 
 Route::get('/profile/{id}', [EscortController::class, 'show'])->name('profile.show');
 Route::get('/publicacion/{id}', [App\Http\Controllers\PublicationController::class, 'show'])->name('publications.show');

@@ -306,6 +306,18 @@
                                 }
                             </script>
                         @endif
+                        
+                        <!-- Stats (Vistas y WhatsApp) -->
+                        <div class="flex gap-12 mt-8 mb-4 items-center bg-zinc-900/50 p-4 rounded-xl border border-zinc-800/50 w-fit">
+                            <div class="text-center">
+                                <div class="text-4xl font-black text-brand-pink">{{ $escort->views_count }}</div>
+                                <div class="text-gray-400 text-sm mt-1 font-medium tracking-wide">La vieron</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-black text-brand-pink whatsapp-clicks-count">{{ $escort->whatsapp_clicks_count }}</div>
+                                <div class="text-gray-400 text-sm mt-1 font-medium tracking-wide">escribieron</div>
+                            </div>
+                        </div>
 
                         <!-- Contact Buttons (Main Area) -->
                         <div class="flex flex-wrap gap-4 pt-4">
@@ -320,7 +332,8 @@
                             </a>
 
                             <a href="https://wa.me/{{ $escort->whatsapp }}" target="_blank"
-                                class="bg-green-600 hover:bg-green-500 text-white py-2.5 px-6 rounded-lg font-bold flex items-center gap-2 transition-all min-w-[160px] justify-center shadow-lg shadow-green-900/20">
+                                onclick="trackWhatsappClick(event)"
+                                class="bg-green-600 hover:bg-green-500 text-white py-2.5 px-6 rounded-lg font-bold flex items-center gap-2 transition-all min-w-[160px] justify-center shadow-lg shadow-green-900/20 whatsapp-btn">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.232-.298.33-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
@@ -1276,3 +1289,220 @@
         @endif
 </x-main-layout>
 
+    <script>
+        function trackWhatsappClick(e) {
+            // We don't prevent default, we want the link to open
+            fetch('{{ route("escorts.whatsapp-click", $escort->id) }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    document.querySelectorAll('.whatsapp-clicks-count').forEach(el => {
+                        el.textContent = data.clicks;
+                                            localStorage.setItem('citas_seen_stories', JSON.stringify(seen));
+                                            window.dispatchEvent(new CustomEvent('story-seen'));
+                                        },
+
+                                        closeStories() {
+                                            this.showStories = false;
+                                            this.stopProgress();
+                                            document.body.style.overflow = '';
+                                        },
+
+                                        nextStory() {
+                                            if (this.currentIndex < this.stories.length - 1) {
+                                                this.currentIndex++;
+                                                this.resetProgress();
+                                            } else {
+                                                this.closeStories();
+                                            }
+                                        },
+
+                                        prevStory() {
+                                            if (this.currentIndex > 0) {
+                                                this.currentIndex--;
+                                                this.resetProgress();
+                                            }
+                                        },
+
+                                        startProgress() {
+                                            this.progress = 0;
+                                            this.interval = setInterval(() => {
+                                                this.progress += 2;
+                                                if (this.progress >= 100) {
+                                                    this.nextStory();
+                                                }
+                                            }, 100);
+                                        },
+
+                                        stopProgress() {
+                                            if (this.interval) {
+                                                clearInterval(this.interval);
+                                                this.interval = null;
+                                            }
+                                        },
+
+                                        resetProgress() {
+                                            this.stopProgress();
+                                            this.startProgress();
+                                        },
+
+                                        getMediaUrl(path) {
+                                            if (path.startsWith('http')) return path;
+                                            return '{{ Storage::url('') }}' + path;
+                                        }
+                                    }" @open-story-viewer.window="openStories()" @keydown.escape.window="closeStories()"
+                x-show="showStories" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0" class="fixed inset-0 z-50 flex items-center justify-center bg-black"
+                style="display: none;">
+
+                <!-- Navigation Arrows -->
+                <button @click.stop="prevStory()"
+                    class="hidden md:block absolute left-8 top-1/2 -translate-y-1/2 z-[130] text-pink-500 hover:text-pink-400 transition-all hover:scale-110 p-4 rounded-full bg-black/20 backdrop-blur-sm">
+                    <svg class="w-12 h-12 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button @click.stop="nextStory()"
+                    class="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-[130] text-pink-500 hover:text-pink-400 transition-all hover:scale-110 p-4 rounded-full bg-black/20 backdrop-blur-sm">
+                    <svg class="w-12 h-12 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                <!-- Close Button -->
+                <button @click="closeStories()"
+                    class="absolute top-4 right-4 z-[120] text-white hover:text-pink-500 transition-colors p-2 bg-black/20 rounded-full backdrop-blur-sm">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <!-- Mobile-style Story Card -->
+                <div
+                    class="relative w-full h-full max-w-[450px] max-h-[90vh] mx-auto flex flex-col items-center justify-center p-0 md:p-4">
+
+                    <div
+                        class="relative w-full h-full bg-zinc-900 md:rounded-2xl overflow-hidden shadow-2xl border border-gray-800 flex flex-col justify-center">
+
+                        <!-- Progress Bars -->
+                        <div class="absolute top-0 left-0 right-0 z-[110] px-2 pt-2 pointer-events-none">
+                            <div class="flex gap-1.5 h-1.5 w-full">
+                                <template x-for="(story, index) in stories" :key="index">
+                                    <div class="h-full flex-1 rounded-full overflow-hidden shadow-sm"
+                                        style="background-color: rgba(255, 255, 255, 0.35); backdrop-filter: blur(4px);">
+                                        <div class="h-full transition-all duration-100 ease-linear shadow-[0_0_10px_rgba(220,38,38,1)]"
+                                            :style="`width: ${index < currentIndex ? 100 : (index === currentIndex ? progress : 0)}%; background-color: #dc2626 !important;`">
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- Header Info -->
+                        <div
+                            class="absolute top-4 left-0 right-0 z-[100] p-4 pt-6 bg-gradient-to-b from-black/60 to-transparent pointer-events-none">
+                            <div class="flex items-center gap-3 pointer-events-auto">
+                                <div
+                                    class="w-10 h-10 rounded-full p-0.5 border-2 border-red-600 overflow-hidden bg-black shadow-md">
+                                    <img src="{{ $escort->profile_photo ? Storage::url($escort->profile_photo) : 'https://ui-avatars.com/api/?name=' . $escort->name . '&color=dc2626&background=fef2f2' }}"
+                                        class="w-full h-full object-cover rounded-full">
+                                </div>
+                                <div class="flex flex-col text-left">
+                                    <h3 class="text-white text-sm font-bold shadow-black drop-shadow-md">{{ $escort->name }}
+                                    </h3>
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="text-white/90 text-xs shadow-black drop-shadow-md font-medium">{{ $escort->city }}</span>
+                                        <span class="text-[10px] text-white/60">•</span>
+                                        <span
+                                            class="text-red-500 text-xs font-bold shadow-black drop-shadow-md uppercase">HACE
+                                            24 MINUTOS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Media Content -->
+                        <div class="relative w-full h-full flex items-center justify-center bg-black">
+                            <template x-for="(story, index) in stories" :key="index">
+                                <div x-show="currentIndex === index"
+                                    class="absolute inset-0 flex items-center justify-center w-full h-full">
+
+                                    <!-- Image -->
+                                    <template x-if="story.media_type === 'image'">
+                                        <img :src="getMediaUrl(story.media_path[0])" class="w-full h-full object-cover"
+                                            :alt="story.caption || 'Story'">
+                                    </template>
+
+                                    <!-- Video -->
+                                    <template x-if="story.media_type === 'video'">
+                                        <video :src="getMediaUrl(story.media_path[0])" class="w-full h-full object-cover"
+                                            autoplay @ended="nextStory()">
+                                        </video>
+                                    </template>
+
+                                    <!-- Watermark -->
+                                     <div
+                                         class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 z-10 select-none">
+                                         <span class="text-2xl md:text-3xl font-extrabold tracking-wider drop-shadow-lg uppercase"><span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span></span>
+                                     </div>
+
+                                    <!-- Caption Badge -->
+                                    <div x-show="story.caption"
+                                        class="absolute bottom-8 left-0 right-0 p-4 flex justify-center z-40">
+                                        <div class="backdrop-blur-md px-6 py-3 rounded-xl shadow-lg border border-white/20 hover:scale-105 transition-transform max-w-[90%]"
+                                            style="background-color: #dc2626 !important;">
+                                            <span
+                                                class="text-white font-bold text-xs uppercase tracking-wide text-center block whitespace-normal break-words leading-tight"
+                                                x-text="story.caption"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </template>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Navigation Areas -->
+                <div class="absolute inset-0 flex">
+                    <!-- Left half - Previous -->
+                    <div @click="prevStory()" class="flex-1 cursor-pointer"></div>
+                    <!-- Right half - Next -->
+                    <div @click="nextStory()" class="flex-1 cursor-pointer"></div>
+                </div>
+        @endif
+
+    <script>
+        function trackWhatsappClick(e) {
+            // We don't prevent default, we want the link to open
+            fetch('{{ route("escorts.whatsapp-click", $escort->id) }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    document.querySelectorAll('.whatsapp-clicks-count').forEach(el => {
+                        el.textContent = data.clicks;
+                    });
+                }
+            })
+            .catch(error => console.error('Error tracking WhatsApp click:', error));
+        }
+    </script>
+</x-main-layout>
