@@ -56,7 +56,7 @@
                 <div class="space-y-1">
                     <h1 class="text-black dark:text-white text-xl font-medium tracking-tight whitespace-nowrap">Iniciar
                         sesión en la cuenta</h1>
-                    <div class="w-64 h-0.5 bg-brand-pink"></div>
+                    <div class="w-64 h-0.5 bg-red-600"></div>
                     <p x-show="errorMessage" x-text="errorMessage" class="text-red-500 text-sm mt-2 animate-pulse"></p>
                 </div>
 
@@ -64,7 +64,7 @@
                     <!-- Email -->
                     <div class="relative">
                         <input x-model="email" type="email" placeholder="Dirección de correo electrónico *"
-                            class="w-full bg-transparent border-2 border-brand-pink rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-brand-pink outline-none transition-all text-sm">
+                            class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
                         <div class="absolute right-8 top-1/2 -translate-y-1/2 text-black dark:text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -78,7 +78,7 @@
                     <!-- Password -->
                     <div class="relative">
                         <input x-model="password" :type="showPass ? 'text' : 'password'" placeholder="Contraseña *"
-                            class="w-full bg-transparent border-2 border-brand-pink rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-brand-pink outline-none transition-all text-sm">
+                            class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
                         <div class="absolute right-8 top-1/2 -translate-y-1/2 text-black dark:text-white cursor-pointer"
                             @click="showPass = !showPass">
                             <!-- Eye Off (Hidden) -->
@@ -117,7 +117,7 @@
                             </div>
                             <span class="text-black dark:text-white text-sm font-medium">Acuérdate de mí</span>
                         </label>
-                        <a href="{{ route('password.request') }}" class="text-brand-pink text-sm font-semibold hover:underline">Has olvidado tu
+                        <a href="{{ route('password.request') }}" class="text-red-600 text-sm font-semibold hover:underline">Has olvidado tu
                             contraseña</a>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                 <div class="space-y-6">
                     <!-- Login Button -->
                     <button @click="login()" :disabled="isLoading"
-                        class="w-full bg-brand-pink border-2 border-brand-pink rounded-3xl py-4 font-bold text-white hover:bg-brand-pink/90 transition-all text-lg uppercase tracking-wider flex items-center justify-center gap-2">
+                        class="w-full bg-red-600 border-2 border-red-600 rounded-3xl py-4 font-bold text-white hover:bg-red-600/90 transition-all text-lg uppercase tracking-wider flex items-center justify-center gap-2">
                         <span x-show="!isLoading">Inicia sesión en mi cuenta</span>
                         <span x-show="isLoading" x-cloak>Cargando...</span>
                         <svg x-show="isLoading" x-cloak class="animate-spin h-5 w-5 text-current"

@@ -17,19 +17,19 @@
             <div
                 class="flex items-center gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0 w-full md:w-auto no-scrollbar">
                 <a href="{{ route('escorts.index') }}"
-                    class="px-4 py-2 rounded-xl {{ !request('filter') && !request('gender') ? 'bg-brand-pink text-white shadow-lg shadow-brand-pink/20' : 'bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-zinc-700 hover:text-brand-pink' }} text-sm font-semibold whitespace-nowrap transition-all border border-transparent hover:border-gray-200 dark:hover:border-zinc-700">
+                    class="px-4 py-2 rounded-xl {{ !request('filter') && !request('gender') ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-zinc-700 hover:text-red-600' }} text-sm font-semibold whitespace-nowrap transition-all border border-transparent hover:border-gray-200 dark:hover:border-zinc-700">
                     Todas
                 </a>
                 <a href="{{ route('escorts.index', ['filter' => 'diamond']) }}"
-                    class="px-4 py-2 rounded-xl {{ request('filter') === 'diamond' ? 'bg-brand-pink text-white shadow-lg shadow-brand-pink/20' : 'bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-zinc-700 hover:text-brand-pink' }} text-sm font-semibold whitespace-nowrap transition-all border border-transparent hover:border-gray-200 dark:hover:border-zinc-700">
+                    class="px-4 py-2 rounded-xl {{ request('filter') === 'diamond' ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-zinc-700 hover:text-red-600' }} text-sm font-semibold whitespace-nowrap transition-all border border-transparent hover:border-gray-200 dark:hover:border-zinc-700">
                     Diamante 💎
                 </a>
                 <a href="{{ route('escorts.index', ['filter' => 'new']) }}"
-                    class="px-4 py-2 rounded-xl {{ request('filter') === 'new' ? 'bg-brand-pink text-white shadow-lg shadow-brand-pink/20' : 'bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-zinc-700 hover:text-brand-pink' }} text-sm font-semibold whitespace-nowrap transition-all border border-transparent hover:border-gray-200 dark:hover:border-zinc-700">
+                    class="px-4 py-2 rounded-xl {{ request('filter') === 'new' ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-zinc-700 hover:text-red-600' }} text-sm font-semibold whitespace-nowrap transition-all border border-transparent hover:border-gray-200 dark:hover:border-zinc-700">
                     Nuevas ✨
                 </a>
                 <a href="{{ route('escorts.index', ['filter' => 'silver']) }}"
-                    class="px-4 py-2 rounded-xl {{ request('filter') === 'silver' ? 'bg-brand-pink text-white shadow-lg shadow-brand-pink/20' : 'bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-zinc-700 hover:text-brand-pink' }} text-sm font-semibold whitespace-nowrap transition-all border border-transparent hover:border-gray-200 dark:hover:border-zinc-700">
+                    class="px-4 py-2 rounded-xl {{ request('filter') === 'silver' ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-zinc-700 hover:text-red-600' }} text-sm font-semibold whitespace-nowrap transition-all border border-transparent hover:border-gray-200 dark:hover:border-zinc-700">
                     Plata 🥈
                 </a>
 

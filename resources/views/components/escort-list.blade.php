@@ -3,13 +3,13 @@
         <!-- Section Header -->
         <div class="flex items-center justify-between mb-10">
             <div class="flex items-center gap-3">
-                <h2 class="text-brand-pink text-2xl font-bold italic">Escorts Diamante</h2>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-brand-pink" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+                <h2 class="text-red-600 text-2xl font-bold italic">Escorts Diamante</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-red-600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
             </div>
             
             <div class="flex items-center gap-4">
                 <span class="text-gray-600 dark:text-gray-400 text-xs">710 escorts</span>
-                <button class="bg-brand-pink p-2 rounded text-white hover:opacity-90">
+                <button class="bg-red-600 p-2 rounded text-white hover:opacity-90">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                 </button>
             </div>

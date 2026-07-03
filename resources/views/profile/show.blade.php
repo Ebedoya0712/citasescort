@@ -13,7 +13,7 @@
                     <div class="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0"
                         x-data="{ hasStories: {{ $escort->stories->count() > 0 ? 'true' : 'false' }} }">
                         <div @click="hasStories && $dispatch('open-story-viewer')"
-                            :class="hasStories ? 'cursor-pointer border-4 border-transparent bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-1' : 'border-4 border-brand-pink'"
+                            :class="hasStories ? 'cursor-pointer border-4 border-transparent bg-gradient-to-tr from-red-500 via-red-600 to-red-800 p-1' : 'border-4 border-red-600'"
                             class="w-full h-full rounded-full overflow-hidden shadow-2xl transition-transform hover:scale-105">
                             <div class="relative w-full h-full rounded-full overflow-hidden bg-black">
                                 @if($escort->profile_photo)
@@ -31,7 +31,7 @@
                                     <img src="{{ $src }}" alt="{{ $escort->name }}" class="w-full h-full object-cover">
                                 @else
                                     <div class="w-full h-full bg-zinc-800 flex items-center justify-center">
-                                        <svg class="w-20 h-20 text-brand-pink" fill="none" viewBox="0 0 24 24"
+                                        <svg class="w-20 h-20 text-red-600" fill="none" viewBox="0 0 24 24"
                                             stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -87,7 +87,7 @@
                                                     }
                                                 }
                                             }" @click="toggleLike()"
-                                    class="text-brand-pink hover:scale-110 transition-transform focus:outline-none">
+                                    class="text-red-600 hover:scale-110 transition-transform focus:outline-none">
                                     <svg class="w-6 h-6" :class="liked ? 'fill-current' : 'fill-none'" viewBox="0 0 24 24"
                                         stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -222,7 +222,7 @@
                             </a>
                             <a href="#"
                                 class="text-gray-400 hover:text-white flex items-center gap-2 text-sm transition-colors group">
-                                <svg class="w-5 h-5 group-hover:text-brand-pink transition-colors" fill="none"
+                                <svg class="w-5 h-5 group-hover:text-red-600 transition-colors" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
@@ -530,7 +530,7 @@
                 <div class="mt-16 mb-8">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl font-bold text-white mb-2">Sobre {{ $escort->name }}</h2>
-                        <div class="text-brand-pink text-sm font-medium">
+                        <div class="text-red-600 text-sm font-medium">
                             <a href="/" class="hover:underline">Inicio</a> | <a
                                 href="/?city={{ urlencode($escort->city) }}"
                                 class="hover:underline">{{ $escort->city }}</a> | <span
@@ -636,7 +636,7 @@
                                         }
                                     @endphp
                                     <a href="{{ $instagramUrl }}" target="_blank" rel="noopener noreferrer"
-                                        class="text-brand-pink hover:text-white transition-colors flex items-center gap-2 text-lg">
+                                        class="text-red-600 hover:text-white transition-colors flex items-center gap-2 text-lg">
                                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                             <path
                                                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -657,7 +657,7 @@
                                         }
                                     @endphp
                                     <a href="{{ $twitterUrl }}" target="_blank" rel="noopener noreferrer"
-                                        class="text-brand-pink hover:text-white transition-colors flex items-center gap-2 text-lg">
+                                        class="text-red-600 hover:text-white transition-colors flex items-center gap-2 text-lg">
                                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                             <path
                                                 d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -678,7 +678,7 @@
                                         }
                                     @endphp
                                     <a href="{{ $onlyfansUrl }}" target="_blank" rel="noopener noreferrer"
-                                        class="text-brand-pink hover:text-white transition-colors flex items-center gap-2 text-lg">
+                                        class="text-red-600 hover:text-white transition-colors flex items-center gap-2 text-lg">
                                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -700,7 +700,7 @@
                             <h3 class="text-xl font-bold text-white">Comentarios sobre {{ $escort->name }}</h3>
                             @if(!auth()->check() || (auth()->check() && auth()->user()->role !== 'escort'))
                                 <button @click="showForm = !showForm"
-                                    class="bg-brand-pink hover:opacity-90 text-white px-6 py-2 rounded text-sm font-bold flex items-center gap-2 transition-colors">
+                                    class="bg-red-600 hover:opacity-90 text-white px-6 py-2 rounded text-sm font-bold flex items-center gap-2 transition-colors">
                                     Comentar <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -728,16 +728,16 @@
                                 <form action="{{ route('reviews.store', $escort->id) }}" method="POST" class="space-y-6">
                                     @csrf
                                     <div>
-                                        <label class="block text-brand-pink font-bold mb-2">Nombre *</label>
+                                        <label class="block text-red-600 font-bold mb-2">Nombre *</label>
                                         <input type="text" name="name"
-                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-pink"
+                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-red-600"
                                             placeholder=""
                                             value="{{ auth()->check() ? auth()->user()->name : old('name') }}" required>
                                         <p class="text-gray-500 text-sm mt-1">No tenés que usar tu nombre real</p>
                                         @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                     </div>
                                     <div x-data="{ rating: {{ old('rating', 0) }}, hoverRating: 0 }">
-                                        <label class="block text-brand-pink font-bold mb-2">Puntaje de la experiencia
+                                        <label class="block text-red-600 font-bold mb-2">Puntaje de la experiencia
                                             *</label>
                                         <input type="hidden" name="rating" :value="rating">
                                         <div class="flex gap-1 text-2xl cursor-pointer">
@@ -751,23 +751,23 @@
                                         @error('rating') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                     </div>
                                     <div>
-                                        <label class="block text-brand-pink font-bold mb-2">Tu experiencia con
+                                        <label class="block text-red-600 font-bold mb-2">Tu experiencia con
                                             {{ $escort->name }} *</label>
                                         <textarea name="content" rows="4"
-                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-pink"
+                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-red-600"
                                             placeholder="Cuéntanos tu experiencia con {{ $escort->name }}. Sé amable."
                                             required>{{ old('content') }}</textarea>
                                         @error('content') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                     </div>
                                     <div>
-                                        <label class="block text-brand-pink font-bold mb-2">Comentarios PRIVADOS (sólo los
+                                        <label class="block text-red-600 font-bold mb-2">Comentarios PRIVADOS (sólo los
                                             lee el staff de Citasescort)</label>
                                         <textarea name="private_content" rows="3"
-                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-pink"
+                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-red-600"
                                             placeholder="Podés expresarte libremente.">{{ old('private_content') }}</textarea>
                                     </div>
                                     <button type="submit"
-                                        class="w-full bg-brand-pink hover:bg-pink-600 text-white font-bold py-4 rounded transition-colors uppercase tracking-wider">
+                                        class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded transition-colors uppercase tracking-wider">
                                         Enviar Comentario
                                     </button>
                                 </form>
@@ -833,7 +833,7 @@
             :class="{ 'translate-y-0 opacity-100': showButton, 'translate-y-10 opacity-0 pointer-events-none': !showButton }">
 
             <button @click="scrollToTop()"
-                class="group relative flex items-center justify-center w-12 h-12 bg-black rounded-full shadow-lg hover:shadow-brand-pink/20 transition-shadow border border-zinc-800">
+                class="group relative flex items-center justify-center w-12 h-12 bg-black rounded-full shadow-lg hover:shadow-red-600/20 transition-shadow border border-zinc-800">
                 <!-- Progress Ring -->
                 <svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewBox="0 0 36 36">
                     <!-- Background Ring (Dark) -->
@@ -841,7 +841,7 @@
                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"
                         stroke="currentColor" stroke-width="3" />
                     <!-- Progress Ring (Pink) -->
-                    <path class="text-brand-pink transition-all duration-100 ease-out"
+                    <path class="text-red-600 transition-all duration-100 ease-out"
                         :stroke-dasharray="scrollProgress + ', 100'"
                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"
                         stroke="currentColor" stroke-width="3" />
@@ -894,7 +894,7 @@
                                             const diffInHours = Math.floor(diffInMinutes / 60);
                                             if (diffInHours < 24) return `HACE ${diffInHours} HORAS`;
                                             
-                                            return "HACE 24 HORAS";
+                                            return 'HACE 24 HORAS';
                                         },
 
                                         nextStory() {
@@ -948,13 +948,13 @@
 
                 <!-- Navigation Arrows -->
                 <button @click.stop="prevStory()"
-                    class="hidden md:block absolute left-8 top-1/2 -translate-y-1/2 z-[130] text-pink-500 hover:text-pink-400 transition-all hover:scale-110 p-4 rounded-full bg-black/20 backdrop-blur-sm">
+                    class="hidden md:block absolute left-8 top-1/2 -translate-y-1/2 z-[130] text-red-600 hover:text-red-500 transition-all hover:scale-110 p-4 rounded-full bg-black/20 backdrop-blur-sm">
                     <svg class="w-12 h-12 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
                 <button @click.stop="nextStory()"
-                    class="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-[130] text-pink-500 hover:text-pink-400 transition-all hover:scale-110 p-4 rounded-full bg-black/20 backdrop-blur-sm">
+                    class="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-[130] text-red-600 hover:text-red-500 transition-all hover:scale-110 p-4 rounded-full bg-black/20 backdrop-blur-sm">
                     <svg class="w-12 h-12 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
@@ -962,7 +962,7 @@
 
                 <!-- Close Button -->
                 <button @click="closeStories()"
-                    class="absolute top-4 right-4 z-[120] text-white hover:text-pink-500 transition-colors p-2 bg-black/20 rounded-full backdrop-blur-sm">
+                    class="absolute top-4 right-4 z-[120] text-white hover:text-red-600 transition-colors p-2 bg-black/20 rounded-full backdrop-blur-sm">
                     <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -994,7 +994,7 @@
                             class="absolute top-4 left-0 right-0 z-[100] p-4 pt-6 bg-gradient-to-b from-black/60 to-transparent pointer-events-none">
                             <div class="flex items-center gap-3 pointer-events-auto">
                                 <div
-                                    class="w-10 h-10 rounded-full p-0.5 border-2 border-pink-500 overflow-hidden bg-black shadow-md">
+                                    class="w-10 h-10 rounded-full p-0.5 border-2 border-red-600 overflow-hidden bg-black shadow-md">
                                     <img src="{{ $escort->profile_photo ? Storage::url($escort->profile_photo) : 'https://ui-avatars.com/api/?name=' . $escort->name . '&color=ec4899&background=fdf2f8' }}"
                                         class="w-full h-full object-cover rounded-full">
                                 </div>
@@ -1006,7 +1006,7 @@
                                             class="text-white/90 text-xs shadow-black drop-shadow-md font-medium">{{ $escort->city }}</span>
                                         <span class="text-[10px] text-white/60">•</span>
                                         <span
-                                            class="text-pink-400 text-xs font-bold shadow-black drop-shadow-md uppercase" x-text="getTimeAgo(stories[currentIndex]?.created_at)"></span>
+                                            class="text-red-500 text-xs font-bold shadow-black drop-shadow-md uppercase" x-text="getTimeAgo(stories[currentIndex]?.created_at)"></span>
                                     </div>
                                 </div>
                             </div>

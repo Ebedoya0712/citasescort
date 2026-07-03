@@ -23,7 +23,7 @@
 
             <!-- Left Arrow (Carousel) -->
             <button @click="scrollLeft"
-                class="absolute left-0 lg:left-2 z-10 text-pink-500 hover:scale-110 transition-transform bg-black/20 rounded-full p-1 backdrop-blur-sm">
+                class="absolute left-0 lg:left-2 z-10 text-red-600 hover:scale-110 transition-transform bg-black/20 rounded-full p-1 backdrop-blur-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m15 18-6-6 6-6" />
@@ -38,7 +38,7 @@
                 style="scrollbar-width: none; -ms-overflow-style: none;">
                 <template x-for="(escort, index) in escorts" :key="escort.id">
                     <div class="flex flex-col items-center gap-2 min-w-fit cursor-pointer group" @click="openStory(index)">
-                        <div class="relative p-1 rounded-full border-2 border-pink-500 transition-transform group-hover:scale-105"
+                        <div class="relative p-1 rounded-full border-2 border-red-600 transition-transform group-hover:scale-105"
                             :class="{ 'border-gray-300': allStoriesSeen(index) }">
                             <div class="w-20 h-20 rounded-full overflow-hidden bg-gray-200">
                                 <img :src="getProfilePhoto(escort)" :alt="escort.name" class="w-full h-full object-cover">
@@ -52,7 +52,7 @@
 
             <!-- Right Arrow (Carousel) -->
             <button @click="scrollRight"
-                class="absolute right-0 lg:right-2 z-10 text-pink-500 hover:scale-110 transition-transform bg-black/20 rounded-full p-1 backdrop-blur-sm">
+                class="absolute right-0 lg:right-2 z-10 text-red-600 hover:scale-110 transition-transform bg-black/20 rounded-full p-1 backdrop-blur-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m9 18 6-6-6-6" />
@@ -65,27 +65,7 @@
         <div x-show="showModal" x-transition.opacity.duration.300ms
             class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-0 md:p-4" style="display: none;">
 
-            <!-- Close Button -->
-            <button @click="closeModal"
-                class="absolute top-4 right-4 text-white hover:text-pink-500 z-[70] p-2 transition-colors">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
 
-            <!-- Desktop Arrows (Outside Container) -->
-            <button @click.stop="prevStory"
-                class="hidden md:block absolute left-4 lg:left-32 z-[70] text-pink-500 hover:text-white p-2 transition-all hover:scale-125">
-                <svg class="w-16 h-16 drop-shadow-2xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-            <button @click.stop="nextStory"
-                class="hidden md:block absolute right-4 lg:right-32 z-[70] text-pink-500 hover:text-white p-2 transition-all hover:scale-125">
-                <svg class="w-16 h-16 drop-shadow-2xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
 
             <template x-if="currentEscort">
                 <div
@@ -292,7 +272,7 @@
                         const diffInHours = Math.floor(diffInMinutes / 60);
                         if (diffInHours < 24) return `HACE ${diffInHours} HORAS`;
                         
-                        return "HACE 24 HORAS";
+                        return 'HACE 24 HORAS';
                     },
 
                     scrollLeft() {

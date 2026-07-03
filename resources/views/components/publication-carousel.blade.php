@@ -54,7 +54,7 @@
 }">
     <!-- Header -->
     <div class="flex items-center justify-between mb-8">
-        <h2 class="text-brand-pink text-2xl font-bold italic flex items-center gap-2">
+        <h2 class="text-red-600 text-2xl font-bold italic flex items-center gap-2">
             {{ $title }}
             @if(str_contains(strtolower($title), 'diamante'))
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" /></svg>
@@ -64,10 +64,10 @@
         <div class="flex items-center gap-4">
             <span class="text-gray-500 text-xs hidden sm:block font-medium">{{ $publications->count() }} publicaciones</span>
             <div class="flex gap-2">
-                <button @click="prev()" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:bg-brand-pink hover:border-brand-pink hover:text-white transition-all shadow-sm hover:shadow-brand-pink/20 hover:-translate-x-0.5 active:scale-95 cursor-pointer">
+                <button @click="prev()" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:bg-red-600 hover:border-red-600 hover:text-white transition-all shadow-sm hover:shadow-red-600/20 hover:-translate-x-0.5 active:scale-95 cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button @click="next()" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:bg-brand-pink hover:border-brand-pink hover:text-white transition-all shadow-sm hover:shadow-brand-pink/20 hover:translate-x-0.5 active:scale-95 cursor-pointer">
+                <button @click="next()" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:bg-red-600 hover:border-red-600 hover:text-white transition-all shadow-sm hover:shadow-red-600/20 hover:translate-x-0.5 active:scale-95 cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>

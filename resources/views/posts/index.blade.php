@@ -15,7 +15,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($posts as $post)
                     <article
-                        class="bg-zinc-900 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-brand-pink/10 transition-all duration-300 group border border-zinc-800 hover:border-brand-pink/30">
+                        class="bg-zinc-900 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-red-600/10 transition-all duration-300 group border border-zinc-800 hover:border-red-600/30">
                         <a href="{{ route('posts.show', $post->slug) }}" class="block relative h-64 overflow-hidden">
                             <img src="{{ Str::startsWith($post->image, 'http') ? $post->image : asset('storage/' . $post->image) }}" alt="{{ $post->title }}"
                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
@@ -23,12 +23,12 @@
                         </a>
                         <div class="p-6">
                             <div
-                                class="flex items-center gap-2 text-xs text-brand-pink font-semibold uppercase tracking-wider mb-3">
-                                <span class="w-2 h-2 rounded-full bg-brand-pink"></span>
+                                class="flex items-center gap-2 text-xs text-red-600 font-semibold uppercase tracking-wider mb-3">
+                                <span class="w-2 h-2 rounded-full bg-red-600"></span>
                                 {{ $post->published_at ? $post->published_at->format('d M, Y') : 'Reciente' }}
                             </div>
                             <h2
-                                class="text-xl font-bold text-white mb-3 group-hover:text-brand-pink transition-colors line-clamp-2">
+                                class="text-xl font-bold text-white mb-3 group-hover:text-red-600 transition-colors line-clamp-2">
                                 <a href="{{ route('posts.show', $post->slug) }}">
                                     {{ $post->title }}
                                 </a>
@@ -37,7 +37,7 @@
                                 {{ Str::limit($post->content, 120) }}
                             </p>
                             <a href="{{ route('posts.show', $post->slug) }}"
-                                class="inline-flex items-center text-sm font-medium text-white group-hover:text-brand-pink transition-colors">
+                                class="inline-flex items-center text-sm font-medium text-white group-hover:text-red-600 transition-colors">
                                 Leer más
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" fill="none"

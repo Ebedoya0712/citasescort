@@ -11,7 +11,7 @@
          class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 md:p-12 max-w-2xl w-full text-center shadow-[0_0_100px_-20px_rgba(255,42,122,0.3)] relative overflow-hidden">
         
         <!-- Decorative Glow -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-brand-pink/20 blur-[100px] pointer-events-none rounded-full"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-red-600/20 blur-[100px] pointer-events-none rounded-full"></div>
 
         <div class="relative z-10">
             <!-- Icon -->
@@ -29,7 +29,7 @@
             <!-- Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <button @click="verify()" 
-                    class="w-full sm:w-auto px-8 py-4 bg-brand-pink border border-brand-pink rounded-xl font-bold text-white hover:bg-brand-pink/90 hover:shadow-lg hover:shadow-brand-pink/20 active:scale-95 transition-all duration-200 text-lg uppercase tracking-wider">
+                    class="w-full sm:w-auto px-8 py-4 bg-red-600 border border-red-600 rounded-xl font-bold text-white hover:bg-red-600/90 hover:shadow-lg hover:shadow-red-600/20 active:scale-95 transition-all duration-200 text-lg uppercase tracking-wider">
                     SÍ, SOY MAYOR DE 18 AÑOS
                 </button>
                 

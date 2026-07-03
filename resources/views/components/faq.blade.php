@@ -57,14 +57,14 @@
             @endphp
 
             @foreach ($faqs as $index => $faq)
-                <div class="faq-item bg-white dark:bg-zinc-900/40 border border-gray-200 dark:border-zinc-800 rounded-2xl overflow-hidden cursor-pointer group hover:border-brand-pink/30 hover:shadow-md transition-all duration-300 shadow-sm"
+                <div class="faq-item bg-white dark:bg-zinc-900/40 border border-gray-200 dark:border-zinc-800 rounded-2xl overflow-hidden cursor-pointer group hover:border-red-600/30 hover:shadow-md transition-all duration-300 shadow-sm"
                     onclick="toggleFaq({{ $index }})">
                     <div class="flex items-center justify-between p-5 px-6">
                         <span
-                            class="text-gray-900 dark:text-white group-hover:text-brand-pink font-bold text-sm tracking-tight select-none transition-colors">{{ $faq['q'] }}</span>
+                            class="text-gray-900 dark:text-white group-hover:text-red-600 font-bold text-sm tracking-tight select-none transition-colors">{{ $faq['q'] }}</span>
                         <svg id="arrow-{{ $index }}" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                            stroke-linejoin="round" class="text-gray-400 group-hover:text-brand-pink transition-colors transition-transform duration-300">
+                            stroke-linejoin="round" class="text-gray-400 group-hover:text-red-600 transition-colors transition-transform duration-300">
                             <path d="m6 9 6 6 6-6" />
                         </svg>
                     </div>

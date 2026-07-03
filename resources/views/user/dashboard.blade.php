@@ -13,12 +13,12 @@
                         <div>
                             <div class="flex items-center gap-3 mb-2">
                                 <span
-                                    class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-brand-pink/10 text-brand-pink text-xs font-bold uppercase tracking-wide">
+                                    class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-red-600/10 text-red-600 text-xs font-bold uppercase tracking-wide">
                                     Usuario
                                 </span>
                             </div>
                             <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                                Hola, <span class="text-brand-pink">{{ Auth::user()->name }}</span> 👋
+                                Hola, <span class="text-red-600">{{ Auth::user()->name }}</span> 👋
                             </h1>
                             <p class="text-gray-500 dark:text-gray-400 text-lg max-w-xl">
                                 Bienvenido a tu espacio personal. Aquí puedes gestionar tus favoritos y explorar nuevas
@@ -51,7 +51,7 @@
 
                     <!-- Background decoration -->
                     <div
-                        class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-brand-pink/5 rounded-full blur-3xl pointer-events-none">
+                        class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-red-600/5 rounded-full blur-3xl pointer-events-none">
                     </div>
                     <div
                         class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl pointer-events-none">
@@ -83,7 +83,7 @@
                         class="flex items-center gap-2 border-b border-gray-200 dark:border-zinc-800 pb-1 overflow-x-auto">
                         <button @click="tab = 'favorites'"
                             class="px-6 py-3 text-sm font-bold rounded-t-lg transition-all relative flex items-center gap-2 whitespace-nowrap"
-                            :class="tab === 'favorites' ? 'text-brand-pink bg-white dark:bg-zinc-900 border-b-2 border-brand-pink' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white bg-transparent hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
+                            :class="tab === 'favorites' ? 'text-red-600 bg-white dark:bg-zinc-900 border-b-2 border-red-600' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white bg-transparent hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" :class="tab === 'favorites' ? 'fill-current' : ''">
@@ -95,7 +95,7 @@
 
                         <button @click="tab = 'reviews'"
                             class="px-6 py-3 text-sm font-bold rounded-t-lg transition-all relative flex items-center gap-2 whitespace-nowrap"
-                            :class="tab === 'reviews' ? 'text-brand-pink bg-white dark:bg-zinc-900 border-b-2 border-brand-pink' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white bg-transparent hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
+                            :class="tab === 'reviews' ? 'text-red-600 bg-white dark:bg-zinc-900 border-b-2 border-red-600' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white bg-transparent hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -108,7 +108,7 @@
 
                         <button @click="tab = 'profile'"
                             class="px-6 py-3 text-sm font-bold rounded-t-lg transition-all relative flex items-center gap-2 whitespace-nowrap"
-                            :class="tab === 'profile' ? 'text-brand-pink bg-white dark:bg-zinc-900 border-b-2 border-brand-pink' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white bg-transparent hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
+                            :class="tab === 'profile' ? 'text-red-600 bg-white dark:bg-zinc-900 border-b-2 border-red-600' : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white bg-transparent hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -145,7 +145,7 @@
                                     fácilmente aquí.
                                 </p>
                                 <a href="{{ route('escorts.index') }}"
-                                    class="inline-flex items-center px-8 py-3 rounded-full bg-brand-pink text-white font-bold hover:bg-brand-pink/90 hover:shadow-lg hover:shadow-brand-pink/30 transition-all transform hover:-translate-y-1">
+                                    class="inline-flex items-center px-8 py-3 rounded-full bg-red-600 text-white font-bold hover:bg-red-600/90 hover:shadow-lg hover:shadow-red-600/30 transition-all transform hover:-translate-y-1">
                                     Explorar Escorts
                                 </a>
                             </div>
@@ -166,7 +166,7 @@
                                                 <div>
                                                     <h4 class="text-gray-900 dark:text-white font-bold">
                                                         Para: <a href="{{ route('profile.show', $review->escort->id) }}"
-                                                            class="text-brand-pink hover:underline">{{ $review->escort->name }}</a>
+                                                            class="text-red-600 hover:underline">{{ $review->escort->name }}</a>
                                                     </h4>
                                                     <div class="flex text-red-500 text-sm my-1">
                                                         @for($i = 0; $i < $review->rating; $i++)
@@ -237,7 +237,7 @@
                                                     <button type="button" @click="editing = false"
                                                         class="px-4 py-2 text-gray-500 hover:text-gray-700">Cancelar</button>
                                                     <button type="submit"
-                                                        class="bg-brand-pink text-white px-4 py-2 rounded hover:bg-brand-pink/90">Guardar
+                                                        class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-600/90">Guardar
                                                         Cambios</button>
                                                 </div>
                                             </form>
@@ -276,7 +276,7 @@
                                     <label
                                         class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Nombre</label>
                                     <input type="text" name="name" value="{{ Auth::user()->name }}"
-                                        class="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-brand-pink">
+                                        class="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-600">
                                     @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                 </div>
 
@@ -284,7 +284,7 @@
                                     <label
                                         class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Email</label>
                                     <input type="email" name="email" value="{{ Auth::user()->email }}"
-                                        class="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-brand-pink">
+                                        class="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-600">
                                     @error('email') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                 </div>
 
@@ -298,7 +298,7 @@
                                                 class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Contraseña
                                                 Actual</label>
                                             <input type="password" name="current_password"
-                                                class="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-brand-pink">
+                                                class="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-600">
                                             @error('current_password') <span
                                             class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                         </div>
@@ -309,7 +309,7 @@
                                                     class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Nueva
                                                     Contraseña</label>
                                                 <input type="password" name="new_password"
-                                                    class="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-brand-pink">
+                                                    class="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-600">
                                                 @error('new_password') <span
                                                 class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                             </div>
@@ -318,7 +318,7 @@
                                                     class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Confirmar
                                                     Nueva Contraseña</label>
                                                 <input type="password" name="new_password_confirmation"
-                                                    class="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-brand-pink">
+                                                    class="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-600">
                                             </div>
                                         </div>
                                     </div>
@@ -326,7 +326,7 @@
 
                                 <div class="pt-4 text-right">
                                     <button type="submit"
-                                        class="bg-brand-pink hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg shadow-brand-pink/20">
+                                        class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg shadow-red-600/20">
                                         Guardar Cambios
                                     </button>
                                 </div>

@@ -48,7 +48,7 @@
             <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 dark:from-black dark:via-zinc-900 dark:to-black z-10 transition-colors duration-300"></div>
             <!-- Dynamic Orbs -->
             <div
-                class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-pink/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 animate-float">
+                class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-600/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 animate-float">
             </div>
             <div
                 class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-red-900/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 animate-float-delayed">
@@ -64,7 +64,7 @@
                 <h1 class="text-5xl lg:text-7xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight">
                     ¿Por qué <br>
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink via-red-500 to-black animate-gradient-x">Elegirnos?</span>
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-black animate-gradient-x">Elegirnos?</span>
                 </h1>
                 <p class="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed lg:mx-0 mx-auto">
                     Redefiniendo los encuentros con los más altos estándares de seguridad, discreción y calidad en
@@ -81,16 +81,16 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
                 <!-- Feature 1 -->
                 <div x-data="{ show: false }" x-intersect.threshold.0.5="show = true"
-                    class="group relative bg-white dark:bg-zinc-800/50 p-8 rounded-3xl border border-gray-100 dark:border-white/5 transition-all duration-700 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-brand-pink/10"
+                    class="group relative bg-white dark:bg-zinc-800/50 p-8 rounded-3xl border border-gray-100 dark:border-white/5 transition-all duration-700 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-600/10"
                     :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'">
 
                     <div
-                        class="absolute inset-0 bg-gradient-to-br from-brand-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
+                        class="absolute inset-0 bg-gradient-to-br from-red-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                     </div>
 
                     <div class="relative z-10">
                         <div
-                            class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-pink to-pink-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-pink-500/30 group-hover:rotate-6 transition-transform">
+                            class="w-20 h-20 rounded-2xl bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center text-white mb-6 shadow-lg shadow-red-600/30 group-hover:rotate-6 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -98,7 +98,7 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-brand-pink transition-colors">
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-600 transition-colors">
                             Verificación Rigurosa</h3>
                         <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
                             No dejamos nada al azar. Cada perfil pasa por un proceso de validación manual. Garantizamos
@@ -109,16 +109,16 @@
 
                 <!-- Feature 2 -->
                 <div x-data="{ show: false }" x-intersect.threshold.0.5="show = true"
-                    class="group relative bg-white dark:bg-zinc-800/50 p-8 rounded-3xl border border-gray-100 dark:border-white/5 transition-all duration-700 delay-150 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-brand-pink/10"
+                    class="group relative bg-white dark:bg-zinc-800/50 p-8 rounded-3xl border border-gray-100 dark:border-white/5 transition-all duration-700 delay-150 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-600/10"
                     :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'">
 
                     <div
-                        class="absolute inset-0 bg-gradient-to-br from-brand-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
+                        class="absolute inset-0 bg-gradient-to-br from-red-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                     </div>
 
                     <div class="relative z-10">
                         <div
-                            class="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-pink to-red-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-brand-pink/30 group-hover:-rotate-6 transition-transform">
+                            class="w-20 h-20 rounded-2xl bg-gradient-to-br from-red-600 to-red-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-red-600/30 group-hover:-rotate-6 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -128,7 +128,7 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-brand-pink transition-colors">
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-600 transition-colors">
                             Privacidad Absoluta</h3>
                         <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
                             Navega con tranquilidad. Implementamos tecnologías de cifrado y anonimato para que tu
@@ -139,11 +139,11 @@
 
                 <!-- Feature 3 -->
                 <div x-data="{ show: false }" x-intersect.threshold.0.5="show = true"
-                    class="group relative bg-white dark:bg-zinc-800/50 p-8 rounded-3xl border border-gray-100 dark:border-white/5 transition-all duration-700 delay-300 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-brand-pink/10"
+                    class="group relative bg-white dark:bg-zinc-800/50 p-8 rounded-3xl border border-gray-100 dark:border-white/5 transition-all duration-700 delay-300 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-600/10"
                     :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'">
 
                     <div
-                        class="absolute inset-0 bg-gradient-to-br from-brand-pink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
+                        class="absolute inset-0 bg-gradient-to-br from-red-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl">
                     </div>
 
                     <div class="relative z-10">
@@ -157,7 +157,7 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-brand-pink transition-colors">
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-600 transition-colors">
                             Reseñas Verificadas</h3>
                         <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
                             Una comunidad activa que comparte experiencias reales. Las reseñas te ayudan a elegir con
@@ -181,24 +181,24 @@
                 :class="show ? 'opacity-100' : 'opacity-0'">
 
                 <div
-                    class="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-xl dark:shadow-2xl hover:border-brand-pink/30 transition-colors">
-                    <div class="text-5xl font-black text-brand-pink mb-2 flex justify-center items-center">
+                    class="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-xl dark:shadow-2xl hover:border-red-600/30 transition-colors">
+                    <div class="text-5xl font-black text-red-600 mb-2 flex justify-center items-center">
                         <span x-text="count1">0</span>%
                     </div>
                     <div class="text-lg font-medium text-gray-600 dark:text-gray-400">Perfiles Verificados</div>
                 </div>
 
                 <div
-                    class="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-xl dark:shadow-2xl hover:border-brand-pink/30 transition-colors">
-                    <div class="text-5xl font-black text-brand-pink mb-2 flex justify-center items-center">
+                    class="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-xl dark:shadow-2xl hover:border-red-600/30 transition-colors">
+                    <div class="text-5xl font-black text-red-600 mb-2 flex justify-center items-center">
                         +<span x-text="count2">0</span>
                     </div>
                     <div class="text-lg font-medium text-gray-600 dark:text-gray-400">Usuarios Activos</div>
                 </div>
 
                 <div
-                    class="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-xl dark:shadow-2xl hover:border-brand-pink/30 transition-colors">
-                    <div class="text-5xl font-black text-brand-pink mb-2 flex justify-center items-center">
+                    class="p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-xl dark:shadow-2xl hover:border-red-600/30 transition-colors">
+                    <div class="text-5xl font-black text-red-600 mb-2 flex justify-center items-center">
                         <span x-text="count3">0</span>/7
                     </div>
                     <div class="text-lg font-medium text-gray-600 dark:text-gray-400">Soporte y Monitoreo</div>
@@ -215,14 +215,14 @@
                 <div class="space-y-4">
                     <!-- Q1 -->
                     <div class="border rounded-2xl overflow-hidden bg-white dark:bg-zinc-800/50 transition-colors duration-300"
-                        :class="active === 1 ? 'border-brand-pink shadow-lg shadow-brand-pink/10' : 'border-gray-200 dark:border-zinc-800 hover:border-brand-pink/30'">
+                        :class="active === 1 ? 'border-red-600 shadow-lg shadow-red-600/10' : 'border-gray-200 dark:border-zinc-800 hover:border-red-600/30'">
                         <button @click="active === 1 ? active = null : active = 1"
                             class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors">
                             <span class="font-bold text-lg transition-colors"
-                                :class="active === 1 ? 'text-brand-pink' : 'dark:text-white'">¿Cómo verifican los
+                                :class="active === 1 ? 'text-red-600' : 'dark:text-white'">¿Cómo verifican los
                                 perfiles?</span>
                             <span class="transform transition-transform duration-300"
-                                :class="active === 1 ? 'rotate-180 text-brand-pink' : 'text-gray-400'">
+                                :class="active === 1 ? 'rotate-180 text-red-600' : 'text-gray-400'">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M19 9l-7 7-7-7" />
@@ -239,14 +239,14 @@
 
                     <!-- Q2 -->
                     <div class="border rounded-2xl overflow-hidden bg-white dark:bg-zinc-800/50 transition-colors duration-300"
-                        :class="active === 2 ? 'border-brand-pink shadow-lg shadow-brand-pink/10' : 'border-gray-200 dark:border-zinc-800 hover:border-brand-pink/30'">
+                        :class="active === 2 ? 'border-red-600 shadow-lg shadow-red-600/10' : 'border-gray-200 dark:border-zinc-800 hover:border-red-600/30'">
                         <button @click="active === 2 ? active = null : active = 2"
                             class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors">
                             <span class="font-bold text-lg transition-colors"
-                                :class="active === 2 ? 'text-brand-pink' : 'dark:text-white'">¿Es seguro navegar por el
+                                :class="active === 2 ? 'text-red-600' : 'dark:text-white'">¿Es seguro navegar por el
                                 sitio?</span>
                             <span class="transform transition-transform duration-300"
-                                :class="active === 2 ? 'rotate-180 text-brand-pink' : 'text-gray-400'">
+                                :class="active === 2 ? 'rotate-180 text-red-600' : 'text-gray-400'">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M19 9l-7 7-7-7" />
@@ -263,14 +263,14 @@
 
                     <!-- Q3 -->
                     <div class="border rounded-2xl overflow-hidden bg-white dark:bg-zinc-800/50 transition-colors duration-300"
-                        :class="active === 3 ? 'border-brand-pink shadow-lg shadow-brand-pink/10' : 'border-gray-200 dark:border-zinc-800 hover:border-brand-pink/30'">
+                        :class="active === 3 ? 'border-red-600 shadow-lg shadow-red-600/10' : 'border-gray-200 dark:border-zinc-800 hover:border-red-600/30'">
                         <button @click="active === 3 ? active = null : active = 3"
                             class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors">
                             <span class="font-bold text-lg transition-colors"
-                                :class="active === 3 ? 'text-brand-pink' : 'dark:text-white'">¿Cómo contacto a una
+                                :class="active === 3 ? 'text-red-600' : 'dark:text-white'">¿Cómo contacto a una
                                 escort?</span>
                             <span class="transform transition-transform duration-300"
-                                :class="active === 3 ? 'rotate-180 text-brand-pink' : 'text-gray-400'">
+                                :class="active === 3 ? 'rotate-180 text-red-600' : 'text-gray-400'">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M19 9l-7 7-7-7" />
@@ -289,7 +289,7 @@
 
             <!-- CTA -->
             <div x-data="{ show: false }" x-intersect.once.threshold.0.1="show = true"
-                class="mt-32 relative p-10 md:p-16 rounded-[2.5rem] bg-gradient-to-r from-brand-pink to-black overflow-hidden transform transition-all duration-1000 border border-brand-pink/20"
+                class="mt-32 relative p-10 md:p-16 rounded-[2.5rem] bg-gradient-to-r from-red-600 to-black overflow-hidden transform transition-all duration-1000 border border-red-600/20"
                 :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'">
 
                 <div
@@ -305,11 +305,11 @@
                     <div class="text-white max-w-xl">
                         <h2 class="text-3xl md:text-5xl font-black mb-4 tracking-tight">Experiencias inolvidables te
                             esperan.</h2>
-                        <p class="text-pink-100 text-lg">Únete a la plataforma más exclusiva de Perú.</p>
+                        <p class="text-red-100 text-lg">Únete a la plataforma más exclusiva de Perú.</p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
                         <a href="{{ route('register') }}"
-                            class="group relative bg-white text-brand-pink hover:text-red-600 font-bold py-4 px-10 rounded-2xl transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 w-full md:w-auto text-center overflow-hidden">
+                            class="group relative bg-white text-red-600 hover:text-red-600 font-bold py-4 px-10 rounded-2xl transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 w-full md:w-auto text-center overflow-hidden">
                             <span class="relative z-10">Crear Cuenta</span>
                         </a>
                         <a href="/"

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace App\Filament\Escort\Pages;
 
@@ -57,20 +57,20 @@ class VerifyProfile extends Page implements HasForms
                     // Step 1: Frente del Documento
                     \Filament\Schemas\Components\Wizard\Step::make('Frente del Documento')
                         ->icon('heroicon-o-identification')
-                        ->description('Subí una foto clara del frente de tu CI')
+                        ->description('SubÃ­ una foto clara del frente de tu CI')
                         ->schema([
                             Forms\Components\Placeholder::make('instrucciones_frente')
                                 ->hiddenLabel()
                                 ->content(new HtmlString('
                                     <div class="flex items-center gap-4 bg-gray-900/50 p-6 rounded-xl border border-gray-800">
-                                        <div class="p-3 bg-brand-pink/20 rounded-full text-brand-pink">
+                                        <div class="p-3 bg-red-600/20 rounded-full text-red-600">
                                             <svg xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                                               <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 class="text-lg font-bold text-white leading-tight">Foto Frontal de la Cédula</h3>
-                                            <p class="text-sm text-gray-400 mt-1">Asegurate de que haya buena iluminación y que todos los datos sean legibles. No cortes los bordes de la tarjeta.</p>
+                                            <h3 class="text-lg font-bold text-white leading-tight">Foto Frontal de la CÃ©dula</h3>
+                                            <p class="text-sm text-gray-400 mt-1">Asegurate de que haya buena iluminaciÃ³n y que todos los datos sean legibles. No cortes los bordes de la tarjeta.</p>
                                         </div>
                                     </div>
                                 ')),
@@ -85,20 +85,20 @@ class VerifyProfile extends Page implements HasForms
                     // Step 2: Dorso del Documento
                     \Filament\Schemas\Components\Wizard\Step::make('Dorso del Documento')
                         ->icon('heroicon-o-credit-card')
-                        ->description('Subí una foto del reverso de tu CI')
+                        ->description('SubÃ­ una foto del reverso de tu CI')
                         ->schema([
                             Forms\Components\Placeholder::make('instrucciones_dorso')
                                 ->hiddenLabel()
                                 ->content(new HtmlString('
                                     <div class="flex items-center gap-4 bg-gray-900/50 p-6 rounded-xl border border-gray-800">
-                                        <div class="p-3 bg-brand-pink/20 rounded-full text-brand-pink">
+                                        <div class="p-3 bg-red-600/20 rounded-full text-red-600">
                                             <svg xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                                               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h14.25c.621 0 1.125.504 1.125 1.125v14.25c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 013.75 19.125V4.875z" />
                                               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6h16.5" />
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 class="text-lg font-bold text-white leading-tight">Foto Trasera de la Cédula</h3>
+                                            <h3 class="text-lg font-bold text-white leading-tight">Foto Trasera de la CÃ©dula</h3>
                                             <p class="text-sm text-gray-400 mt-1">Acordate de enfocar bien para que podamos ver claramente el reverso de tu documento de identidad.</p>
                                         </div>
                                     </div>
@@ -111,10 +111,10 @@ class VerifyProfile extends Page implements HasForms
                                 ->maxSize(10240) // 10MB
                         ]),
 
-                    // Step 3: Video de Verificación
+                    // Step 3: Video de VerificaciÃ³n
                     \Filament\Schemas\Components\Wizard\Step::make('Prueba de Vida')
                         ->icon('heroicon-o-video-camera')
-                        ->description('Grabá un video corto')
+                        ->description('GrabÃ¡ un video corto')
                         ->schema([
                             Forms\Components\Placeholder::make('instrucciones_video')
                                 ->hiddenLabel()
@@ -182,7 +182,7 @@ class VerifyProfile extends Page implements HasForms
                                     </style>
                                     <div style="background:rgba(17,17,27,0.5); padding:24px; border-radius:16px; border:1px solid rgba(255,255,255,0.08);">
                                         <h3 style="font-size:1rem; font-weight:700; color:#fff; text-align:center; margin:0 0 6px;">Instrucciones del Video</h3>
-                                        <p style="font-size:0.75rem; color:#9ca3af; text-align:center; margin:0 0 20px;">Sostenés tu documento cerca de tu cara y hacés estos movimientos:</p>
+                                        <p style="font-size:0.75rem; color:#9ca3af; text-align:center; margin:0 0 20px;">SostenÃ©s tu documento cerca de tu cara y hacÃ©s estos movimientos:</p>
                                         <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
 
                                             <!-- Card Izquierda/Derecha -->
@@ -213,11 +213,11 @@ class VerifyProfile extends Page implements HasForms
                                                     <path d="M40 75 Q50 81 60 75" stroke="#9ca3af" stroke-width="2.5" fill="none" stroke-linecap="round"/>
                                                   </g>
                                                   <!-- Arrows left/right -->
-                                                  <text x="8" y="60" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">←</text>
-                                                  <text x="78" y="60" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">→</text>
+                                                  <text x="8" y="60" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">â†</text>
+                                                  <text x="78" y="60" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">â†’</text>
                                                 </svg>
-                                                <span style="font-size:14px; font-weight:700; color:#fff; text-align:center;">1. Negá con la cabeza</span>
-                                                <span style="font-size:12px; color:#6b7280; text-align:center; line-height:1.4;">Girá lentamente hacia la izquierda y luego hacia la derecha</span>
+                                                <span style="font-size:14px; font-weight:700; color:#fff; text-align:center;">1. NegÃ¡ con la cabeza</span>
+                                                <span style="font-size:12px; color:#6b7280; text-align:center; line-height:1.4;">GirÃ¡ lentamente hacia la izquierda y luego hacia la derecha</span>
                                             </div>
 
                                             <!-- Card Arriba/Abajo -->
@@ -246,11 +246,11 @@ class VerifyProfile extends Page implements HasForms
                                                     <path d="M40 75 Q50 81 60 75" stroke="#9ca3af" stroke-width="2.5" fill="none" stroke-linecap="round"/>
                                                   </g>
                                                   <!-- Arrows up/down -->
-                                                  <text x="44" y="12" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">↑</text>
-                                                  <text x="44" y="116" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">↓</text>
+                                                  <text x="44" y="12" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">â†‘</text>
+                                                  <text x="44" y="116" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">â†“</text>
                                                 </svg>
-                                                <span style="font-size:14px; font-weight:700; color:#fff; text-align:center;">2. Asentí con la cabeza</span>
-                                                <span style="font-size:12px; color:#6b7280; text-align:center; line-height:1.4;">Mové lentamente hacia arriba y luego hacia abajo</span>
+                                                <span style="font-size:14px; font-weight:700; color:#fff; text-align:center;">2. AsentÃ­ con la cabeza</span>
+                                                <span style="font-size:12px; color:#6b7280; text-align:center; line-height:1.4;">MovÃ© lentamente hacia arriba y luego hacia abajo</span>
                                             </div>
 
                                         </div>
@@ -262,10 +262,10 @@ class VerifyProfile extends Page implements HasForms
                                 ->directory('escort-verifications')
                                 ->required()
                                 ->maxSize(51200) // 50MB
-                                ->helperText('Subí tu video en formato MP4, WebM o MOV. Máximo 50MB.')
+                                ->helperText('SubÃ­ tu video en formato MP4, WebM o MOV. MÃ¡ximo 50MB.')
                         ]),
                 ])
-                ->submitAction(new HtmlString('<button type="submit" class="fi-btn relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus-visible:ring-2 rounded-lg fi-color-primary fi-btn-color-primary bg-primary-600 text-white hover:bg-primary-500 dark:bg-primary-500 dark:hover:bg-primary-400 fi-size-md px-3 py-2 text-sm inline-grid shadow-sm gap-1.5 mt-4"><span class="fi-btn-label">Enviar para Revisión</span></button>'))
+                ->submitAction(new HtmlString('<button type="submit" class="fi-btn relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus-visible:ring-2 rounded-lg fi-color-primary fi-btn-color-primary bg-primary-600 text-white hover:bg-primary-500 dark:bg-primary-500 dark:hover:bg-primary-400 fi-size-md px-3 py-2 text-sm inline-grid shadow-sm gap-1.5 mt-4"><span class="fi-btn-label">Enviar para RevisiÃ³n</span></button>'))
             ])
             ->statePath('data');
     }
@@ -301,8 +301,8 @@ class VerifyProfile extends Page implements HasForms
 
         Notification::make()
             ->success()
-            ->title('Verificación enviada')
-            ->body('Tus documentos han sido enviados y están en revisión por un administrador.')
+            ->title('VerificaciÃ³n enviada')
+            ->body('Tus documentos han sido enviados y estÃ¡n en revisiÃ³n por un administrador.')
             ->send();
     }
 }

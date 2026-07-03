@@ -303,7 +303,7 @@
                             </form>
                         </div>
                     @else
-                        <div class="bg-brand-pink/5 dark:bg-[#e11d48]/10 border border-[#e11d48]/20 p-6 rounded text-center mt-8">
+                        <div class="bg-red-600/5 dark:bg-[#e11d48]/10 border border-[#e11d48]/20 p-6 rounded text-center mt-8">
                             <p class="text-gray-700 dark:text-white/80 mb-4">Para dejar una reseña debes iniciar sesión o registrarte.</p>
                             <a href="{{ route('login') }}" class="inline-block py-2 px-6 rounded font-bold text-white transition-transform hover:scale-105 shadow-[0_0_15px_rgba(225,29,72,0.3)]" style="background-color: {{ $color }};">
                                 Iniciar Sesión

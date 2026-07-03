@@ -14,7 +14,7 @@
 
             <!-- Standard Escorts Grid -->
             <section class="max-w-7xl mx-auto px-4 lg:px-8 py-12">
-                <h2 class="text-brand-pink text-2xl font-bold italic mb-8 flex items-center gap-2">
+                <h2 class="text-red-600 text-2xl font-bold italic mb-8 flex items-center gap-2">
                     Escorts Generales 🌹
                 </h2>
                 <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
@@ -51,7 +51,7 @@
             :class="{ 'translate-y-0 opacity-100': showButton, 'translate-y-10 opacity-0 pointer-events-none': !showButton }">
 
             <button @click="scrollToTop()"
-                class="group relative flex items-center justify-center w-12 h-12 bg-black rounded-full shadow-lg hover:shadow-brand-pink/20 transition-shadow border border-zinc-800">
+                class="group relative flex items-center justify-center w-12 h-12 bg-black rounded-full shadow-lg hover:shadow-red-600/20 transition-shadow border border-zinc-800">
                 <!-- Progress Ring -->
                 <svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewBox="0 0 36 36">
                     <!-- Background Ring (Dark) -->
@@ -59,7 +59,7 @@
                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"
                         stroke="currentColor" stroke-width="3" />
                     <!-- Progress Ring (Pink) -->
-                    <path class="text-brand-pink transition-all duration-100 ease-out"
+                    <path class="text-red-600 transition-all duration-100 ease-out"
                         :stroke-dasharray="scrollProgress + ', 100'"
                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"
                         stroke="currentColor" stroke-width="3" />

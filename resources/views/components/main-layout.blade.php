@@ -47,7 +47,7 @@
     <!-- Top Pink Bar -->
     <div class="relative z-50 shadow-md">
         <a href="#"
-            class="force-dark-overlay block w-full bg-brand-pink text-white text-center py-4 font-bold text-base hover:bg-opacity-90 transition-all flex items-center justify-center gap-2">
+            class="force-dark-overlay block w-full bg-red-600 text-white text-center py-4 font-bold text-base hover:bg-opacity-90 transition-all flex items-center justify-center gap-2">
             Publicate como Escort 💫
         </a>
     </div>

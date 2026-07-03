@@ -11,9 +11,9 @@
                             $name = config('settings.site_name');
                             $splitAt = min(5, strlen($name));
                         @endphp
-                        <span class="text-brand-pink">{{ strtoupper(substr($name, 0, $splitAt)) }}</span><span class="text-black dark:text-white">{{ strtoupper(substr($name, $splitAt)) }}</span>
+                        <span class="text-red-600">{{ strtoupper(substr($name, 0, $splitAt)) }}</span><span class="text-black dark:text-white">{{ strtoupper(substr($name, $splitAt)) }}</span>
                     @else
-                        <span class="text-brand-pink">CITAS</span><span class="text-black dark:text-white">ESCORTS</span>
+                        <span class="text-red-600">CITAS</span><span class="text-black dark:text-white">ESCORTS</span>
                     @endif
                 @endif
             </a>
@@ -22,7 +22,7 @@
         <!-- Center: Navigation Menu (Desktop only) -->
         <nav class="hidden xl:flex items-center gap-6 whitespace-nowrap">
             <a href="{{ route('why-choose-us') }}"
-                class="flex items-center gap-2 text-sm font-medium hover:text-brand-pink transition-colors">
+                class="flex items-center gap-2 text-sm font-medium hover:text-red-600 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polygon
@@ -31,7 +31,7 @@
                 ¿Por qué elegirnos?
             </a>
             <a href="{{ route('escorts.index') }}"
-                class="flex items-center gap-2 text-sm font-medium hover:text-brand-pink transition-colors">
+                class="flex items-center gap-2 text-sm font-medium hover:text-red-600 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -42,7 +42,7 @@
                 Escorts
             </a>
             <a href="{{ route('posts.index') }}"
-                class="flex items-center gap-2 text-sm font-medium hover:text-brand-pink transition-colors">
+                class="flex items-center gap-2 text-sm font-medium hover:text-red-600 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path
@@ -54,7 +54,7 @@
                 Noticias
             </a>
             <a href="{{ route('establishments.index') }}"
-                class="flex items-center gap-2 text-sm font-medium hover:text-brand-pink transition-colors">
+                class="flex items-center gap-2 text-sm font-medium hover:text-red-600 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -63,7 +63,7 @@
                 Establecimientos
             </a>
             <a href="{{ route('contact.index') }}"
-                class="flex items-center gap-2 text-sm font-medium hover:text-brand-pink transition-colors">
+                class="flex items-center gap-2 text-sm font-medium hover:text-red-600 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path
@@ -78,7 +78,7 @@
             @auth
                 <div x-data="{ open: false }" class="relative" @click.outside="open = false">
                     <button @click="open = !open"
-                        class="flex items-center gap-1 md:gap-2 text-sm font-medium hover:text-brand-pink transition-colors whitespace-nowrap focus:outline-none">
+                        class="flex items-center gap-1 md:gap-2 text-sm font-medium hover:text-red-600 transition-colors whitespace-nowrap focus:outline-none">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
@@ -132,7 +132,7 @@
             @endauth
 
             <div x-data class="relative flex items-center">
-                <button @click="$dispatch('open-filters')" class="hover:text-brand-pink transition-colors focus:outline-none">
+                <button @click="$dispatch('open-filters')" class="hover:text-red-600 transition-colors focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8" />
@@ -144,11 +144,11 @@
             @guest
                 <div class="hidden sm:flex items-center gap-2">
                     <a href="{{ route('login') }}"
-                        class="border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white transition-all font-bold px-3 py-2 rounded-md uppercase text-[10px] tracking-widest whitespace-nowrap">
+                        class="border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition-all font-bold px-3 py-2 rounded-md uppercase text-[10px] tracking-widest whitespace-nowrap">
                         Ingresar
                     </a>
                     <a href="{{ route('register') }}"
-                        class="bg-brand-pink hover:bg-opacity-90 transition-all font-bold px-3 py-2 rounded-md uppercase text-[10px] tracking-widest whitespace-nowrap text-white">
+                        class="bg-red-600 hover:bg-opacity-90 transition-all font-bold px-3 py-2 rounded-md uppercase text-[10px] tracking-widest whitespace-nowrap text-white">
                         Registrarse
                     </a>
                 </div>
@@ -181,23 +181,23 @@
         x-transition:leave-end="opacity-0 -translate-y-2"
         class="xl:hidden border-t border-gray-200 dark:border-zinc-800 pb-4">
         <nav class="flex flex-col gap-1 pt-3">
-            <a href="{{ route('why-choose-us') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-brand-pink hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
+            <a href="{{ route('why-choose-us') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-red-600 hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
                 ¿Por qué elegirnos?
             </a>
-            <a href="{{ route('escorts.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-brand-pink hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
+            <a href="{{ route('escorts.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-red-600 hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
                 Escorts
             </a>
-            <a href="{{ route('posts.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-brand-pink hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
+            <a href="{{ route('posts.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-red-600 hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" /><path d="M18 14h-8" /><path d="M15 18h-5" /><path d="M10 6h8v4h-8Z" /></svg>
                 Noticias
             </a>
-            <a href="{{ route('establishments.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-brand-pink hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
+            <a href="{{ route('establishments.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-red-600 hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
                 Establecimientos
             </a>
-            <a href="{{ route('contact.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-brand-pink hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
+            <a href="{{ route('contact.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-red-600 hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                 Contacto
             </a>
@@ -205,11 +205,11 @@
             @guest
                 <div class="sm:hidden flex flex-col gap-2 px-4 pt-3 border-t border-gray-200 dark:border-zinc-800 mt-2">
                     <a href="{{ route('login') }}"
-                        class="border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white transition-all font-bold px-4 py-2.5 rounded-lg uppercase text-xs tracking-widest text-center">
+                        class="border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition-all font-bold px-4 py-2.5 rounded-lg uppercase text-xs tracking-widest text-center">
                         Ingresar
                     </a>
                     <a href="{{ route('register') }}"
-                        class="bg-brand-pink hover:bg-opacity-90 transition-all font-bold px-4 py-2.5 rounded-lg uppercase text-xs tracking-widest text-center text-white">
+                        class="bg-red-600 hover:bg-opacity-90 transition-all font-bold px-4 py-2.5 rounded-lg uppercase text-xs tracking-widest text-center text-white">
                         Registrarse
                     </a>
                 </div>

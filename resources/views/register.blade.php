@@ -80,7 +80,7 @@
                      </div>
                      <div class="space-y-1">
                          <h1 class="text-black dark:text-white text-xl font-medium tracking-tight">Crear nueva cuenta</h1>
-                         <div class="w-52 h-0.5 bg-brand-pink"></div>
+                         <div class="w-52 h-0.5 bg-red-600"></div>
                      </div>
                      <p x-show="errorMessage" x-text="errorMessage" class="text-red-500 text-sm mt-4 animate-pulse"></p>
                  </div>
@@ -97,11 +97,11 @@
                             <button @click="role = 'user'"
                                 class="relative group p-4 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center justify-center gap-3 text-center"
                                 :class="role === 'user' 
-                                    ? 'border-brand-pink bg-brand-pink/5 dark:bg-brand-pink/10' 
-                                    : 'border-gray-200 dark:border-zinc-800 hover:border-brand-pink/50 hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
+                                    ? 'border-red-600 bg-red-600/5 dark:bg-red-600/10' 
+                                    : 'border-gray-200 dark:border-zinc-800 hover:border-red-600/50 hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
 
                                 <div class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300"
-                                    :class="role === 'user' ? 'bg-brand-pink text-white shadow-lg shadow-brand-pink/30' : 'bg-gray-100 dark:bg-zinc-800 text-gray-500 group-hover:bg-brand-pink/10 group-hover:text-brand-pink'">
+                                    :class="role === 'user' ? 'bg-red-600 text-white shadow-lg shadow-red-600/30' : 'bg-gray-100 dark:bg-zinc-800 text-gray-500 group-hover:bg-red-600/10 group-hover:text-red-600'">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -112,7 +112,7 @@
 
                                 <div>
                                     <span class="block font-bold text-sm transition-colors duration-300"
-                                        :class="role === 'user' ? 'text-brand-pink' : 'text-gray-700 dark:text-gray-300'">
+                                        :class="role === 'user' ? 'text-red-600' : 'text-gray-700 dark:text-gray-300'">
                                         Ver Escorts
                                     </span>
                                     <span class="text-[10px] text-gray-400 font-medium">
@@ -122,7 +122,7 @@
 
                                 <!-- Checkmark -->
                                 <div x-show="role === 'user'" x-transition.scale
-                                    class="absolute top-3 right-3 text-brand-pink">
+                                    class="absolute top-3 right-3 text-red-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -135,11 +135,11 @@
                             <button @click="role = 'escort'"
                                 class="relative group p-4 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center justify-center gap-3 text-center"
                                 :class="role === 'escort' 
-                                    ? 'border-brand-pink bg-brand-pink/5 dark:bg-brand-pink/10' 
-                                    : 'border-gray-200 dark:border-zinc-800 hover:border-brand-pink/50 hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
+                                    ? 'border-red-600 bg-red-600/5 dark:bg-red-600/10' 
+                                    : 'border-gray-200 dark:border-zinc-800 hover:border-red-600/50 hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
 
                                 <div class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300"
-                                    :class="role === 'escort' ? 'bg-brand-pink text-white shadow-lg shadow-brand-pink/30' : 'bg-gray-100 dark:bg-zinc-800 text-gray-500 group-hover:bg-brand-pink/10 group-hover:text-brand-pink'">
+                                    :class="role === 'escort' ? 'bg-red-600 text-white shadow-lg shadow-red-600/30' : 'bg-gray-100 dark:bg-zinc-800 text-gray-500 group-hover:bg-red-600/10 group-hover:text-red-600'">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -150,7 +150,7 @@
 
                                 <div>
                                     <span class="block font-bold text-sm transition-colors duration-300"
-                                        :class="role === 'escort' ? 'text-brand-pink' : 'text-gray-700 dark:text-gray-300'">
+                                        :class="role === 'escort' ? 'text-red-600' : 'text-gray-700 dark:text-gray-300'">
                                         Ser Escort
                                     </span>
                                     <span class="text-[10px] text-gray-400 font-medium">
@@ -160,7 +160,7 @@
 
                                 <!-- Checkmark -->
                                 <div x-show="role === 'escort'" x-transition.scale
-                                    class="absolute top-3 right-3 text-brand-pink">
+                                    class="absolute top-3 right-3 text-red-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -173,11 +173,11 @@
                             <button @click="role = 'establishment'"
                                 class="relative group p-4 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center justify-center gap-3 text-center sm:col-span-2 md:col-span-1"
                                 :class="role === 'establishment' 
-                                    ? 'border-brand-pink bg-brand-pink/5 dark:bg-brand-pink/10' 
-                                    : 'border-gray-200 dark:border-zinc-800 hover:border-brand-pink/50 hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
+                                    ? 'border-red-600 bg-red-600/5 dark:bg-red-600/10' 
+                                    : 'border-gray-200 dark:border-zinc-800 hover:border-red-600/50 hover:bg-gray-50 dark:hover:bg-zinc-800/50'">
 
                                 <div class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300"
-                                    :class="role === 'establishment' ? 'bg-brand-pink text-white shadow-lg shadow-brand-pink/30' : 'bg-gray-100 dark:bg-zinc-800 text-gray-500 group-hover:bg-brand-pink/10 group-hover:text-brand-pink'">
+                                    :class="role === 'establishment' ? 'bg-red-600 text-white shadow-lg shadow-red-600/30' : 'bg-gray-100 dark:bg-zinc-800 text-gray-500 group-hover:bg-red-600/10 group-hover:text-red-600'">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -194,7 +194,7 @@
 
                                 <div>
                                     <span class="block font-bold text-sm transition-colors duration-300"
-                                        :class="role === 'establishment' ? 'text-brand-pink' : 'text-gray-700 dark:text-gray-300'">
+                                        :class="role === 'establishment' ? 'text-red-600' : 'text-gray-700 dark:text-gray-300'">
                                         Establecimiento
                                     </span>
                                     <span class="text-[10px] text-gray-400 font-medium whitespace-nowrap">
@@ -204,7 +204,7 @@
 
                                 <!-- Checkmark -->
                                 <div x-show="role === 'establishment'" x-transition.scale
-                                    class="absolute top-3 right-3 text-brand-pink">
+                                    class="absolute top-3 right-3 text-red-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -219,7 +219,7 @@
                         <!-- Email -->
                         <div class="relative">
                             <input x-model="email" type="email" placeholder="Dirección de correo electrónico *"
-                                class="w-full bg-transparent border-2 border-brand-pink rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-brand-pink outline-none transition-all text-sm">
+                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
                             <div class="absolute right-8 top-1/2 -translate-y-1/2 text-black dark:text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -233,7 +233,7 @@
                         <!-- Password -->
                         <div class="relative">
                             <input x-model="password" :type="showPass ? 'text' : 'password'" placeholder="Contraseña *"
-                                class="w-full bg-transparent border-2 border-brand-pink rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-brand-pink outline-none transition-all text-sm">
+                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
                             <div class="absolute right-8 top-1/2 -translate-y-1/2 text-black dark:text-white cursor-pointer"
                                 @click="showPass = !showPass">
                                 <svg x-show="!showPass" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -259,7 +259,7 @@
                         <div class="relative">
                             <input x-model="confirmPassword" :type="showConfirmPass ? 'text' : 'password'"
                                 placeholder="Confirmar Contraseña *"
-                                class="w-full bg-transparent border-2 border-brand-pink rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-brand-pink outline-none transition-all text-sm">
+                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
                             <div class="absolute right-8 top-1/2 -translate-y-1/2 text-black dark:text-white cursor-pointer"
                                 @click="showConfirmPass = !showConfirmPass">
                                 <svg x-show="!showConfirmPass" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -284,12 +284,12 @@
 
                     <div class="space-y-6">
                         <button @click="step = 2"
-                            class="w-full border-2 border-brand-pink rounded-3xl py-4 font-bold text-brand-pink hover:bg-brand-pink hover:text-white transition-all text-lg flex items-center justify-center gap-2 group">
+                            class="w-full border-2 border-red-600 rounded-3xl py-4 font-bold text-red-600 hover:bg-red-600 hover:text-white transition-all text-lg flex items-center justify-center gap-2 group">
                             Siguiente <span class="transition-transform group-hover:translate-x-1">></span>
                         </button>
                         <p class="text-gray-400 text-sm mt-4 text-center">
                             ¿Ya tienes una cuenta?
-                            <a href="{{ route('login') }}" class="text-brand-pink hover:underline font-bold">Inicia
+                            <a href="{{ route('login') }}" class="text-red-600 hover:underline font-bold">Inicia
                                 sesión aquí</a>
                         </p>
                     </div>
@@ -304,7 +304,7 @@
                         <div class="relative">
                             <input x-model="name" type="text"
                                 :placeholder="role === 'escort' ? 'Nombre Artístico *' : (role === 'establishment' ? 'Nombre del Establecimiento *' : 'Nombre de Usuario *')"
-                                class="w-full bg-transparent border-2 border-brand-pink rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-brand-pink outline-none transition-all text-sm">
+                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
                         </div>
 
                         <!-- Escort Specific Fields -->
@@ -312,8 +312,8 @@
                             <div class="space-y-8">
 
 
-                                <div class="flex items-center w-full bg-transparent border-2 border-brand-pink rounded-3xl overflow-hidden focus-within:border-brand-pink transition-all">
-                                    <div class="flex items-center gap-2 pl-6 pr-3 border-r border-brand-pink/30 text-black dark:text-white font-bold text-sm select-none">
+                                <div class="flex items-center w-full bg-transparent border-2 border-red-600 rounded-3xl overflow-hidden focus-within:border-red-600 transition-all">
+                                    <div class="flex items-center gap-2 pl-6 pr-3 border-r border-red-600/30 text-black dark:text-white font-bold text-sm select-none">
                                         <svg class="w-5 h-3.5 rounded-sm shadow-sm object-cover" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="3" height="6" fill="#D91414"/>
                                             <rect x="3" width="3" height="6" fill="#F5F5F5"/>
@@ -327,7 +327,7 @@
 
                                 <div class="relative">
                                     <select x-model="category"
-                                        class="w-full bg-transparent border-2 border-brand-pink rounded-3xl py-4.5 px-8 text-black dark:text-white focus:border-brand-pink outline-none appearance-none transition-all text-sm">
+                                        class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white focus:border-red-600 outline-none appearance-none transition-all text-sm">
                                         <option value="" class="bg-white dark:bg-black text-gray-500">¿Qué tipo de
                                             escort eres? *</option>
                                         <option value="escort" class="bg-white dark:bg-black">Escort</option>
@@ -335,7 +335,7 @@
                                         <option value="acompanante" class="bg-white dark:bg-black">Acompañante</option>
                                     </select>
                                     <div
-                                        class="absolute right-8 top-1/2 -translate-y-1/2 text-brand-pink pointer-events-none">
+                                        class="absolute right-8 top-1/2 -translate-y-1/2 text-red-600 pointer-events-none">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"
                                             stroke-linecap="round" stroke-linejoin="round">
@@ -349,8 +349,8 @@
                         <!-- Establishment Specific Fields -->
                         <template x-if="role === 'establishment'">
                             <div class="space-y-8">
-                                <div class="flex items-center w-full bg-transparent border-2 border-brand-pink rounded-3xl overflow-hidden focus-within:border-brand-pink transition-all">
-                                    <div class="flex items-center gap-2 pl-6 pr-3 border-r border-brand-pink/30 text-black dark:text-white font-bold text-sm select-none">
+                                <div class="flex items-center w-full bg-transparent border-2 border-red-600 rounded-3xl overflow-hidden focus-within:border-red-600 transition-all">
+                                    <div class="flex items-center gap-2 pl-6 pr-3 border-r border-red-600/30 text-black dark:text-white font-bold text-sm select-none">
                                         <svg class="w-5 h-3.5 rounded-sm shadow-sm object-cover" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="3" height="6" fill="#D91414"/>
                                             <rect x="3" width="3" height="6" fill="#F5F5F5"/>
@@ -364,7 +364,7 @@
 
                                 <div class="relative">
                                     <select x-model="establishment_type"
-                                        class="w-full bg-transparent border-2 border-brand-pink rounded-3xl py-4.5 px-8 text-black dark:text-white focus:border-brand-pink outline-none appearance-none transition-all text-sm">
+                                        class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white focus:border-red-600 outline-none appearance-none transition-all text-sm">
                                         <option value="" class="bg-white dark:bg-black text-gray-500">¿Qué tipo de
                                             establecimiento tienes? *</option>
                                         <option value="massage" class="bg-white dark:bg-black">Casa de Masajes</option>
@@ -372,7 +372,7 @@
                                         <option value="motel" class="bg-white dark:bg-black">Motel / Hotel</option>
                                     </select>
                                     <div
-                                        class="absolute right-8 top-1/2 -translate-y-1/2 text-brand-pink pointer-events-none">
+                                        class="absolute right-8 top-1/2 -translate-y-1/2 text-red-600 pointer-events-none">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"
                                             stroke-linecap="round" stroke-linejoin="round">
@@ -402,7 +402,7 @@
 
                     <div class="space-y-4">
                         <button @click="register()" :disabled="isLoading"
-                            class="w-full bg-brand-pink border-2 border-brand-pink rounded-3xl py-4 font-bold text-white hover:bg-brand-pink/90 transition-all text-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                            class="w-full bg-red-600 border-2 border-red-600 rounded-3xl py-4 font-bold text-white hover:bg-red-600/90 transition-all text-lg disabled:opacity-50 disabled:cursor-not-allowed">
                             <span x-show="!isLoading">Registrarme</span>
                             <span x-show="isLoading" class="animate-pulse">Registrando...</span>
                         </button>
@@ -412,7 +412,7 @@
                         </button>
                         <p class="text-gray-400 text-sm mt-4 text-center">
                             ¿Ya tienes una cuenta?
-                            <a href="{{ route('login') }}" class="text-brand-pink hover:underline font-bold">Inicia
+                            <a href="{{ route('login') }}" class="text-red-600 hover:underline font-bold">Inicia
                                 sesión aquí</a>
                         </p>
                     </div>

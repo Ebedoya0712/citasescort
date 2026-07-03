@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace App\Filament\Widgets;
 
@@ -43,7 +43,7 @@ class RevenueChart extends ChartWidget
                     'label' => 'Ingresos ($)',
                     'data' => $values,
                     'fill' => 'start',
-                    'borderColor' => '#db2777', // Pink-600ish
+                    'borderColor' => '#dc2626', // Pink-600ish
                     'backgroundColor' => 'rgba(219, 39, 119, 0.1)',
                 ],
             ],

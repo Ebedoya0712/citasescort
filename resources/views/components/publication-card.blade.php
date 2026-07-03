@@ -116,7 +116,7 @@
                 }" @click.prevent.stop="toggleLike()"
                 class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center hover:bg-black/60 transition-colors border border-white/10 shadow-sm group/btn">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-all duration-300"
-                    :class="liked ? 'text-brand-pink fill-current scale-110' : 'text-white group-hover/btn:text-brand-pink'"
+                    :class="liked ? 'text-red-600 fill-current scale-110' : 'text-white group-hover/btn:text-red-600'"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -153,11 +153,11 @@
     <div
         class="p-2.5 md:p-4 bg-white dark:bg-zinc-900 rounded-b-xl md:rounded-b-2xl border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300">
         <div class="space-y-0.5 max-w-[70%] min-w-0">
-            <h4 class="text-brand-pink font-bold text-xs md:text-sm truncate">{{ $publication->title }}</h4>
+            <h4 class="text-red-600 font-bold text-xs md:text-sm truncate">{{ $publication->title }}</h4>
             <div class="flex items-center gap-1 md:gap-1.5 text-black dark:text-gray-100 font-bold text-[10px] md:text-xs">
                 <!-- Gender Icon -->
                 @if($publication->gender === 'Mujer' || $publication->gender === 'female')
-                    <span class="text-pink-500" title="Mujer">
+                    <span class="text-red-600" title="Mujer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" />
@@ -198,7 +198,7 @@
             $reviewCount = $publication->escort ? $publication->escort->reviews->count() : 0;
             $averageRating = $reviewCount > 0 ? round($publication->escort->reviews->avg('rating'), 1) : 0;
         @endphp
-        <div class="flex items-center gap-1 text-brand-pink shrink-0">
+        <div class="flex items-center gap-1 text-red-600 shrink-0">
             <span class="text-xs font-bold">{{ $averageRating }}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
                 stroke="none">

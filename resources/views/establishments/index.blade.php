@@ -65,7 +65,7 @@
                             </div>
                             <div class="p-3 flex items-center justify-between">
                                 <h3 class="text-gray-900 dark:text-white font-semibold text-sm truncate">{{ $place->name }}</h3>
-                                <div class="text-yellow-500 dark:text-yellow-400 border border-gray-200 dark:border-white/20 bg-gray-50 dark:bg-black/50 rounded-full px-2 py-0.5 flex flex-shrink-0 items-center justify-center text-[10px] font-bold gap-1">
+                                <div class="text-yellow-500 dark:text-red-500 border border-gray-200 dark:border-white/20 bg-gray-50 dark:bg-black/50 rounded-full px-2 py-0.5 flex flex-shrink-0 items-center justify-center text-[10px] font-bold gap-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none">
                                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                                     </svg>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="p-3 flex items-center justify-between">
                                 <h3 class="text-gray-900 dark:text-white font-semibold text-sm truncate">{{ $place->name }}</h3>
-                                <div class="text-yellow-500 dark:text-yellow-400 border border-gray-200 dark:border-white/20 bg-gray-50 dark:bg-black/50 rounded-full px-2 py-0.5 flex flex-shrink-0 items-center justify-center text-[10px] font-bold gap-1">
+                                <div class="text-yellow-500 dark:text-red-500 border border-gray-200 dark:border-white/20 bg-gray-50 dark:bg-black/50 rounded-full px-2 py-0.5 flex flex-shrink-0 items-center justify-center text-[10px] font-bold gap-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none">
                                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                                     </svg>
@@ -131,7 +131,7 @@
                             </div>
                             <div class="p-3 flex items-center justify-between">
                                 <h3 class="text-gray-900 dark:text-white font-semibold text-sm truncate">{{ $place->name }}</h3>
-                                <div class="text-yellow-500 dark:text-yellow-400 border border-gray-200 dark:border-white/20 bg-gray-50 dark:bg-black/50 rounded-full px-2 py-0.5 flex flex-shrink-0 items-center justify-center text-[10px] font-bold gap-1">
+                                <div class="text-yellow-500 dark:text-red-500 border border-gray-200 dark:border-white/20 bg-gray-50 dark:bg-black/50 rounded-full px-2 py-0.5 flex flex-shrink-0 items-center justify-center text-[10px] font-bold gap-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none">
                                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                                     </svg>

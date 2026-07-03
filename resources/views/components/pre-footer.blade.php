@@ -6,12 +6,12 @@
     @endphp
 
     <div class="max-w-7xl mx-auto mb-16">
-        <h3 class="text-center text-brand-pink font-bold text-lg mb-8">Encontrá escorts en</h3>
+        <h3 class="text-center text-red-600 font-bold text-lg mb-8">Encontrá escorts en</h3>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2">
             @foreach($cities as $city)
                 <a href="{{ route('escorts.index', ['city' => $city->name]) }}"
-                    class="text-gray-400 hover:text-brand-pink text-sm transition-colors flex items-center justify-between group">
+                    class="text-gray-400 hover:text-red-600 text-sm transition-colors flex items-center justify-between group">
                     <span>{{ $city->name }}</span>
                 </a>
             @endforeach
@@ -35,7 +35,7 @@
                             $name = config('settings.site_name');
                             $splitAt = min(5, strlen($name));
                         @endphp
-                        <span class="text-brand-pink">{{ strtoupper(substr($name, 0, $splitAt)) }}</span><span class="text-black dark:text-white">{{ strtoupper(substr($name, $splitAt)) }}</span>
+                        <span class="text-red-600">{{ strtoupper(substr($name, 0, $splitAt)) }}</span><span class="text-black dark:text-white">{{ strtoupper(substr($name, $splitAt)) }}</span>
                     @else
                         <span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span>
                     @endif
@@ -43,13 +43,13 @@
             </a>
 
             <a href="#"
-                class="inline-block bg-brand-pink text-white text-[11px] font-bold px-4 py-2 rounded-lg uppercase tracking-wider hover:opacity-90 transition-opacity">
+                class="inline-block bg-red-600 text-white text-[11px] font-bold px-4 py-2 rounded-lg uppercase tracking-wider hover:opacity-90 transition-opacity">
                 Publicar en Citasescort
             </a>
 
             <div class="flex items-center gap-4 text-black dark:text-white">
                 @if(config('settings.instagram_url'))
-                    <a href="{{ config('settings.instagram_url') }}" target="_blank" class="hover:text-brand-pink transition-colors">
+                    <a href="{{ config('settings.instagram_url') }}" target="_blank" class="hover:text-red-600 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
@@ -63,7 +63,7 @@
 
         <!-- Col 1: Escorts y acompañantes -->
         <div class="space-y-4">
-            <h4 class="text-brand-pink font-bold text-sm">Escorts y acompañantes</h4>
+            <h4 class="text-red-600 font-bold text-sm">Escorts y acompañantes</h4>
             <div class="flex flex-col gap-2 text-gray-500 dark:text-gray-400 text-sm font-medium">
                 <a href="/#stories" class="hover:text-black dark:hover:text-white transition-colors">Activas/os
                     (Historias
@@ -79,7 +79,7 @@
 
         <!-- Col 2: Noticias -->
         <div class="space-y-4">
-            <h4 class="text-brand-pink font-bold text-sm">Noticias</h4>
+            <h4 class="text-red-600 font-bold text-sm">Noticias</h4>
             <div class="flex flex-col gap-2 text-gray-500 dark:text-gray-400 text-sm font-medium">
                 <a href="{{ route('posts.index') }}"
                     class="hover:text-black dark:hover:text-white transition-colors">Últimas Noticias</a>
@@ -94,7 +94,7 @@
 
         <!-- Col 3: Para Escorts -->
         <div class="space-y-4">
-            <h4 class="text-brand-pink font-bold text-sm">Para Escorts</h4>
+            <h4 class="text-red-600 font-bold text-sm">Para Escorts</h4>
             <div class="flex flex-col gap-2 text-gray-500 dark:text-gray-400 text-sm font-medium">
                 <a href="{{ route('register') }}"
                     class="hover:text-black dark:hover:text-white transition-colors">Publicá en Citasescort</a>

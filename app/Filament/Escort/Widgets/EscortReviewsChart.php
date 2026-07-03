@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace App\Filament\Escort\Widgets;
 
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class EscortReviewsChart extends ChartWidget
 {
-    protected ?string $heading = 'Reseñas en el tiempo';
+    protected ?string $heading = 'ReseÃ±as en el tiempo';
     
     protected static ?int $sort = 2;
 
@@ -38,9 +38,9 @@ class EscortReviewsChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Reseñas recibidas',
+                    'label' => 'ReseÃ±as recibidas',
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
-                    'borderColor' => '#ec4899', // Pink-500
+                    'borderColor' => '#dc2626', // Pink-500
                     'backgroundColor' => 'rgba(236, 72, 153, 0.1)',
                     'fill' => true,
                 ],

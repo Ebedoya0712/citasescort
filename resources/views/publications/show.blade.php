@@ -26,7 +26,7 @@
                         <div @click="hasStories && $dispatch('open-story-viewer')"
                             :class="hasStories 
                                 ? (unseenStories 
-                                    ? 'cursor-pointer border-4 border-transparent bg-gradient-to-tr from-red-600 via-rose-500 to-red-800 p-1' 
+                                    ? 'cursor-pointer border-4 border-transparent bg-gradient-to-tr from-red-600 via-red-600 to-red-800 p-1' 
                                     : 'cursor-pointer border-4 border-zinc-700 p-0') 
                                 : 'border-4 border-red-600'"
                             class="w-full h-full rounded-full overflow-hidden shadow-2xl transition-transform hover:scale-105">
@@ -52,7 +52,7 @@
                                     <img src="{{ $src }}" alt="{{ $escort->name }}" class="w-full h-full object-cover">
                                 @else
                                     <div class="w-full h-full bg-zinc-800 flex items-center justify-center">
-                                        <svg class="w-20 h-20 text-brand-pink" fill="none" viewBox="0 0 24 24"
+                                        <svg class="w-20 h-20 text-red-600" fill="none" viewBox="0 0 24 24"
                                             stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -140,7 +140,7 @@
                                                     }
                                                 }
                                             }" @click="toggleLike()"
-                                    class="text-brand-pink hover:scale-110 transition-transform focus:outline-none">
+                                    class="text-red-600 hover:scale-110 transition-transform focus:outline-none">
                                     <svg class="w-6 h-6" :class="liked ? 'fill-current' : 'fill-none'" viewBox="0 0 24 24"
                                         stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -310,11 +310,11 @@
                         <!-- Stats (Vistas y WhatsApp) -->
                         <div class="flex gap-12 mt-8 mb-4 items-center bg-zinc-900/50 p-4 rounded-xl border border-zinc-800/50 w-fit">
                             <div class="text-center">
-                                <div class="text-4xl font-black text-brand-pink">{{ $escort->views_count }}</div>
+                                <div class="text-4xl font-black text-red-600">{{ $escort->views_count }}</div>
                                 <div class="text-gray-400 text-sm mt-1 font-medium tracking-wide">La vieron</div>
                             </div>
                             <div class="text-center">
-                                <div class="text-4xl font-black text-brand-pink whatsapp-clicks-count">{{ $escort->whatsapp_clicks_count }}</div>
+                                <div class="text-4xl font-black text-red-600 whatsapp-clicks-count">{{ $escort->whatsapp_clicks_count }}</div>
                                 <div class="text-gray-400 text-sm mt-1 font-medium tracking-wide">escribieron</div>
                             </div>
                         </div>
@@ -374,7 +374,7 @@
                                 </a>
                                 <button onclick="if(navigator.share) { navigator.share({title: '{{ addslashes($publication->title) }}', url: window.location.href}).catch(console.error); } else { navigator.clipboard.writeText(window.location.href).then(() => alert('Enlace copiado al portapapeles')).catch(() => { const temp = document.createElement('input'); document.body.appendChild(temp); temp.value = window.location.href; temp.select(); document.execCommand('copy'); document.body.removeChild(temp); alert('Enlace copiado al portapapeles'); }); }"
                                     class="text-gray-400 hover:text-white flex items-center gap-2 text-sm transition-colors group">
-                                    <svg class="w-5 h-5 group-hover:text-brand-pink transition-colors" fill="none"
+                                    <svg class="w-5 h-5 group-hover:text-red-600 transition-colors" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
@@ -764,7 +764,7 @@
                 <div class="mt-16 mb-8">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl font-bold text-white mb-2">Sobre {{ $escort->name }}</h2>
-                        <div class="text-brand-pink text-sm font-medium">
+                        <div class="text-red-600 text-sm font-medium">
                             <a href="/" class="hover:underline">Inicio</a> | <a
                                 href="/?city={{ urlencode($publication->city ?? $escort->city) }}"
                                 class="hover:underline">{{ $publication->city ?? $escort->city }}</a> | <span
@@ -870,7 +870,7 @@
                                         }
                                     @endphp
                                     <a href="{{ $instagramUrl }}" target="_blank" rel="noopener noreferrer"
-                                        class="text-brand-pink hover:text-white transition-colors flex items-center gap-2 text-lg">
+                                        class="text-red-600 hover:text-white transition-colors flex items-center gap-2 text-lg">
                                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                             <path
                                                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -891,7 +891,7 @@
                                         }
                                     @endphp
                                     <a href="{{ $twitterUrl }}" target="_blank" rel="noopener noreferrer"
-                                        class="text-brand-pink hover:text-white transition-colors flex items-center gap-2 text-lg">
+                                        class="text-red-600 hover:text-white transition-colors flex items-center gap-2 text-lg">
                                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                             <path
                                                 d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -912,7 +912,7 @@
                                         }
                                     @endphp
                                     <a href="{{ $onlyfansUrl }}" target="_blank" rel="noopener noreferrer"
-                                        class="text-brand-pink hover:text-white transition-colors flex items-center gap-2 text-lg">
+                                        class="text-red-600 hover:text-white transition-colors flex items-center gap-2 text-lg">
                                         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -934,7 +934,7 @@
                             <h3 class="text-xl font-bold text-white">Comentarios sobre {{ $escort->name }}</h3>
                             @if(!auth()->check() || (auth()->check() && auth()->user()->role !== 'escort'))
                                 <button @click="showForm = !showForm"
-                                    class="bg-brand-pink hover:opacity-90 text-white px-6 py-2 rounded text-sm font-bold flex items-center gap-2 transition-colors">
+                                    class="bg-red-600 hover:opacity-90 text-white px-6 py-2 rounded text-sm font-bold flex items-center gap-2 transition-colors">
                                     Comentar <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -962,16 +962,16 @@
                                 <form action="{{ route('reviews.store', $escort->id) }}" method="POST" class="space-y-6">
                                     @csrf
                                     <div>
-                                        <label class="block text-brand-pink font-bold mb-2">Nombre *</label>
+                                        <label class="block text-red-600 font-bold mb-2">Nombre *</label>
                                         <input type="text" name="name"
-                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-pink"
+                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-red-600"
                                             placeholder=""
                                             value="{{ auth()->check() ? auth()->user()->name : old('name') }}" required>
                                         <p class="text-gray-500 text-sm mt-1">No tenés que usar tu nombre real</p>
                                         @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                     </div>
                                     <div x-data="{ rating: {{ old('rating', 0) }}, hoverRating: 0 }">
-                                        <label class="block text-brand-pink font-bold mb-2">Puntaje de la experiencia
+                                        <label class="block text-red-600 font-bold mb-2">Puntaje de la experiencia
                                             *</label>
                                         <input type="hidden" name="rating" :value="rating">
                                         <div class="flex gap-1 text-2xl cursor-pointer">
@@ -985,23 +985,23 @@
                                         @error('rating') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                     </div>
                                     <div>
-                                        <label class="block text-brand-pink font-bold mb-2">Tu experiencia con
+                                        <label class="block text-red-600 font-bold mb-2">Tu experiencia con
                                             {{ $escort->name }} *</label>
                                         <textarea name="content" rows="4"
-                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-pink"
+                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-red-600"
                                             placeholder="Cuéntanos tu experiencia con {{ $escort->name }}. Sé amable."
                                             required>{{ old('content') }}</textarea>
                                         @error('content') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                     </div>
                                     <div>
-                                        <label class="block text-brand-pink font-bold mb-2">Comentarios PRIVADOS (sólo los
+                                        <label class="block text-red-600 font-bold mb-2">Comentarios PRIVADOS (sólo los
                                             lee el staff de Citasescort)</label>
                                         <textarea name="private_content" rows="3"
-                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-pink"
+                                            class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-red-600"
                                             placeholder="Podés expresarte libremente.">{{ old('private_content') }}</textarea>
                                     </div>
                                     <button type="submit"
-                                        class="w-full bg-brand-pink hover:bg-pink-600 text-white font-bold py-4 rounded transition-colors uppercase tracking-wider">
+                                        class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded transition-colors uppercase tracking-wider">
                                         Enviar Comentario
                                     </button>
                                 </form>
@@ -1067,7 +1067,7 @@
             :class="{ 'translate-y-0 opacity-100': showButton, 'translate-y-10 opacity-0 pointer-events-none': !showButton }">
 
             <button @click="scrollToTop()"
-                class="group relative flex items-center justify-center w-12 h-12 bg-black rounded-full shadow-lg hover:shadow-brand-pink/20 transition-shadow border border-zinc-800">
+                class="group relative flex items-center justify-center w-12 h-12 bg-black rounded-full shadow-lg hover:shadow-red-600/20 transition-shadow border border-zinc-800">
                 <!-- Progress Ring -->
                 <svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewBox="0 0 36 36">
                     <!-- Background Ring (Dark) -->
@@ -1075,7 +1075,7 @@
                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"
                         stroke="currentColor" stroke-width="3" />
                     <!-- Progress Ring (Pink) -->
-                    <path class="text-brand-pink transition-all duration-100 ease-out"
+                    <path class="text-red-600 transition-all duration-100 ease-out"
                         :stroke-dasharray="scrollProgress + ', 100'"
                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"
                         stroke="currentColor" stroke-width="3" />
@@ -1137,7 +1137,7 @@
                                             const diffInHours = Math.floor(diffInMinutes / 60);
                                             if (diffInHours < 24) return `HACE ${diffInHours} HORAS`;
                                             
-                                            return "HACE 24 HORAS";
+                                            return 'HACE 24 HORAS';
                                         },
 
                                         nextStory() {
@@ -1189,27 +1189,7 @@
                 x-transition:leave-end="opacity-0" class="fixed inset-0 z-50 flex items-center justify-center bg-black"
                 style="display: none;">
 
-                <!-- Navigation Arrows -->
-                <button @click.stop="prevStory()"
-                    class="hidden md:block absolute left-8 top-1/2 -translate-y-1/2 z-[130] text-pink-500 hover:text-pink-400 transition-all hover:scale-110 p-4 rounded-full bg-black/20 backdrop-blur-sm">
-                    <svg class="w-12 h-12 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button @click.stop="nextStory()"
-                    class="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-[130] text-pink-500 hover:text-pink-400 transition-all hover:scale-110 p-4 rounded-full bg-black/20 backdrop-blur-sm">
-                    <svg class="w-12 h-12 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
 
-                <!-- Close Button -->
-                <button @click="closeStories()"
-                    class="absolute top-4 right-4 z-[120] text-white hover:text-pink-500 transition-colors p-2 bg-black/20 rounded-full backdrop-blur-sm">
-                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
 
                 <!-- Mobile-style Story Card -->
                 <div
@@ -1305,6 +1285,7 @@
                     <!-- Right half - Next -->
                     <div @click="nextStory()" class="flex-1 cursor-pointer"></div>
                 </div>
+            </div> <!-- CLOSE MISSING ROOT DIV -->
         @endif
 
     <script>

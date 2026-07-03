@@ -2,7 +2,7 @@
     <div class="min-h-[calc(100vh-135px)] flex flex-col items-center justify-center bg-white dark:bg-black transition-colors duration-300 px-4 py-12 relative overflow-hidden">
         
         <!-- Fondo decorativo (glow) -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-pink/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div class="w-full max-w-2xl relative z-10 flex flex-col items-center">
             
@@ -58,12 +58,12 @@
                         <div class="relative">
                             <input :type="showPass ? 'text' : 'password'" id="password" name="password" required autofocus
                                 placeholder="Mínimo 8 caracteres"
-                                class="w-full bg-black/50 border border-zinc-700 text-white rounded-2xl px-5 py-4 pl-14 pr-12 text-lg focus:ring-2 focus:ring-brand-pink focus:border-transparent outline-none transition-all placeholder-gray-600">
+                                class="w-full bg-black/50 border border-zinc-700 text-white rounded-2xl px-5 py-4 pl-14 pr-12 text-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all placeholder-gray-600">
                             <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                             </svg>
                             <!-- Toggle Button -->
-                            <button type="button" @click="showPass = !showPass" class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-brand-pink transition-colors cursor-pointer">
+                            <button type="button" @click="showPass = !showPass" class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-red-600 transition-colors cursor-pointer">
                                 <!-- Eye Icon -->
                                 <svg x-show="!showPass" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -83,12 +83,12 @@
                         <div class="relative">
                             <input :type="showConfirm ? 'text' : 'password'" id="password_confirmation" name="password_confirmation" required
                                 placeholder="Repite tu nueva contraseña"
-                                class="w-full bg-black/50 border border-zinc-700 text-white rounded-2xl px-5 py-4 pl-14 pr-12 text-lg focus:ring-2 focus:ring-brand-pink focus:border-transparent outline-none transition-all placeholder-gray-600">
+                                class="w-full bg-black/50 border border-zinc-700 text-white rounded-2xl px-5 py-4 pl-14 pr-12 text-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all placeholder-gray-600">
                             <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                             </svg>
                             <!-- Toggle Button -->
-                            <button type="button" @click="showConfirm = !showConfirm" class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-brand-pink transition-colors cursor-pointer">
+                            <button type="button" @click="showConfirm = !showConfirm" class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-red-600 transition-colors cursor-pointer">
                                 <!-- Eye Icon -->
                                 <svg x-show="!showConfirm" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -104,7 +104,7 @@
 
                     <!-- Submit Button -->
                     <button type="submit"
-                        class="w-full bg-brand-pink border-2 border-brand-pink rounded-2xl py-4 font-bold text-white hover:bg-brand-pink/90 transition-all text-lg uppercase tracking-wider flex items-center justify-center gap-3">
+                        class="w-full bg-red-600 border-2 border-red-600 rounded-2xl py-4 font-bold text-white hover:bg-red-600/90 transition-all text-lg uppercase tracking-wider flex items-center justify-center gap-3">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -114,7 +114,7 @@
 
                 <!-- Back to login -->
                 <div class="mt-10 text-center">
-                    <a href="{{ route('login') }}" class="text-gray-400 text-base font-medium hover:text-brand-pink transition-colors inline-flex items-center gap-2 group">
+                    <a href="{{ route('login') }}" class="text-gray-400 text-base font-medium hover:text-red-600 transition-colors inline-flex items-center gap-2 group">
                         <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                         </svg>
