@@ -1129,7 +1129,7 @@
                                             const now = new Date();
                                             const diffInSeconds = Math.floor((now - date) / 1000);
                                             
-                                            if (diffInSeconds < 60) return "HACE UNOS SEGUNDOS";
+                                            if (diffInSeconds < 60) return 'HACE UNOS SEGUNDOS';
                                             
                                             const diffInMinutes = Math.floor(diffInSeconds / 60);
                                             if (diffInMinutes < 60) return `HACE ${diffInMinutes} MINUTOS`;
