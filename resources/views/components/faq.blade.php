@@ -4,7 +4,7 @@
         <div class="text-center mb-12">
             <h2 class="text-black dark:text-white text-lg font-bold mb-4">Preguntas Frecuentes sobre Escorts en Perú
             </h2>
-            <p class="text-gray-800 dark:text-white text-sm font-semibold max-w-2xl mx-auto">
+            <p class="text-gray-500 dark:text-gray-400 text-sm font-semibold max-w-2xl mx-auto">
                 La información aquí escrita aplica exclusivamente a escorts mujeres.
             </p>
         </div>
