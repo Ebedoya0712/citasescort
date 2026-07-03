@@ -879,6 +879,26 @@
                                             document.body.style.overflow = '';
                                         },
 
+                                        getTimeAgo(dateString) {
+                                            if (!dateString) return '';
+                                            
+                                            const date = new Date(dateString);
+                                            const now = new Date();
+                                            const diffInSeconds = Math.floor((now - date) / 1000);
+                                            
+                                            if (diffInSeconds < 60) return "HACE UNOS SEGUNDOS";
+                                            
+                                            const diffInMinutes = Math.floor(diffInSeconds / 60);
+                                            if (diffInMinutes < 60) return `HACE ${diffInMinutes} MINUTOS`;
+                                            
+                                            const diffInHours = Math.floor(diffInMinutes / 60);
+                                            if (diffInHours < 24) return `HACE ${diffInHours} HORAS`;
+                                            
+                                            const diffInDays = Math.floor(diffInHours / 24);
+                                            if (diffInDays === 1) return "HACE 1 DÍA";
+                                            return `HACE ${diffInDays} DÍAS`;
+                                        },
+
                                         nextStory() {
                                             if (this.currentIndex < this.stories.length - 1) {
                                                 this.currentIndex++;
@@ -988,8 +1008,7 @@
                                             class="text-white/90 text-xs shadow-black drop-shadow-md font-medium">{{ $escort->city }}</span>
                                         <span class="text-[10px] text-white/60">•</span>
                                         <span
-                                            class="text-pink-400 text-xs font-bold shadow-black drop-shadow-md uppercase">HACE
-                                            24 MINUTOS</span>
+                                            class="text-pink-400 text-xs font-bold shadow-black drop-shadow-md uppercase" x-text="getTimeAgo(stories[currentIndex]?.created_at)"></span>
                                     </div>
                                 </div>
                             </div>
