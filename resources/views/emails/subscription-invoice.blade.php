@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Factura de SuscripciÃ³n - Citasescort</title>
+    <title>Factura de Suscripción - Citasescort</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #0f0f11; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0f0f11; padding: 40px 20px;">
@@ -15,7 +15,7 @@
                     <tr>
                         <td style="background: linear-gradient(135deg, #ff2a7a 0%, #e91e63 50%, #c2185b 100%); padding: 40px 30px; border-radius: 16px 16px 0 0; text-align: center;">
                             <h1 style="color: #ffffff; font-size: 32px; margin: 0 0 8px 0; font-weight: 800; letter-spacing: 2px;">CITASESCORT</h1>
-                            <p style="color: rgba(255,255,255,0.85); font-size: 14px; margin: 0; letter-spacing: 1px; text-transform: uppercase;">Factura de SuscripciÃ³n</p>
+                            <p style="color: rgba(255,255,255,0.85); font-size: 14px; margin: 0; letter-spacing: 1px; text-transform: uppercase;">Factura de Suscripción</p>
                         </td>
                     </tr>
 
@@ -28,7 +28,7 @@
                             <h2 style="color: #ffffff; font-size: 24px; margin: 0 0 24px 0; font-weight: 700;">{{ $escort->name }} ðŸ‘‹</h2>
                             
                             <p style="color: #a1a1aa; font-size: 15px; line-height: 1.6; margin: 0 0 30px 0;">
-                                Â¡Tu pago ha sido procesado exitosamente! A continuaciÃ³n te presentamos los detalles de tu factura.
+                                ¡Tu pago ha sido procesado exitosamente! A continuaciÃ³n te presentamos los detalles de tu factura.
                             </p>
 
                             <!-- Plan Badge -->
@@ -76,7 +76,7 @@
                                     <td style="padding: 20px 24px; border-bottom: 1px solid #3f3f46;">
                                         <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td style="color: #a1a1aa; font-size: 14px;">MÃ©todo de Pago</td>
+                                                <td style="color: #a1a1aa; font-size: 14px;">Método de Pago</td>
                                                 <td align="right" style="color: #ffffff; font-size: 14px; font-weight: 600;">PayPal</td>
                                             </tr>
                                         </table>
@@ -86,7 +86,7 @@
                                     <td style="padding: 20px 24px; border-bottom: 1px solid #3f3f46;">
                                         <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td style="color: #a1a1aa; font-size: 14px;">ID TransacciÃ³n</td>
+                                                <td style="color: #a1a1aa; font-size: 14px;">ID Transacción</td>
                                                 <td align="right" style="color: #71717a; font-size: 12px; font-weight: 600; font-family: monospace;">{{ $payment->transaction_id }}</td>
                                             </tr>
                                         </table>
@@ -96,7 +96,7 @@
                                     <td style="padding: 20px 24px;">
                                         <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td style="color: #a1a1aa; font-size: 14px;">VÃ¡lido Hasta</td>
+                                                <td style="color: #a1a1aa; font-size: 14px;">Válido Hasta</td>
                                                 <td align="right" style="color: #10b981; font-size: 14px; font-weight: 700;">{{ $expiresAt }}</td>
                                             </tr>
                                         </table>
@@ -110,7 +110,7 @@
                                 <table role="presentation" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td style="padding: 6px 0; color: #10b981; font-size: 14px;">âœ“</td>
-                                        <td style="padding: 6px 0 6px 10px; color: #e4e4e7; font-size: 14px;">Posicionamiento VIP en la pÃ¡gina principal</td>
+                                        <td style="padding: 6px 0 6px 10px; color: #e4e4e7; font-size: 14px;">Posicionamiento VIP en la página principal</td>
                                     </tr>
                                     <tr>
                                         <td style="padding: 6px 0; color: #10b981; font-size: 14px;">âœ“</td>
@@ -118,7 +118,7 @@
                                     </tr>
                                     <tr>
                                         <td style="padding: 6px 0; color: #10b981; font-size: 14px;">âœ“</td>
-                                        <td style="padding: 6px 0 6px 10px; color: #e4e4e7; font-size: 14px;">AtenciÃ³n y soporte 24/7 prioritario</td>
+                                        <td style="padding: 6px 0 6px 10px; color: #e4e4e7; font-size: 14px;">Atención y soporte 24/7 prioritario</td>
                                     </tr>
                                 </table>
                             </div>
@@ -141,7 +141,7 @@
                     <tr>
                         <td style="background-color: #0f0f11; padding: 30px; text-align: center; border-top: 1px solid #27272a;">
                             <p style="color: #52525b; font-size: 12px; margin: 0 0 8px 0;">
-                                Este correo fue enviado automÃ¡ticamente. No responder a este mensaje.
+                                Este correo fue enviado automáticamente. No responder a este mensaje.
                             </p>
                             <p style="color: #3f3f46; font-size: 11px; margin: 0;">
                                 &copy; {{ date('Y') }} Citasescort. Todos los derechos reservados.

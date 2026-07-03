@@ -98,12 +98,12 @@
                         </div>
 
                         <div class="text-xl text-gray-300">
-                            {{ $escort->age }} aÃ±os
+                            {{ $escort->age }} años
                             @if($escort->gender)
-                                â€¢ {{ $escort->gender }}
+                                • {{ $escort->gender }}
                             @endif
                             @if($escort->hair_color)
-                                â€¢ pelo {{ $escort->hair_color }}
+                                • pelo {{ $escort->hair_color }}
                             @endif
                         </div>
 
@@ -155,7 +155,7 @@
                                 <button id="read-more-btn"
                                     class="text-red-500 hover:text-red-400 ml-1 hover:underline font-medium"
                                     onclick="toggleDescription()">
-                                    Leer mÃ¡s
+                                    Leer más
                                 </button>
                             @else
                                 {{ $escort->description }}
@@ -176,7 +176,7 @@
                                     } else {
                                         shortDesc.classList.remove('hidden');
                                         fullDesc.classList.add('hidden');
-                                        btn.textContent = 'Leer mÃ¡s';
+                                        btn.textContent = 'Leer más';
                                     }
                                 }
                             </script>
@@ -235,7 +235,7 @@
                 <!-- Quick Stats Bar (Reference Match) -->
                 <div class="mt-12 border-y border-zinc-700 bg-black">
                     <div class="grid grid-cols-1 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-zinc-700">
-                        <!-- UbicaciÃ³n -->
+                        <!-- Ubicación -->
                         <div class="p-6">
                             <div class="text-white font-bold text-sm mb-2 flex items-center gap-2">
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -244,7 +244,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
-                                UbicaciÃ³n
+                                Ubicación
                             </div>
                             <div class="text-gray-300 text-sm">{{ $escort->city }}</div>
                         </div>
@@ -579,7 +579,7 @@
                                 </div>
                             </div>
 
-                            <!-- FantasÃ­as -->
+                            <!-- Fantasías -->
                             <div>
                                 <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
                                     <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24"
@@ -587,7 +587,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M13 10V3L4 14h7v7l9-11h-7z" />
                                     </svg>
-                                    FantasÃ­as
+                                    Fantasías
                                 </h3>
                                 <div class="flex flex-wrap gap-3">
                                     @foreach($escort->fantasies ?? [] as $fantasy)
@@ -709,7 +709,7 @@
 
                         @if(!auth()->check() || (auth()->check() && auth()->user()->role !== 'escort'))
                             <div class="text-center text-gray-400 text-sm mb-8 italic">
-                                Algunas opiniones pueden no mostrarse pÃºblicamente.
+                                Algunas opiniones pueden no mostrarse públicamente.
                             </div>
 
                             <!-- Review Form -->
@@ -731,7 +731,7 @@
                                             class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-pink"
                                             placeholder=""
                                             value="{{ auth()->check() ? auth()->user()->name : old('name') }}" required>
-                                        <p class="text-gray-500 text-sm mt-1">No tenÃ©s que usar tu nombre real</p>
+                                        <p class="text-gray-500 text-sm mt-1">No tenés que usar tu nombre real</p>
                                         @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                     </div>
                                     <div x-data="{ rating: {{ old('rating', 0) }}, hoverRating: 0 }">
@@ -753,16 +753,16 @@
                                             {{ $escort->name }} *</label>
                                         <textarea name="content" rows="4"
                                             class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-pink"
-                                            placeholder="CuÃ©ntanos tu experiencia con {{ $escort->name }}. SÃ© amable."
+                                            placeholder="Cuéntanos tu experiencia con {{ $escort->name }}. Sé amable."
                                             required>{{ old('content') }}</textarea>
                                         @error('content') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                                     </div>
                                     <div>
-                                        <label class="block text-brand-pink font-bold mb-2">Comentarios PRIVADOS (sÃ³lo los
+                                        <label class="block text-brand-pink font-bold mb-2">Comentarios PRIVADOS (sólo los
                                             lee el staff de Citasescort)</label>
                                         <textarea name="private_content" rows="3"
                                             class="w-full bg-black border border-zinc-700 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-pink"
-                                            placeholder="PodÃ©s expresarte libremente.">{{ old('private_content') }}</textarea>
+                                            placeholder="Podés expresarte libremente.">{{ old('private_content') }}</textarea>
                                     </div>
                                     <button type="submit"
                                         class="w-full bg-brand-pink hover:bg-pink-600 text-white font-bold py-4 rounded transition-colors uppercase tracking-wider">
@@ -792,7 +792,7 @@
                                 </div>
                             @empty
                                 <div class="text-center py-10 bg-[#111111] rounded-lg border border-dashed border-zinc-800">
-                                    <p class="text-gray-400">AÃºn no hay comentarios.</p>
+                                    <p class="text-gray-400">Aún no hay comentarios.</p>
                                 </div>
                             @endforelse
                         </div>
@@ -984,7 +984,7 @@
                                     <div class="flex items-center gap-2">
                                         <span
                                             class="text-white/90 text-xs shadow-black drop-shadow-md font-medium">{{ $escort->city }}</span>
-                                        <span class="text-[10px] text-white/60">â€¢</span>
+                                        <span class="text-[10px] text-white/60">•</span>
                                         <span
                                             class="text-pink-400 text-xs font-bold shadow-black drop-shadow-md uppercase">HACE
                                             24 MINUTOS</span>

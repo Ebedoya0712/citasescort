@@ -42,7 +42,7 @@
 
                     <!-- Email -->
                     <div>
-                        <label for="email" class="block text-base font-medium text-gray-300 mb-3">Correo electrÃ³nico</label>
+                        <label for="email" class="block text-base font-medium text-gray-300 mb-3">Correo electrónico</label>
                         <div class="relative">
                             <input type="email" id="email" name="email" value="{{ $email ?? old('email') }}" required readonly
                                 class="w-full bg-black/30 border border-zinc-800 text-gray-500 rounded-2xl px-5 py-4 pl-14 text-lg outline-none cursor-not-allowed">

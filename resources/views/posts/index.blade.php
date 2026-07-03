@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
             <h1 class="text-4xl font-bold text-white mb-4">Blog & Noticias</h1>
             <p class="text-gray-400 max-w-2xl mx-auto">
-                Mantente al dÃ­a con las Ãºltimas novedades, eventos y consejos de Citasescort.
+                Mantente al dÃ­a con las últimas novedades, eventos y consejos de Citasescort.
             </p>
         </div>
     </div>
@@ -38,7 +38,7 @@
                             </p>
                             <a href="{{ route('posts.show', $post->slug) }}"
                                 class="inline-flex items-center text-sm font-medium text-white group-hover:text-brand-pink transition-colors">
-                                Leer mÃ¡s
+                                Leer más
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
