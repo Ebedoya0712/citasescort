@@ -189,9 +189,9 @@
                     </span>
                 @endif
 
-                <span>{{ $publication->age }} años</span>
+                <span>{{ $publication->age ?? $publication->escort->age ?? '' }} años</span>
                 <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
-                <span class="truncate">{{ $publication->city }}</span>
+                <span class="truncate">{{ $publication->city ?? $publication->escort->city ?? '' }}</span>
             </div>
         </div>
         @php
