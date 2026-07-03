@@ -79,7 +79,7 @@ class MyProfile extends Page implements HasForms
                                 Forms\Components\Select::make('city')
                                     ->label('Departamento')
                                     ->searchable()
-                                    ->options(\App\Models\City::getGroupedOptions())
+                                    ->options(\App\Models\City::getDepartments())
                                     ->required(),
                             ]),
 

@@ -89,7 +89,7 @@ class EditProfile extends Page implements HasForms
                         Select::make('city')
                             ->label('Ubicación / Departamento')
                             ->searchable()
-                            ->options(\App\Models\City::pluck('name', 'name'))
+                            ->options(\App\Models\City::getDepartments())
                             ->required(),
                         TextInput::make('address')
                             ->label('Dirección')

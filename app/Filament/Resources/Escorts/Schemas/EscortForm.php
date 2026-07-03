@@ -48,7 +48,7 @@ class EscortForm
                 Select::make('city')
                     ->label('Ubicación (Ciudad)')
                     ->searchable()
-                    ->options(\App\Models\City::pluck('name', 'name')),
+                    ->options(\App\Models\City::getDepartments()),
 
                 \Filament\Schemas\Components\Section::make('Verificación de Identidad')
                     ->columnSpanFull()

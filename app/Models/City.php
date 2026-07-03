@@ -13,16 +13,36 @@ class City extends Model
         return $this->belongsTo(Department::class);
     }
 
-    public static function getGroupedOptions()
+    public static function getDepartments()
     {
-        $options = [];
-        $departments = \App\Models\Department::with('cities')->orderBy('name')->get();
-        foreach ($departments as $dept) {
-            $cities = $dept->cities()->orderBy('name')->pluck('name', 'name')->toArray();
-            if (!empty($cities)) {
-                $options[$dept->name] = $cities;
-            }
-        }
-        return $options;
+        $departments = [
+            'Amazonas',
+            'Áncash',
+            'Apurímac',
+            'Arequipa',
+            'Ayacucho',
+            'Cajamarca',
+            'Callao',
+            'Cusco',
+            'Huancavelica',
+            'Huánuco',
+            'Ica',
+            'Junín',
+            'La Libertad',
+            'Lambayeque',
+            'Lima',
+            'Loreto',
+            'Madre de Dios',
+            'Moquegua',
+            'Pasco',
+            'Piura',
+            'Puno',
+            'San Martín',
+            'Tacna',
+            'Tumbes',
+            'Ucayali'
+        ];
+
+        return array_combine($departments, $departments);
     }
 }

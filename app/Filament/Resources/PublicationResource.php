@@ -55,7 +55,7 @@ class PublicationResource extends Resource
                     ->schema([
                         Forms\Components\Select::make('city')
                             ->label('Ubicación')
-                            ->options(\App\Models\City::pluck('name', 'name'))
+                            ->options(\App\Models\City::getDepartments())
                             ->required(),
                         Forms\Components\TextInput::make('price')
                             ->label('Tarifa')
@@ -243,7 +243,7 @@ class PublicationResource extends Resource
             ->filters([
                 Tables\Filters\SelectFilter::make('city')
                     ->label('Ubicación')
-                    ->options(\App\Models\City::pluck('name', 'name')),
+                    ->options(\App\Models\City::getDepartments()),
                 Tables\Filters\TernaryFilter::make('is_active')
                     ->label('Visible'),
             ])
