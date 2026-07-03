@@ -5,7 +5,7 @@
             <h2 class="text-black dark:text-white text-lg font-bold mb-4">Preguntas Frecuentes sobre Escorts en Perú
             </h2>
             <p class="text-gray-800 dark:text-white text-sm font-semibold max-w-2xl mx-auto">
-                La información aquí escrita aplica tanto a escorts mujeres, como también a escorts trans y hombres.
+                La información aquí escrita aplica exclusivamente a escorts mujeres.
             </p>
         </div>
 
@@ -27,7 +27,7 @@
                     ],
                     [
                         'q' => '¿Qué clases de escorts puedo encontrar en Citasescort?',
-                        'a' => 'En nuestra plataforma puedes encontrar una gran diversidad de perfiles, incluyendo escorts mujeres, hombres y personas trans, con diferentes especialidades y servicios.'
+                        'a' => 'En nuestra plataforma puedes encontrar una gran diversidad de perfiles de escorts mujeres, con diferentes especialidades y servicios.'
                     ],
                     [
                         'q' => '¿Dónde puedo encontrarme con una escort?',
