@@ -358,30 +358,32 @@
                     </div>
 
                     <!-- Quick Actions (Desktop) -->
-                    <div class="hidden md:flex flex-col gap-3 min-w-[200px] items-end">
-                        <div class="flex gap-4">
-                            <a href="{{ route('contact.index', ['subject' => 'Reporte PublicaciÃ³n: ' . $publication->title]) }}"
-                                class="text-gray-400 hover:text-white flex items-center gap-2 text-sm transition-colors group">
-                                <svg class="w-5 h-5 group-hover:text-red-500 transition-colors" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 21v-8a2 2 0 012-2h14a2 2 0 012 2v8M10 14h4M6 14v.01M18 14v.01M6 10a4 4 0 018 0 4 4 0 018 0" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                </svg>
-                                Reportar
-                            </a>
-                            <button onclick="if(navigator.share) { navigator.share({title: '{{ addslashes($publication->title) }}', url: window.location.href}).catch(console.error); } else { navigator.clipboard.writeText(window.location.href).then(() => alert('Enlace copiado al portapapeles')).catch(() => { const temp = document.createElement('input'); document.body.appendChild(temp); temp.value = window.location.href; temp.select(); document.execCommand('copy'); document.body.removeChild(temp); alert('Enlace copiado al portapapeles'); }); }"
-                                class="text-gray-400 hover:text-white flex items-center gap-2 text-sm transition-colors group">
-                                <svg class="w-5 h-5 group-hover:text-brand-pink transition-colors" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                                </svg>
-                                Compartir
-                            </button>
+                    @if(auth()->check() && auth()->user()->role === 'user')
+                        <div class="hidden md:flex flex-col gap-3 min-w-[200px] items-end">
+                            <div class="flex gap-4">
+                                <a href="{{ route('contact.index', ['subject' => 'Reporte PublicaciÃ³n: ' . $publication->title]) }}"
+                                    class="text-gray-400 hover:text-white flex items-center gap-2 text-sm transition-colors group">
+                                    <svg class="w-5 h-5 group-hover:text-red-500 transition-colors" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 21v-8a2 2 0 012-2h14a2 2 0 012 2v8M10 14h4M6 14v.01M18 14v.01M6 10a4 4 0 018 0 4 4 0 018 0" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                    </svg>
+                                    Reportar
+                                </a>
+                                <button onclick="if(navigator.share) { navigator.share({title: '{{ addslashes($publication->title) }}', url: window.location.href}).catch(console.error); } else { navigator.clipboard.writeText(window.location.href).then(() => alert('Enlace copiado al portapapeles')).catch(() => { const temp = document.createElement('input'); document.body.appendChild(temp); temp.value = window.location.href; temp.select(); document.execCommand('copy'); document.body.removeChild(temp); alert('Enlace copiado al portapapeles'); }); }"
+                                    class="text-gray-400 hover:text-white flex items-center gap-2 text-sm transition-colors group">
+                                    <svg class="w-5 h-5 group-hover:text-brand-pink transition-colors" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                    </svg>
+                                    Compartir
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
 
                 <!-- Quick Stats Bar (Reference Match) -->

@@ -206,6 +206,7 @@
                     </div>
 
                     <!-- Quick Actions (Desktop) -->
+                    @if(auth()->check() && auth()->user()->role === 'user')
                     <div class="hidden md:flex flex-col gap-3 min-w-[200px] items-end">
                         <div class="flex gap-4">
                             <a href="#"
@@ -230,6 +231,7 @@
                             </a>
                         </div>
                     </div>
+                    @endif
                 </div>
 
                 <!-- Quick Stats Bar (Reference Match) -->
