@@ -30,7 +30,7 @@ class EstablishmentPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Red,
             ])
-            ->brandName('Citasescort')
+            ->brandName('CitasEscorts')
             ->brandLogo(fn () => view('filament.logo'))
             ->brandLogoHeight('2.5rem')
             ->discoverResources(in: app_path('Filament/Establishment/Resources'), for: 'App\Filament\Establishment\Resources')

@@ -26,6 +26,7 @@ class EscortPanelProvider extends PanelProvider
         return $panel
             ->id('escort')
             ->path('dashboard')
+            ->brandName('CitasEscorts')
             ->homeUrl('/')
             ->colors([
                 'primary' => Color::Red,
