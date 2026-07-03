@@ -104,6 +104,7 @@ class PaymentResource extends Resource
                         // Update user's escort plan if user is an escort
                         if ($record->user && $record->user->escort && $record->plan) {
                             $record->user->escort->update([
+                                'level' => strtolower($record->plan->name),
                                 'plan_id' => $record->plan_id,
                                 'plan_expires_at' => now()->addDays($record->plan->duration_days),
                             ]);
