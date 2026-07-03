@@ -934,7 +934,7 @@
                     <div x-data="{ showForm: false }">
                         <div class="flex justify-between items-center mb-8">
                             <h3 class="text-xl font-bold text-white">Comentarios sobre {{ $escort->name }}</h3>
-                            @if(!auth()->check() || (auth()->check() && auth()->user()->role !== 'escort'))
+                            @if(auth()->check() && auth()->user()->role !== 'escort')
                                 <button @click="showForm = !showForm"
                                     class="bg-red-600 hover:opacity-90 text-white px-6 py-2 rounded text-sm font-bold flex items-center gap-2 transition-colors">
                                     Comentar <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -942,10 +942,18 @@
                                             d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                     </svg>
                                 </button>
+                            @elseif(!auth()->check())
+                                <a href="{{ route('login') }}"
+                                    class="bg-red-600 hover:opacity-90 text-white px-6 py-2 rounded text-sm font-bold flex items-center gap-2 transition-colors">
+                                    Comentar <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                </a>
                             @endif
                         </div>
 
-                        @if(!auth()->check() || (auth()->check() && auth()->user()->role !== 'escort'))
+                        @if(auth()->check() && auth()->user()->role !== 'escort')
                             <div class="text-center text-gray-400 text-sm mb-8 italic">
                                 Algunas opiniones pueden no mostrarse públicamente.
                             </div>
@@ -981,7 +989,7 @@
                                                 <button type="button" @click="rating = i" @mouseenter="hoverRating = i"
                                                     @mouseleave="hoverRating = 0"
                                                     :class="(hoverRating >= i || (hoverRating === 0 && rating >= i)) ? 'text-red-500' : 'text-gray-600'"
-                                                    class="focus:outline-none transition-colors">â˜…</button>
+                                                    class="focus:outline-none transition-colors">&#9733;</button>
                                             </template>
                                         </div>
                                         @error('rating') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
@@ -1019,7 +1027,7 @@
                                             <h4 class="text-white font-bold">{{ $review->name }}</h4>
                                             <div class="flex text-red-500 text-sm my-1">
                                                 @for($i = 0; $i < $review->rating; $i++)
-                                                    â˜…
+                                                    &#9733;
                                                 @endfor
                                             </div>
                                         </div>

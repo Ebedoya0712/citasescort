@@ -1171,7 +1171,7 @@ ro -->
                             @endif
                         </div>
 
-                        @if(!auth()->check() || (auth()->check() && auth()->user()->role !== 'escort'))
+                        @if(auth()->check() && auth()->user()->role !== 'escort')
                             <div class="text-center text-gray-400 text-sm mb-8 italic">
                                 Algunas opiniones pueden no mostrarse públicamente.
                             </div>
@@ -1207,7 +1207,7 @@ ro -->
                                                 <button type="button" @click="rating = i" @mouseenter="hoverRating = i"
                                                     @mouseleave="hoverRating = 0"
                                                     :class="(hoverRating >= i || (hoverRating === 0 && rating >= i)) ? 'text-red-500' : 'text-gray-600'"
-                                                    class="focus:outline-none transition-colors">â˜…</button>
+                                                    class="focus:outline-none transition-colors">&#9733;</button>
                                             </template>
                                         </div>
                                         @error('rating') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
@@ -1245,7 +1245,7 @@ ro -->
                                             <h4 class="text-white font-bold">{{ $review->name }}</h4>
                                             <div class="flex text-red-500 text-sm my-1">
                                                 @for($i = 0; $i < $review->rating; $i++)
-                                                    â˜…
+                                                    &#9733;
                                                 @endfor
                                             </div>
                                         </div>
