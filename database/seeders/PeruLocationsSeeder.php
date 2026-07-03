@@ -40,9 +40,14 @@ class PeruLocationsSeeder extends Seeder
         // Clean up old cities/districts that are not departments
         City::whereNotIn('name', $departments)->delete();
 
+        // Create a single dummy department to satisfy the foreign key constraint
+        $peru = \App\Models\Department::firstOrCreate(['name' => 'Perú']);
+
         foreach ($departments as $departmentName) {
             City::firstOrCreate([
                 'name' => $departmentName
+            ], [
+                'department_id' => $peru->id
             ]);
         }
     }
