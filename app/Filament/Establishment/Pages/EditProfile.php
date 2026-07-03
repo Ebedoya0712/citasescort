@@ -99,20 +99,6 @@ class EditProfile extends Page implements HasForms
                             ->label('Teléfono Fijo / Móvil')
                             ->tel()
                             ->maxLength(255)
-                            ->prefix(new \Illuminate\Support\HtmlString('<img src="https://flagcdn.com/w20/pe.png" width="20" height="15" alt="PE" class="inline" style="margin-right:4px;"> +51'))
-                            ->dehydrateStateUsing(function ($state) {
-                                return $state ? '+51' . $state : null;
-                            })
-                            ->afterStateHydrated(function (\Filament\Forms\Components\TextInput $component, $state) {
-                                if ($state) {
-                                    foreach (['+598', '+595', '+591', '+593', '+54', '+56', '+57', '+51', '+58', '+55'] as $prefix) {
-                                        if (str_starts_with($state, $prefix)) {
-                                            $component->state(substr($state, strlen($prefix)));
-                                            return;
-                                        }
-                                    }
-                                }
-                            })
                             ->columnSpan(1),
 
                         TextInput::make('whatsapp')

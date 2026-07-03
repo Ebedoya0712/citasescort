@@ -144,15 +144,6 @@ class PublicationFormNew
                         \Filament\Forms\Components\TextInput::make('phone')
                             ->label('Teléfono')
                             ->tel()
-                            ->prefix(new \Illuminate\Support\HtmlString('<div class="flex items-center gap-1.5"><img src="https://flagcdn.com/w20/pe.png" width="18" height="13" class="rounded-sm" alt="PE"> <span class="text-gray-300 font-medium text-sm">+51</span></div>'))
-                            ->dehydrateStateUsing(function ($state) {
-                                return $state ? '+51' . ltrim($state, '+51 ') : null;
-                            })
-                            ->afterStateHydrated(function (\Filament\Forms\Components\TextInput $component, $state) {
-                                if ($state && str_starts_with($state, '+51')) {
-                                    $component->state(substr($state, 3));
-                                }
-                            })
                             ->columnSpanFull(),
 
                         \Filament\Forms\Components\TextInput::make('whatsapp')
