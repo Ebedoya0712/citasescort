@@ -28,7 +28,7 @@ class EstablishmentPanelProvider extends PanelProvider
             ->path('establishment')
             ->homeUrl('/')
             ->colors([
-                'primary' => Color::Red,
+                'primary' => '#dc2626',
             ])
             ->brandName('CitasEscorts')
             ->brandLogo(fn () => view('filament.logo'))

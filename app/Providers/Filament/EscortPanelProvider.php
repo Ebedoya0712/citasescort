@@ -29,7 +29,7 @@ class EscortPanelProvider extends PanelProvider
             ->brandName('CitasEscorts')
             ->homeUrl('/')
             ->colors([
-                'primary' => Color::Red,
+                'primary' => '#dc2626',
             ])
             ->discoverResources(in: app_path('Filament/Escort/Resources'), for: 'App\Filament\Escort\Resources')
             ->discoverPages(in: app_path('Filament/Escort/Pages'), for: 'App\Filament\Escort\Pages')
