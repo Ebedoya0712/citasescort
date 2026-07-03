@@ -87,35 +87,10 @@ class EditProfile extends Page implements HasForms
                     ->description('Cómo pueden encontrarte los clientes.')
                     ->schema([
                         Select::make('city')
-                            ->label('Ubicación / Departamento')
+                            ->label('Departamento -> Distrito')
                             ->searchable()
-                            ->options([
-                                'Amazonas' => 'Amazonas',
-                                'Ancash' => 'Ancash',
-                                'Apurímac' => 'Apurímac',
-                                'Arequipa' => 'Arequipa',
-                                'Ayacucho' => 'Ayacucho',
-                                'Cajamarca' => 'Cajamarca',
-                                'Callao' => 'Callao',
-                                'Cusco' => 'Cusco',
-                                'Huancavelica' => 'Huancavelica',
-                                'Huánuco' => 'Huánuco',
-                                'Ica' => 'Ica',
-                                'Junín' => 'Junín',
-                                'La Libertad' => 'La Libertad',
-                                'Lambayeque' => 'Lambayeque',
-                                'Lima' => 'Lima',
-                                'Loreto' => 'Loreto',
-                                'Madre de Dios' => 'Madre de Dios',
-                                'Moquegua' => 'Moquegua',
-                                'Pasco' => 'Pasco',
-                                'Piura' => 'Piura',
-                                'Puno' => 'Puno',
-                                'San Martín' => 'San Martín',
-                                'Tacna' => 'Tacna',
-                                'Tumbes' => 'Tumbes',
-                                'Ucayali' => 'Ucayali',
-                            ])->required(),
+                            ->options(\App\Models\City::getGroupedOptions())
+                            ->required(),
                         TextInput::make('address')
                             ->label('Dirección')
                             ->placeholder('Ej: Av. Principal 123, Montevideo')

@@ -248,7 +248,11 @@
                                 </svg>
                                 Ubicación
                             </div>
-                            <div class="text-gray-300 text-sm">{{ $escort->city }}</div>
+                            @php
+                                $cityModel = \App\Models\City::with('department')->where('name', $escort->city)->first();
+                                $locationDisplay = $cityModel && $cityModel->department ? $cityModel->department->name . ' - ' . $cityModel->name : $escort->city;
+                            @endphp
+                            <div class="text-gray-300 text-sm">{{ $locationDisplay }}</div>
                         </div>
 
                         <!-- Tarifa -->

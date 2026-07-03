@@ -186,7 +186,11 @@
 
                 <span>{{ $escort->age ?? '' }} años</span>
                 <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
-                <span class="truncate">{{ $escort->city ?? '' }}</span>
+                @php
+                    $cityModel = \App\Models\City::with('department')->where('name', $escort->city)->first();
+                    $locationDisplay = $cityModel && $cityModel->department ? $cityModel->department->name . ' - ' . $cityModel->name : ($escort->city ?? '');
+                @endphp
+                <span class="truncate" title="{{ $locationDisplay }}">{{ $locationDisplay }}</span>
             </div>
         </div>
         @php

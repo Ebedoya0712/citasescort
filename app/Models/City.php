@@ -12,4 +12,17 @@ class City extends Model
     {
         return $this->belongsTo(Department::class);
     }
+
+    public static function getGroupedOptions()
+    {
+        $options = [];
+        $departments = \App\Models\Department::with('cities')->orderBy('name')->get();
+        foreach ($departments as $dept) {
+            $cities = $dept->cities()->orderBy('name')->pluck('name', 'name')->toArray();
+            if (!empty($cities)) {
+                $options[$dept->name] = $cities;
+            }
+        }
+        return $options;
+    }
 }

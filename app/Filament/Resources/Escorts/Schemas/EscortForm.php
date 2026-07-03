@@ -45,8 +45,10 @@ class EscortForm
                         'male' => 'Masculino',
                         'trans' => 'Trans',
                     ]),
-                TextInput::make('city')
-                    ->label('Ubicación (Ciudad)'),
+                Select::make('city')
+                    ->label('Departamento -> Distrito')
+                    ->searchable()
+                    ->options(\App\Models\City::getGroupedOptions()),
 
                 \Filament\Schemas\Components\Section::make('Verificación de Identidad')
                     ->columnSpanFull()
