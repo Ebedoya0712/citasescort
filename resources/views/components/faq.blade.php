@@ -1,10 +1,10 @@
-<section class="bg-white dark:bg-black py-20 px-4 lg:px-8 transition-colors duration-300">
+<section class="bg-black py-20 px-4 lg:px-8 transition-colors duration-300">
     <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-12">
-            <h2 class="text-black dark:text-white text-lg font-bold mb-4">Preguntas Frecuentes sobre Escorts en Perú
+            <h2 class="text-white text-lg font-bold mb-4">Preguntas Frecuentes sobre Escorts en Perú
             </h2>
-            <p class="text-gray-500 dark:text-gray-400 text-sm font-semibold max-w-2xl mx-auto">
+            <p class="text-gray-400 text-sm font-semibold max-w-2xl mx-auto">
                 La información aquí escrita aplica exclusivamente a escorts mujeres.
             </p>
         </div>
@@ -57,11 +57,11 @@
             @endphp
 
             @foreach ($faqs as $index => $faq)
-                <div class="faq-item bg-white dark:bg-zinc-900/40 border border-gray-200 dark:border-zinc-800 rounded-2xl overflow-hidden cursor-pointer group hover:border-red-600/30 hover:shadow-md transition-all duration-300 shadow-sm"
+                <div class="faq-item bg-zinc-900/40 border border-zinc-800 rounded-2xl overflow-hidden cursor-pointer group hover:border-red-600/30 hover:shadow-md transition-all duration-300 shadow-sm"
                     onclick="toggleFaq({{ $index }})">
                     <div class="flex items-center justify-between p-5 px-6">
                         <span
-                            class="text-gray-900 dark:text-white group-hover:text-red-600 font-bold text-sm tracking-tight select-none transition-colors">{{ $faq['q'] }}</span>
+                            class="text-white group-hover:text-red-600 font-bold text-sm tracking-tight select-none transition-colors">{{ $faq['q'] }}</span>
                         <svg id="arrow-{{ $index }}" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                             stroke-linejoin="round" class="text-gray-400 group-hover:text-red-600 transition-colors transition-transform duration-300">
@@ -70,7 +70,7 @@
                     </div>
                     <div id="answer-{{ $index }}" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                         <div
-                            class="p-6 pt-0 text-gray-600 dark:text-gray-300 text-sm leading-relaxed border-t border-gray-100 dark:border-zinc-800/80 mt-2">
+                            class="p-6 pt-0 text-gray-300 text-sm leading-relaxed border-t border-zinc-800/80 mt-2">
                             {{ $faq['a'] }}
                         </div>
                     </div>
