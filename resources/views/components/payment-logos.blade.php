@@ -37,6 +37,11 @@
                     <div class="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center font-black text-[9px] text-white italic">PP</div>
                     <span class="text-xs md:text-sm font-black tracking-tight text-blue-600 dark:text-blue-400">PAYPAL</span>
                 </div>
+                <!-- Yape -->
+                <div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-purple-900/10 dark:bg-purple-950/20 border border-purple-500/20 dark:border-purple-500/30 shadow-sm hover:border-purple-500/50 hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-5 h-5 rounded-full bg-purple-600 flex items-center justify-center font-black text-[10px] text-white">Y</div>
+                    <span class="text-xs md:text-sm font-black tracking-tight text-purple-600 dark:text-purple-400">YAPE</span>
+                </div>
             </div>
             <!-- Copy 2 -->
             <div class="flex items-center gap-24 md:gap-40 pr-24 md:pr-40">
@@ -62,6 +67,11 @@
                 <div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-blue-900/10 dark:bg-blue-950/20 border border-blue-500/20 dark:border-blue-500/30 shadow-sm hover:border-blue-500/50 hover:-translate-y-1 transition-all duration-300">
                     <div class="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center font-black text-[9px] text-white italic">PP</div>
                     <span class="text-xs md:text-sm font-black tracking-tight text-blue-600 dark:text-blue-400">PAYPAL</span>
+                </div>
+                <!-- Yape -->
+                <div class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-purple-900/10 dark:bg-purple-950/20 border border-purple-500/20 dark:border-purple-500/30 shadow-sm hover:border-purple-500/50 hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-5 h-5 rounded-full bg-purple-600 flex items-center justify-center font-black text-[10px] text-white">Y</div>
+                    <span class="text-xs md:text-sm font-black tracking-tight text-purple-600 dark:text-purple-400">YAPE</span>
                 </div>
             </div>
         </div>

@@ -48,15 +48,6 @@
             </a>
 
             <div class="flex items-center gap-4 text-black dark:text-white">
-                @if(config('settings.facebook_url'))
-                    <a href="{{ config('settings.facebook_url') }}" target="_blank" class="hover:text-brand-pink transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path
-                                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3l-1 3h-2v6.8c4.56-.93 8-4.96 8-9.8z" />
-                        </svg>
-                    </a>
-                @endif
                 @if(config('settings.instagram_url'))
                     <a href="{{ config('settings.instagram_url') }}" target="_blank" class="hover:text-brand-pink transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
