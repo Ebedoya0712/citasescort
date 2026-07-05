@@ -80,7 +80,33 @@ class MyProfile extends Page implements HasForms
                                     ->label('Departamento')
                                     ->searchable()
                                     ->options(\App\Models\City::getDepartments())
+                                    ->reactive()
+                                    ->afterStateUpdated(fn ($state, callable $set) => [
+                                        $set('province', null),
+                                        $set('district', null)
+                                    ])
                                     ->required(),
+                                
+                                Forms\Components\Select::make('province')
+                                    ->label('Provincia')
+                                    ->searchable()
+                                    ->options(function (callable $get) {
+                                        $dep = $get('city');
+                                        if (!$dep) return [];
+                                        return \App\Models\City::getProvincesForDepartment($dep);
+                                    })
+                                    ->reactive()
+                                    ->afterStateUpdated(fn ($state, callable $set) => $set('district', null)),
+
+                                Forms\Components\Select::make('district')
+                                    ->label('Distrito')
+                                    ->searchable()
+                                    ->options(function (callable $get) {
+                                        $dep = $get('city');
+                                        $prov = $get('province');
+                                        if (!$dep || !$prov) return [];
+                                        return \App\Models\City::getDistrictsForProvince($dep, $prov);
+                                    }),
                             ]),
 
                         Forms\Components\TextInput::make('email')
@@ -127,6 +153,8 @@ class MyProfile extends Page implements HasForms
             'gender' => 'Mujer',
             'age' => $data['age'] ?? null,
             'city' => $data['city'] ?? null,
+            'province' => $data['province'] ?? null,
+            'district' => $data['district'] ?? null,
             'profile_photo' => $data['profile_photo'] ?? $escort->profile_photo,
         ]);
         

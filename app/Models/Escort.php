@@ -17,6 +17,8 @@ class Escort extends Model
         'age',
         'gender',
         'city',
+        'province',
+        'district',
         'reviews_count',
         'reviews_avg_stars',
         'price',

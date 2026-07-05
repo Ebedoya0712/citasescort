@@ -13,6 +13,8 @@ class Publication extends Model
         'photos',
         'price',
         'city',
+        'province',
+        'district',
         'oral_sex',
         'fantasies',
         'virtual_services',
