@@ -29,6 +29,11 @@
         </div>
     </div>
 
+    <!-- Safe UBIGEO Data Script -->
+    <script id="ubigeo-data" type="application/json">
+        @json($ubigeoJsonData)
+    </script>
+
     <!-- Locations Wizard Modal -->
     <div x-data="{
         open: false,
@@ -41,7 +46,7 @@
         districts: [],
 
         init() {
-            this.ubigeo = @json($ubigeoJsonData);
+            this.ubigeo = JSON.parse(document.getElementById('ubigeo-data').textContent);
         },
 
         openWizard(depName) {
