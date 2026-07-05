@@ -91,9 +91,16 @@ class MyProfile extends Page implements HasForms
                                     ->label('Provincia')
                                     ->searchable()
                                     ->options(function (callable $get) {
-                                        $dep = $get('city');
-                                        if (!$dep) return [];
-                                        return \App\Models\City::getProvincesForDepartment($dep);
+                                        $department = $get('city');
+                                        if (!$department) return [];
+                                        $ubigeoPath = storage_path('app/peru-locations.json');
+                                        if (!file_exists($ubigeoPath)) return [];
+                                        $ubigeo = json_decode(file_get_contents($ubigeoPath), true);
+                                        if (isset($ubigeo[$department])) {
+                                            $provinces = array_keys($ubigeo[$department]);
+                                            return array_combine($provinces, $provinces);
+                                        }
+                                        return [];
                                     })
                                     ->reactive()
                                     ->afterStateUpdated(fn ($state, callable $set) => $set('district', null)),
@@ -102,10 +109,17 @@ class MyProfile extends Page implements HasForms
                                     ->label('Distrito')
                                     ->searchable()
                                     ->options(function (callable $get) {
-                                        $dep = $get('city');
-                                        $prov = $get('province');
-                                        if (!$dep || !$prov) return [];
-                                        return \App\Models\City::getDistrictsForProvince($dep, $prov);
+                                        $department = $get('city');
+                                        $province = $get('province');
+                                        if (!$department || !$province) return [];
+                                        $ubigeoPath = storage_path('app/peru-locations.json');
+                                        if (!file_exists($ubigeoPath)) return [];
+                                        $ubigeo = json_decode(file_get_contents($ubigeoPath), true);
+                                        if (isset($ubigeo[$department][$province])) {
+                                            $districts = $ubigeo[$department][$province];
+                                            return array_combine($districts, $districts);
+                                        }
+                                        return [];
                                     }),
                             ]),
 
