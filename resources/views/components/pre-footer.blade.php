@@ -10,6 +10,11 @@
         $ubigeoJsonData = file_exists($ubigeoPath) ? json_decode(file_get_contents($ubigeoPath), true) : [];
     @endphp
 
+    <!-- Safe UBIGEO Data Script -->
+    <script id="ubigeo-data" type="application/json">
+        @json($ubigeoJsonData)
+    </script>
+
     <!-- Locations Wizard Widget (Inline) -->
     <div x-data="{
         ubigeo: {},
