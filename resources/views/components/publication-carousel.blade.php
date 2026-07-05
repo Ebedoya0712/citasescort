@@ -1,6 +1,6 @@
 @props(['title', 'publications', 'id' => 'carousel-' . uniqid()])
 
-<section class="py-12 px-4 lg:px-8 max-w-7xl mx-auto" x-data="{
+<section class="py-4 px-4 lg:px-8 max-w-7xl mx-auto" x-data="{
     current: 0,
     total: {{ $publications->count() }},
     perView: 4,
