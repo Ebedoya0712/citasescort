@@ -70,7 +70,7 @@
                     </div>
                     <div id="answer-{{ $index }}" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                         <div
-                            class="p-6 pt-0 text-gray-300 text-sm leading-relaxed border-t border-zinc-800/80 mt-2">
+                            class="p-6 pt-4 text-gray-300 text-sm leading-relaxed border-t border-zinc-800/80 mt-2">
                             {{ $faq['a'] }}
                         </div>
                     </div>
