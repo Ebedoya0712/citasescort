@@ -18,14 +18,14 @@
 <a href="{{ route('profile.show', $escort->id) }}"
     class="bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-300 hover:-translate-y-1 block hover:ring-2 hover:ring-red-600">
     <!-- Image Area -->
-    <div class="relative aspect-[4/5] overflow-hidden bg-gray-200 dark:bg-zinc-800">
+    <div class="relative aspect-[4/5] overflow-hidden bg-black">
         @if(!empty($escort->photos) && isset($escort->photos[0]))
             @php
                 $photo = $escort->photos[0];
                 $src = Str::startsWith($photo, ['http://', 'https://']) ? $photo : Storage::url($photo);
             @endphp
             <img src="{{ $src }}" alt="{{ $escort->name }}"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
 
             <!-- Watermark -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 z-0 select-none">

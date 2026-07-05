@@ -27,14 +27,14 @@
         <div class="absolute inset-0 rounded-2xl ring-4 ring-gray-400/60 ring-offset-2 ring-offset-zinc-900 pointer-events-none z-10"></div>
     @endif
     <!-- Image Area -->
-    <div class="relative aspect-[4/5] overflow-hidden rounded-t-xl md:rounded-t-2xl bg-gray-200 dark:bg-zinc-800">
+    <div class="relative aspect-[4/5] overflow-hidden rounded-t-xl md:rounded-t-2xl bg-black">
         @if(!empty($publication->photos) && isset($publication->photos[0]))
             @php
                 $photo = $publication->photos[0];
                 $src = Str::startsWith($photo, ['http://', 'https://']) ? $photo : Storage::url($photo);
             @endphp
             <img src="{{ $src }}" alt="{{ $publication->title }}"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
 
             <!-- Watermark Frontend -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 z-10 select-none">
