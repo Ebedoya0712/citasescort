@@ -1,4 +1,4 @@
-<section class="max-w-7xl mx-auto px-4 lg:px-8 py-12 border-t border-zinc-900">
+<section class="max-w-7xl mx-auto px-4 lg:px-8 pt-12 pb-4 border-t border-zinc-900">
     <!-- 3-Column Features -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto w-full">
         <!-- Feature 1 -->
