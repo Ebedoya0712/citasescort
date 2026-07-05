@@ -106,17 +106,81 @@
                             </div>
 
                             <!-- Ubicación -->
-                            <div>
-                                <label class="block text-xs text-gray-500 dark:text-gray-400 mb-1 flex items-center gap-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
-                                    Ciudad
-                                </label>
-                                <select name="city" class="w-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-200 dark:border-zinc-800 rounded-lg outline-none px-3 py-2 text-sm text-gray-700 dark:text-gray-200 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors">
-                                    <option value="">Todas las ciudades</option>
-                                    @foreach(\App\Models\City::orderBy('name', 'asc')->get() as $dbCity)
-                                        <option value="{{ $dbCity->name }}" {{ request('city') == $dbCity->name ? 'selected' : '' }}>{{ $dbCity->name }}</option>
-                                    @endforeach
-                                </select>
+                            @php
+                                $ubigeoPath = storage_path('app/peru-locations.json');
+                                $ubigeoJson = file_exists($ubigeoPath) ? file_get_contents($ubigeoPath) : '{}';
+                            @endphp
+                            <div x-data='{
+                                ubigeo: {{ $ubigeoJson }},
+                                selectedCity: "{{ request("city", "") }}",
+                                selectedProvince: "{{ request("province", "") }}",
+                                selectedDistrict: "{{ request("district", "") }}",
+                                provinces: {},
+                                districts: [],
+                                
+                                init() {
+                                    this.updateProvinces();
+                                    this.updateDistricts();
+                                },
+                                
+                                updateProvinces() {
+                                    if (this.selectedCity && this.ubigeo[this.selectedCity]) {
+                                        this.provinces = this.ubigeo[this.selectedCity];
+                                    } else {
+                                        this.provinces = {};
+                                        this.selectedProvince = "";
+                                        this.selectedDistrict = "";
+                                    }
+                                    this.updateDistricts();
+                                },
+                                
+                                updateDistricts() {
+                                    if (this.selectedCity && this.selectedProvince && this.ubigeo[this.selectedCity] && this.ubigeo[this.selectedCity][this.selectedProvince]) {
+                                        this.districts = this.ubigeo[this.selectedCity][this.selectedProvince];
+                                    } else {
+                                        this.districts = [];
+                                        this.selectedDistrict = "";
+                                    }
+                                }
+                            }' class="space-y-4">
+                                <div>
+                                    <label class="block text-xs text-gray-500 dark:text-gray-400 mb-1 flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                                        Departamento
+                                    </label>
+                                    <select name="city" x-model="selectedCity" @change="updateProvinces()" class="w-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-200 dark:border-zinc-800 rounded-lg outline-none px-3 py-2 text-sm text-gray-700 dark:text-gray-200 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors">
+                                        <option value="">Todos los departamentos</option>
+                                        <template x-for="(provList, depName) in ubigeo" :key="depName">
+                                            <option :value="depName" x-text="depName" :selected="selectedCity == depName"></option>
+                                        </template>
+                                    </select>
+                                </div>
+
+                                <div x-show="Object.keys(provinces).length > 0" style="display: none;">
+                                    <label class="block text-xs text-gray-500 dark:text-gray-400 mb-1 flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                                        Provincia
+                                    </label>
+                                    <select name="province" x-model="selectedProvince" @change="updateDistricts()" class="w-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-200 dark:border-zinc-800 rounded-lg outline-none px-3 py-2 text-sm text-gray-700 dark:text-gray-200 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors">
+                                        <option value="">Todas las provincias</option>
+                                        <template x-for="(distList, provName) in provinces" :key="provName">
+                                            <option :value="provName" x-text="provName" :selected="selectedProvince == provName"></option>
+                                        </template>
+                                    </select>
+                                </div>
+
+                                <div x-show="districts.length > 0" style="display: none;">
+                                    <label class="block text-xs text-gray-500 dark:text-gray-400 mb-1 flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                                        Distrito
+                                    </label>
+                                    <select name="district" x-model="selectedDistrict" class="w-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-200 dark:border-zinc-800 rounded-lg outline-none px-3 py-2 text-sm text-gray-700 dark:text-gray-200 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors">
+                                        <option value="">Todos los distritos</option>
+                                        <template x-for="distName in districts" :key="distName">
+                                            <option :value="distName" x-text="distName" :selected="selectedDistrict == distName"></option>
+                                        </template>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>

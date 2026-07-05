@@ -478,7 +478,14 @@ ro -->
                                 </svg>
                                 Ubicación
                             </div>
-                            <div class="text-gray-300 text-sm">{{ $escort->city }}</div>
+                            @php
+                                $loc = array_filter([
+                                    $escort->city ?? '',
+                                    $escort->province ?? '',
+                                    $escort->district ?? ''
+                                ]);
+                            @endphp
+                            <div class="text-gray-300 text-sm">{{ implode(', ', $loc) }}</div>
                         </div>
 
                         <!-- Tarifa -->

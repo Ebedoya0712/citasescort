@@ -27,9 +27,19 @@ class EscortController extends Controller
     {
         $query = Escort::where('is_active', true);
 
-        // City Filter
-        if ($request->has('city')) {
+        // City (Department) Filter
+        if ($request->has('city') && $request->input('city') !== '') {
             $query->where('city', $request->input('city'));
+        }
+
+        // Province Filter
+        if ($request->has('province') && $request->input('province') !== '') {
+            $query->where('province', $request->input('province'));
+        }
+
+        // District Filter
+        if ($request->has('district') && $request->input('district') !== '') {
+            $query->where('district', $request->input('district'));
         }
         
         // Department/State Filter

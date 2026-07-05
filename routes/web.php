@@ -32,6 +32,21 @@ Route::get('/', function (\Illuminate\Http\Request $request) {
         $generalQuery->where('city', $city);
     }
 
+    $province = $request->input('province');
+    $district = $request->input('district');
+
+    if ($province) {
+        $diamondQuery->where('province', $province);
+        $silverQuery->where('province', $province);
+        $generalQuery->where('province', $province);
+    }
+
+    if ($district) {
+        $diamondQuery->where('district', $district);
+        $silverQuery->where('district', $district);
+        $generalQuery->where('district', $district);
+    }
+
     if ($search) {
         $searchTerm = '%' . strtolower($search) . '%';
         $searchClosure = function($q) use ($searchTerm) {

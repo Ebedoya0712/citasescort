@@ -186,7 +186,14 @@
 
                 <span>{{ $escort->age ?? '' }} años</span>
                 <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
-                <span class="truncate">{{ $escort->city ?? '' }}</span>
+                @php
+                    $loc = array_filter([
+                        $escort->city ?? '',
+                        $escort->province ?? '',
+                        $escort->district ?? ''
+                    ]);
+                @endphp
+                <span class="truncate" title="{{ implode(', ', $loc) }}">{{ implode(', ', $loc) }}</span>
             </div>
         </div>
         @php

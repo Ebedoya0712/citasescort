@@ -54,9 +54,42 @@ class PublicationResource extends Resource
                 \Filament\Schemas\Components\Section::make('Detalles Generales')
                     ->schema([
                         Forms\Components\Select::make('city')
-                            ->label('Ubicación')
+                            ->label('Departamento')
                             ->options(\App\Models\City::getDepartments())
+                            ->reactive()
+                            ->afterStateUpdated(fn (callable $set) => $set('province', null))
                             ->required(),
+                        Forms\Components\Select::make('province')
+                            ->label('Provincia')
+                            ->options(function (callable $get) {
+                                $department = $get('city');
+                                if (!$department) return [];
+                                $ubigeoPath = storage_path('app/peru-locations.json');
+                                if (!file_exists($ubigeoPath)) return [];
+                                $ubigeo = json_decode(file_get_contents($ubigeoPath), true);
+                                if (isset($ubigeo[$department])) {
+                                    $provinces = array_keys($ubigeo[$department]);
+                                    return array_combine($provinces, $provinces);
+                                }
+                                return [];
+                            })
+                            ->reactive()
+                            ->afterStateUpdated(fn (callable $set) => $set('district', null)),
+                        Forms\Components\Select::make('district')
+                            ->label('Distrito')
+                            ->options(function (callable $get) {
+                                $department = $get('city');
+                                $province = $get('province');
+                                if (!$department || !$province) return [];
+                                $ubigeoPath = storage_path('app/peru-locations.json');
+                                if (!file_exists($ubigeoPath)) return [];
+                                $ubigeo = json_decode(file_get_contents($ubigeoPath), true);
+                                if (isset($ubigeo[$department][$province])) {
+                                    $districts = $ubigeo[$department][$province];
+                                    return array_combine($districts, $districts);
+                                }
+                                return [];
+                            }),
                         Forms\Components\TextInput::make('price')
                             ->label('Tarifa')
                             ->numeric()
