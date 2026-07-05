@@ -10,35 +10,11 @@
         $ubigeoJsonData = file_exists($ubigeoPath) ? json_decode(file_get_contents($ubigeoPath), true) : [];
     @endphp
 
-    <div class="max-w-7xl mx-auto mb-16" x-data="{}">
-        <h3 class="text-center text-red-600 font-bold text-lg mb-8">Encontrá escorts en</h3>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2">
-            @foreach($cities as $city)
-                <button @click="$dispatch('open-locations-wizard', '{{ $city->name }}')"
-                    class="text-gray-400 hover:text-red-600 text-sm transition-colors flex items-center justify-between group text-left w-full cursor-pointer focus:outline-none">
-                    <span>{{ $city->name }}</span>
-                </button>
-            @endforeach
-
-            @if($cities->isEmpty())
-                <div class="col-span-full text-center text-gray-500 text-sm">
-                    No hay ciudades registradas.
-                </div>
-            @endif
-        </div>
-    </div>
-
-    <!-- Safe UBIGEO Data Script -->
-    <script id="ubigeo-data" type="application/json">
-        @json($ubigeoJsonData)
-    </script>
-
-    <!-- Locations Wizard Modal -->
+    <!-- Locations Wizard Widget (Inline) -->
     <div x-data="{
-        open: false,
         ubigeo: {},
         step: 1,
+        loading: false,
         selectedCity: '',
         selectedProvince: '',
         selectedDistrict: '',
@@ -49,26 +25,34 @@
             this.ubigeo = JSON.parse(document.getElementById('ubigeo-data').textContent);
         },
 
-        openWizard(depName) {
+        selectCity(depName) {
             this.selectedCity = depName;
             this.selectedProvince = '';
             this.selectedDistrict = '';
             this.provinces = Object.keys(this.ubigeo[depName] || {});
             this.districts = [];
-            this.step = 2;
-            this.open = true;
-            document.body.style.overflow = 'hidden';
+            
+            this.loading = true;
+            setTimeout(() => {
+                this.step = 2;
+                this.loading = false;
+            }, 300);
         },
 
         selectProvince(provName) {
             this.selectedProvince = provName;
             this.districts = this.ubigeo[this.selectedCity][provName] || [];
             this.selectedDistrict = '';
-            if (this.districts.length) {
-                this.step = 3;
-            } else {
-                this.finish();
-            }
+            
+            this.loading = true;
+            setTimeout(() => {
+                if (this.districts.length) {
+                    this.step = 3;
+                } else {
+                    this.finish();
+                }
+                this.loading = false;
+            }, 300);
         },
 
         selectDistrict(distName) {
@@ -82,11 +66,6 @@
             }
         },
 
-        close() {
-            this.open = false;
-            document.body.style.overflow = '';
-        },
-
         finish() {
             let url = '{{ route("escorts.index") }}?city=' + encodeURIComponent(this.selectedCity);
             if (this.selectedProvince) {
@@ -97,164 +76,134 @@
             }
             window.location.href = url;
         }
-    }" @open-locations-wizard.window="openWizard($event.detail)" class="relative z-[150]">
-        <!-- Modal Backdrop -->
-        <div x-show="open" 
-             x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0"
-             x-transition:enter-end="opacity-100"
-             x-transition:leave="transition ease-in duration-200"
-             x-transition:leave-start="opacity-100"
-             x-transition:leave-end="opacity-0"
-             class="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
-             style="display: none;">
-            
-            <!-- Modal Card -->
-            <div @click.outside="close()" 
-                 class="bg-zinc-950 border border-zinc-800 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
-                
-                <!-- Header -->
-                <div class="px-6 py-6 border-b border-zinc-800 flex items-center justify-between shrink-0">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-red-600/10 border border-red-600/30 flex items-center justify-center">
-                            <svg class="w-4 h-4 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-bold text-base">Ubicación de Búsqueda</h4>
-                            <p class="text-zinc-500 text-xs mt-0.5">Encuentra escorts cerca de ti</p>
-                        </div>
-                    </div>
-                    <button @click="close()" class="text-zinc-400 hover:text-white transition-colors p-1 rounded-full hover:bg-zinc-900">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+    }" class="max-w-7xl mx-auto mb-16 select-none">
+        
+        <h3 class="text-center text-red-600 font-bold text-lg mb-6">Encontrá escorts en</h3>
+
+        <!-- Steps Progress Circles -->
+        <div class="flex items-center justify-center gap-4 mb-8 text-xs font-semibold">
+            <!-- Step 1: Departamento -->
+            <button @click="if (step !== 1) { step = 1; selectedProvince = ''; selectedDistrict = ''; }" 
+                    :disabled="step === 1" 
+                    class="flex items-center gap-2 focus:outline-none hover:text-red-500 disabled:hover:text-inherit transition-colors cursor-pointer">
+                <div class="w-6 h-6 rounded-full flex items-center justify-center border font-bold transition-all text-xs"
+                     :class="step === 1 ? 'border-red-600 bg-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
+                    1
                 </div>
+                <span :class="step === 1 ? 'text-white' : 'text-zinc-500'">Departamento</span>
+            </button>
 
-                <!-- Steps Indicator -->
-                <div class="px-6 py-4 bg-zinc-900/30 border-b border-zinc-800 flex items-center justify-center gap-4 shrink-0 select-none">
-                    <!-- Step 1: Dept -->
-                    <button @click="step = 1" :disabled="step === 1" class="flex items-center gap-2 group disabled:cursor-default">
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all border"
-                             :class="step !== 0 ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
-                            1
-                        </div>
-                        <span class="text-xs font-semibold" :class="step !== 0 ? 'text-white' : 'text-zinc-500'">Departamento</span>
-                    </button>
+            <div class="w-8 h-[1px] bg-zinc-800" :class="step !== 1 ? 'bg-red-600' : ''"></div>
 
-                    <div class="w-8 h-[2px] bg-zinc-800" :class="step !== 1 ? 'bg-red-600' : ''"></div>
-
-                    <!-- Step 2: Prov -->
-                    <button @click="step = 2" :disabled="step === 1 || step === 2" class="flex items-center gap-2 group disabled:cursor-default">
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all border"
-                             :class="step !== 1 ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
-                            2
-                        </div>
-                        <span class="text-xs font-semibold" :class="step !== 1 ? 'text-white' : 'text-zinc-500'">Provincia</span>
-                    </button>
-
-                    <div class="w-8 h-[2px] bg-zinc-800" :class="step === 3 ? 'bg-red-600' : ''"></div>
-
-                    <!-- Step 3: Dist -->
-                    <div class="flex items-center gap-2">
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all border"
-                             :class="step === 3 ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
-                            3
-                        </div>
-                        <span class="text-xs font-semibold" :class="step === 3 ? 'text-white' : 'text-zinc-500'">Distrito</span>
-                    </div>
+            <!-- Step 2: Provincia -->
+            <button @click="if (step === 3) { step = 2; selectedDistrict = ''; }" 
+                    :disabled="step === 1 || step === 2" 
+                    class="flex items-center gap-2 focus:outline-none hover:text-red-500 disabled:hover:text-inherit transition-colors cursor-pointer">
+                <div class="w-6 h-6 rounded-full flex items-center justify-center border font-bold transition-all text-xs"
+                     :class="step === 2 ? 'border-red-600 bg-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
+                    2
                 </div>
+                <span :class="step === 2 ? 'text-white' : 'text-zinc-500'">Provincia</span>
+            </button>
 
-                <!-- Content Area -->
-                <div class="flex-1 overflow-y-auto p-6 custom-scrollbar max-h-[50vh]">
-                    
-                    <!-- STEP 1: DEPARTAMENTO -->
-                    <div x-show="step === 1" x-transition class="space-y-4" style="display: none;">
-                        <h5 class="text-white font-bold text-lg text-center">¿En qué departamento buscas?</h5>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                            <template x-for="(provList, depName) in ubigeo" :key="depName">
-                                <button @click="selectedCity = depName; provinces = Object.keys(provList); step = 2; updateDistricts();"
-                                        class="py-3 px-4 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-850 hover:border-zinc-700 text-sm font-semibold transition-all text-center focus:outline-none cursor-pointer"
-                                        :class="selectedCity === depName ? 'border-red-600 text-red-500 bg-red-600/5' : ''">
-                                    <span x-text="depName"></span>
-                                </button>
-                            </template>
-                        </div>
-                    </div>
+            <div class="w-8 h-[1px] bg-zinc-800" :class="step === 3 ? 'bg-red-600' : ''"></div>
 
-                    <!-- STEP 2: PROVINCIA -->
-                    <div x-show="step === 2" x-transition class="space-y-4" style="display: none;">
-                        <div class="text-center">
-                            <span class="text-xs font-bold text-red-600 uppercase tracking-wider" x-text="selectedCity"></span>
-                            <h5 class="text-white font-bold text-lg mt-1">Escoge la provincia donde buscas escorts</h5>
-                        </div>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                            <!-- Option: Todas las provincias -->
-                            <button @click="selectedProvince = ''; selectedDistrict = ''; finish();"
-                                    class="py-3 px-4 rounded-xl bg-red-600/10 border border-red-600/30 text-red-500 hover:bg-red-600 hover:text-white hover:border-red-600 text-sm font-bold transition-all text-center focus:outline-none cursor-pointer">
-                                Todo <span x-text="selectedCity"></span>
-                            </button>
-                            
-                            <template x-for="provName in provinces" :key="provName">
-                                <button @click="selectProvince(provName)"
-                                        class="py-3 px-4 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-850 hover:border-zinc-700 text-sm font-semibold transition-all text-center focus:outline-none cursor-pointer"
-                                        :class="selectedProvince === provName ? 'border-red-600 text-red-500 bg-red-600/5' : ''">
-                                    <span x-text="provName"></span>
-                                </button>
-                            </template>
-                        </div>
-                    </div>
-
-                    <!-- STEP 3: DISTRITO -->
-                    <div x-show="step === 3" x-transition class="space-y-4" style="display: none;">
-                        <div class="text-center">
-                            <span class="text-xs font-bold text-red-600 uppercase tracking-wider" x-text="selectedCity + ' › ' + selectedProvince"></span>
-                            <h5 class="text-white font-bold text-lg mt-1">Escoge el distrito</h5>
-                        </div>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                            <!-- Option: Todos los distritos -->
-                            <button @click="selectedDistrict = ''; finish();"
-                                    class="py-3 px-4 rounded-xl bg-red-600/10 border border-red-600/30 text-red-500 hover:bg-red-600 hover:text-white hover:border-red-600 text-sm font-bold transition-all text-center focus:outline-none cursor-pointer">
-                                Todo <span x-text="selectedProvince"></span>
-                            </button>
-                            
-                            <template x-for="distName in districts" :key="distName">
-                                <button @click="selectDistrict(distName)"
-                                        class="py-3 px-4 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-850 hover:border-zinc-700 text-sm font-semibold transition-all text-center focus:outline-none cursor-pointer"
-                                        :class="selectedDistrict === distName ? 'border-red-600 text-red-500 bg-red-600/5' : ''">
-                                    <span x-text="distName"></span>
-                                </button>
-                            </template>
-                        </div>
-                    </div>
-
+            <!-- Step 3: Distrito -->
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full flex items-center justify-center border font-bold transition-all text-xs"
+                     :class="step === 3 ? 'border-red-600 bg-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
+                    3
                 </div>
-
-                <!-- Footer / Action bar -->
-                <div class="px-6 py-4 bg-zinc-950 border-t border-zinc-900 flex justify-between shrink-0">
-                    <button @click="goBack()" 
-                            x-show="step !== 1" 
-                            class="px-5 py-2.5 rounded-xl border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-900 text-sm font-semibold transition-all focus:outline-none flex items-center gap-2 cursor-pointer"
-                            style="display: none;">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                        </svg>
-                        Atrás
-                    </button>
-                    <div x-show="step === 1" class="w-1"></div>
-                    
-                    <button @click="finish()" 
-                            x-show="selectedCity"
-                            class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-sm font-bold shadow-lg shadow-red-600/20 hover:shadow-red-600/30 transition-all focus:outline-none cursor-pointer ml-auto"
-                            style="display: none;">
-                        Ver Escorts
-                    </button>
-                </div>
-                
+                <span :class="step === 3 ? 'text-white' : 'text-zinc-500'">Distrito</span>
             </div>
+        </div>
+
+        <!-- Selected Breadcrumb Info -->
+        <div x-show="selectedCity" class="flex items-center justify-center gap-2 text-xs text-zinc-400 mb-8" style="display: none;">
+            <span x-text="selectedCity" class="text-white font-semibold"></span>
+            <span x-show="selectedProvince"> › </span>
+            <span x-text="selectedProvince" class="text-white font-semibold" x-show="selectedProvince"></span>
+            <button @click="step = 1; selectedCity = ''; selectedProvince = ''; selectedDistrict = '';" class="text-red-500 hover:underline ml-2">
+                Reiniciar
+            </button>
+        </div>
+
+        <!-- Loader -->
+        <div x-show="loading" class="flex flex-col items-center justify-center py-12" style="display: none;">
+            <svg class="animate-spin h-8 w-8 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span class="text-zinc-500 text-xs mt-3">Cargando ubicaciones...</span>
+        </div>
+
+        <!-- Main Panel Content -->
+        <div x-show="!loading">
+            
+            <!-- STEP 1: DEPARTAMENTOS -->
+            <div x-show="step === 1" class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2">
+                @foreach($cities as $city)
+                    <button @click="selectCity('{{ $city->name }}')"
+                        class="text-gray-400 hover:text-red-600 text-sm transition-colors flex items-center justify-between group text-left w-full cursor-pointer focus:outline-none">
+                        <span>{{ $city->name }}</span>
+                    </button>
+                @endforeach
+
+                @if($cities->isEmpty())
+                    <div class="col-span-full text-center text-gray-500 text-sm">
+                        No hay departamentos registrados.
+                    </div>
+                @endif
+            </div>
+
+            <!-- STEP 2: PROVINCIAS -->
+            <div x-show="step === 2" style="display: none;" class="space-y-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2">
+                    <!-- Option: Todas las provincias de este departamento -->
+                    <button @click="selectedProvince = ''; selectedDistrict = ''; finish();"
+                            class="text-red-500 hover:text-red-600 font-bold text-sm transition-colors text-left w-full cursor-pointer focus:outline-none">
+                        Todo <span x-text="selectedCity"></span>
+                    </button>
+                    
+                    <template x-for="provName in provinces" :key="provName">
+                        <button @click="selectProvince(provName)"
+                                class="text-gray-400 hover:text-red-600 text-sm transition-colors flex items-center justify-between group text-left w-full cursor-pointer focus:outline-none">
+                            <span x-text="provName"></span>
+                        </button>
+                    </template>
+                </div>
+                
+                <div class="flex justify-start border-t border-zinc-900 pt-4">
+                    <button @click="step = 1; selectedCity = '';" class="text-zinc-500 hover:text-white text-xs font-semibold flex items-center gap-1 cursor-pointer">
+                        ‹ Volver a Departamentos
+                    </button>
+                </div>
+            </div>
+
+            <!-- STEP 3: DISTRITOS -->
+            <div x-show="step === 3" style="display: none;" class="space-y-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2">
+                    <!-- Option: Todos los distritos de esta provincia -->
+                    <button @click="selectedDistrict = ''; finish();"
+                            class="text-red-500 hover:text-red-600 font-bold text-sm transition-colors text-left w-full cursor-pointer focus:outline-none">
+                        Todo <span x-text="selectedProvince"></span>
+                    </button>
+                    
+                    <template x-for="distName in districts" :key="distName">
+                        <button @click="selectDistrict(distName)"
+                                class="text-gray-400 hover:text-red-600 text-sm transition-colors flex items-center justify-between group text-left w-full cursor-pointer focus:outline-none">
+                            <span x-text="distName"></span>
+                        </button>
+                    </template>
+                </div>
+                
+                <div class="flex justify-start border-t border-zinc-900 pt-4">
+                    <button @click="step = 2; selectedProvince = '';" class="text-zinc-500 hover:text-white text-xs font-semibold flex items-center gap-1 cursor-pointer">
+                        ‹ Volver a Provincias
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 
