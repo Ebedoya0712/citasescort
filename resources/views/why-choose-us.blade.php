@@ -40,7 +40,7 @@
     </style>
 
     <!-- Hero Section -->
-    <div class="relative bg-gray-50 dark:bg-black py-24 lg:py-40 overflow-hidden transition-colors duration-300" x-data="{ shown: false }"
+    <div class="relative bg-gray-50 dark:bg-black pt-16 pb-8 lg:pt-24 lg:pb-12 overflow-hidden transition-colors duration-300" x-data="{ shown: false }"
         x-init="setTimeout(() => shown = true, 100)">
 
         <!-- Animated Background -->
@@ -75,7 +75,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="bg-zinc-50 dark:bg-zinc-900 py-20 lg:py-32 relative">
+    <div class="bg-zinc-50 dark:bg-zinc-900 pt-8 pb-16 lg:pt-12 lg:pb-24 relative">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
@@ -289,7 +289,7 @@
 
             <!-- CTA -->
             <div x-data="{ show: false }" x-intersect.once.threshold.0.1="show = true"
-                class="mt-32 relative p-10 md:p-16 rounded-[2.5rem] bg-gradient-to-r from-red-600 to-black overflow-hidden transform transition-all duration-1000 border border-red-600/20"
+                class="mt-12 relative p-10 md:p-16 rounded-[2.5rem] bg-gradient-to-r from-red-600 to-black overflow-hidden transform transition-all duration-1000 border border-red-600/20"
                 :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'">
 
                 <div
