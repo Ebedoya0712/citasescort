@@ -24,11 +24,8 @@
                 $photo = $escort->photos[0];
                 $src = Str::startsWith($photo, ['http://', 'https://']) ? $photo : Storage::url($photo);
             @endphp
-            <!-- Blurred Background for letterboxing -->
-            <img src="{{ $src }}" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-110" alt="">
-            <!-- Actual Image -->
             <img src="{{ $src }}" alt="{{ $escort->name }}"
-                class="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
             <!-- Watermark -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 z-0 select-none">
