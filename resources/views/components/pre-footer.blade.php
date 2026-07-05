@@ -59,7 +59,7 @@
             this.selectedProvince = provName;
             this.districts = this.ubigeo[this.selectedCity][provName] || [];
             this.selectedDistrict = '';
-            if (this.districts.length > 0) {
+            if (this.districts.length) {
                 this.step = 3;
             } else {
                 this.finish();
@@ -72,7 +72,7 @@
         },
 
         goBack() {
-            if (this.step > 1) {
+            if (this.step !== 1) {
                 this.step--;
             }
         },
@@ -134,32 +134,32 @@
                     <!-- Step 1: Dept -->
                     <button @click="step = 1" :disabled="step === 1" class="flex items-center gap-2 group disabled:cursor-default">
                         <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all border"
-                             :class="step >= 1 ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
+                             :class="step !== 0 ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
                             1
                         </div>
-                        <span class="text-xs font-semibold" :class="step >= 1 ? 'text-white' : 'text-zinc-500'">Departamento</span>
+                        <span class="text-xs font-semibold" :class="step !== 0 ? 'text-white' : 'text-zinc-500'">Departamento</span>
                     </button>
 
-                    <div class="w-8 h-[2px] bg-zinc-800" :class="step >= 2 ? 'bg-red-600' : ''"></div>
+                    <div class="w-8 h-[2px] bg-zinc-800" :class="step !== 1 ? 'bg-red-600' : ''"></div>
 
                     <!-- Step 2: Prov -->
-                    <button @click="step = 2" :disabled="step <= 2" class="flex items-center gap-2 group disabled:cursor-default">
+                    <button @click="step = 2" :disabled="step === 1 || step === 2" class="flex items-center gap-2 group disabled:cursor-default">
                         <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all border"
-                             :class="step >= 2 ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
+                             :class="step !== 1 ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
                             2
                         </div>
-                        <span class="text-xs font-semibold" :class="step >= 2 ? 'text-white' : 'text-zinc-500'">Provincia</span>
+                        <span class="text-xs font-semibold" :class="step !== 1 ? 'text-white' : 'text-zinc-500'">Provincia</span>
                     </button>
 
-                    <div class="w-8 h-[2px] bg-zinc-800" :class="step >= 3 ? 'bg-red-600' : ''"></div>
+                    <div class="w-8 h-[2px] bg-zinc-800" :class="step === 3 ? 'bg-red-600' : ''"></div>
 
                     <!-- Step 3: Dist -->
                     <div class="flex items-center gap-2">
                         <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all border"
-                             :class="step >= 3 ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
+                             :class="step === 3 ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20' : 'border-zinc-700 text-zinc-500'">
                             3
                         </div>
-                        <span class="text-xs font-semibold" :class="step >= 3 ? 'text-white' : 'text-zinc-500'">Distrito</span>
+                        <span class="text-xs font-semibold" :class="step === 3 ? 'text-white' : 'text-zinc-500'">Distrito</span>
                     </div>
                 </div>
 
@@ -231,7 +231,7 @@
                 <!-- Footer / Action bar -->
                 <div class="px-6 py-4 bg-zinc-950 border-t border-zinc-900 flex justify-between shrink-0">
                     <button @click="goBack()" 
-                            x-show="step > 1" 
+                            x-show="step !== 1" 
                             class="px-5 py-2.5 rounded-xl border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-900 text-sm font-semibold transition-all focus:outline-none flex items-center gap-2 cursor-pointer"
                             style="display: none;">
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
