@@ -33,7 +33,6 @@
         <x-features />
         <x-faq />
         <x-pre-footer />
-        <x-payment-logos />
 
         <!-- Scroll to Top Button -->
         <div x-data="{ 
