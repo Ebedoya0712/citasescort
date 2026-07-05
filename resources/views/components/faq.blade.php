@@ -1,4 +1,4 @@
-<section class="bg-black pt-8 pb-16 px-4 lg:px-8 transition-colors duration-300">
+<section class="bg-black pt-8 pb-32 px-4 lg:px-8 transition-colors duration-300">
     <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-12">
