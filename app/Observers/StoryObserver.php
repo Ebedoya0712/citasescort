@@ -29,7 +29,7 @@ class StoryObserver
             $addedPaths = array_diff($paths, $originalPaths);
 
             foreach ($addedPaths as $path) {
-                // $this->applyWatermark($path); // Desactivado para usar CSS frontend
+                $this->applyWatermark($path); // Re-activado y ajustado tamaño
             }
         }
     }
@@ -88,8 +88,8 @@ class StoryObserver
             $watermarkWidth = imagesx($watermark);
             $watermarkHeight = imagesy($watermark);
 
-            // Redimensionar marca de agua al 50% del ancho de la imagen
-            $newWatermarkWidth = $imgWidth * 0.5;
+            // Redimensionar marca de agua al 75% del ancho de la imagen para que sea más grande
+            $newWatermarkWidth = $imgWidth * 0.75;
             $aspectRatio = $watermarkHeight / $watermarkWidth;
             $newWatermarkHeight = $newWatermarkWidth * $aspectRatio;
 
@@ -111,8 +111,8 @@ class StoryObserver
             $destX = ($imgWidth - $newWatermarkWidth) / 2;
             $destY = ($imgHeight - $newWatermarkHeight) / 2;
 
-            // Truco para aplicar opacidad (30%) a un PNG con canal alfa en GD
-            $opacity = 30;
+            // Truco para aplicar opacidad (50%) a un PNG con canal alfa en GD
+            $opacity = 50;
             $cut = imagecreatetruecolor((int)$newWatermarkWidth, (int)$newWatermarkHeight);
             imagecopy($cut, $img, 0, 0, (int)$destX, (int)$destY, (int)$newWatermarkWidth, (int)$newWatermarkHeight);
             imagecopy($cut, $resizedWatermark, 0, 0, 0, 0, (int)$newWatermarkWidth, (int)$newWatermarkHeight);
