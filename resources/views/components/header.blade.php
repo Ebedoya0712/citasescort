@@ -1,4 +1,4 @@
-<header class="bg-white dark:bg-brand-dark text-black dark:text-white px-4 lg:px-8 transition-colors duration-300" x-data="{ mobileMenu: false }">
+<header class="bg-brand-dark text-white px-4 lg:px-8 transition-colors duration-300" x-data="{ mobileMenu: false }">
     <div class="max-w-7xl mx-auto flex items-center justify-between h-16 md:h-20">
         <!-- Left Side: Logo -->
         <div class="flex items-center gap-4 md:gap-6 shrink-0">
@@ -11,9 +11,9 @@
                             $name = config('settings.site_name');
                             $splitAt = min(5, strlen($name));
                         @endphp
-                        <span class="text-red-600">{{ strtoupper(substr($name, 0, $splitAt)) }}</span><span class="text-black dark:text-white">{{ strtoupper(substr($name, $splitAt)) }}</span>
+                        <span class="text-red-600">{{ strtoupper(substr($name, 0, $splitAt)) }}</span><span class="text-white">{{ strtoupper(substr($name, $splitAt)) }}</span>
                     @else
-                        <span class="text-red-600">CITAS</span><span class="text-black dark:text-white">ESCORTS</span>
+                        <span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span>
                     @endif
                 @endif
             </a>
@@ -99,7 +99,7 @@
                         x-transition:leave="transition ease-in duration-75"
                         x-transition:leave-start="transform opacity-100 scale-100"
                         x-transition:leave-end="transform opacity-0 scale-95"
-                        class="absolute right-0 mt-2 w-48 bg-white dark:bg-zinc-900 rounded-lg shadow-lg py-1 border border-gray-100 dark:border-zinc-800 z-50">
+                        class="absolute right-0 mt-2 w-48 bg-zinc-900 rounded-lg shadow-lg py-1 border border-zinc-800 z-50">
 
                         <a href="{{ Auth::user()->isAdmin() ? route('filament.admin.pages.dashboard') : (Auth::user()->isEscort() ? route('filament.escort.pages.dashboard') : (Auth::user()->isEstablishment() ? route('filament.establishment.pages.dashboard') : route('user.dashboard'))) }}"
                             class="flex items-center gap-2 px-4 py-3 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors">
