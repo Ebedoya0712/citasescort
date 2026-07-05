@@ -1,6 +1,6 @@
 <x-main-layout no-hero>
     <div
-        class="min-h-[calc(100vh-135px)] flex flex-col md:flex-row bg-white dark:bg-black transition-colors duration-300 overflow-hidden">
+        class="min-h-[calc(100vh-135px)] flex flex-col md:flex-row bg-black transition-colors duration-300 overflow-hidden">
         <!-- Form Section (Left) -->
         <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-4 sm:p-8 lg:p-12 overflow-y-auto">
             <div class="w-full max-w-2xl space-y-10" x-data="{ 
@@ -54,7 +54,7 @@
                  }">
                 <!-- Title -->
                 <div class="space-y-1">
-                    <h1 class="text-black dark:text-white text-xl font-medium tracking-tight whitespace-nowrap">Iniciar
+                    <h1 class="text-white text-xl font-medium tracking-tight whitespace-nowrap">Iniciar
                         sesión en la cuenta</h1>
                     <div class="w-64 h-0.5 bg-red-600"></div>
                     <p x-show="errorMessage" x-text="errorMessage" class="text-red-500 text-sm mt-2 animate-pulse"></p>
@@ -64,8 +64,8 @@
                     <!-- Email -->
                     <div class="relative">
                         <input x-model="email" type="email" placeholder="Dirección de correo electrónico *"
-                            class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
-                        <div class="absolute right-8 top-1/2 -translate-y-1/2 text-black dark:text-white">
+                            class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-white placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
+                        <div class="absolute right-8 top-1/2 -translate-y-1/2 text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -78,8 +78,8 @@
                     <!-- Password -->
                     <div class="relative">
                         <input x-model="password" :type="showPass ? 'text' : 'password'" placeholder="Contraseña *"
-                            class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
-                        <div class="absolute right-8 top-1/2 -translate-y-1/2 text-black dark:text-white cursor-pointer"
+                            class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-white placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
+                        <div class="absolute right-8 top-1/2 -translate-y-1/2 text-white cursor-pointer"
                             @click="showPass = !showPass">
                             <!-- Eye Off (Hidden) -->
                             <svg x-show="!showPass" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
@@ -107,15 +107,15 @@
                         <label class="flex items-center gap-4 cursor-pointer group">
                             <div class="relative flex items-center justify-center">
                                 <input type="checkbox"
-                                    class="peer appearance-none w-6 h-6 border-2 border-black dark:border-white bg-transparent rounded focus:ring-0 cursor-pointer checked:bg-black dark:checked:bg-white transition-all">
+                                    class="peer appearance-none w-6 h-6 border-2 border-white bg-transparent rounded focus:ring-0 cursor-pointer checked:bg-white transition-all">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    class="absolute hidden peer-checked:block pointer-events-none text-white dark:text-black">
+                                    class="absolute hidden peer-checked:block pointer-events-none text-black">
                                     <polyline points="20 6 9 17 4 12" />
                                 </svg>
                             </div>
-                            <span class="text-black dark:text-white text-sm font-medium">Acuérdate de mí</span>
+                            <span class="text-white text-sm font-medium">Acuérdate de mí</span>
                         </label>
                         <a href="{{ route('password.request') }}" class="text-red-600 text-sm font-semibold hover:underline">Has olvidado tu
                             contraseña</a>
@@ -140,7 +140,7 @@
 
                     <!-- Create Account Button -->
                     <a href="{{ route('register') }}"
-                        class="w-full border-2 border-black dark:border-white rounded-3xl py-4 font-bold text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-all text-lg uppercase tracking-wider flex items-center justify-center">
+                        class="w-full border-2 border-white rounded-3xl py-4 font-bold text-white hover:bg-white hover:text-black transition-all text-lg uppercase tracking-wider flex items-center justify-center">
                         Crear una nueva cuenta
                     </a>
                 </div>

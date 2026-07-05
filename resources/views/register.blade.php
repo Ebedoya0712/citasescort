@@ -1,5 +1,5 @@
 <x-main-layout no-hero>
-    <div class="min-h-[calc(100vh-140px)] flex flex-col md:flex-row bg-white dark:bg-black transition-colors duration-300"
+    <div class="min-h-[calc(100vh-140px)] flex flex-col md:flex-row bg-black transition-colors duration-300"
         x-data="{ 
             step: 1,
             showPass: false, 
@@ -76,10 +76,10 @@
                  <!-- Title -->
                  <div class="space-y-4">
                      <div class="text-4xl md:text-5xl font-black tracking-widest uppercase">
-                         <span class="text-red-600">CITAS</span><span class="text-black dark:text-white">ESCORTS</span>
+                         <span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span>
                      </div>
                      <div class="space-y-1">
-                         <h1 class="text-black dark:text-white text-xl font-medium tracking-tight">Crear nueva cuenta</h1>
+                         <h1 class="text-white text-xl font-medium tracking-tight">Crear nueva cuenta</h1>
                          <div class="w-52 h-0.5 bg-red-600"></div>
                      </div>
                      <p x-show="errorMessage" x-text="errorMessage" class="text-red-500 text-sm mt-4 animate-pulse"></p>
@@ -219,8 +219,8 @@
                         <!-- Email -->
                         <div class="relative">
                             <input x-model="email" type="email" placeholder="Dirección de correo electrónico *"
-                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
-                            <div class="absolute right-8 top-1/2 -translate-y-1/2 text-black dark:text-white">
+                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-white placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
+                            <div class="absolute right-8 top-1/2 -translate-y-1/2 text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -233,8 +233,8 @@
                         <!-- Password -->
                         <div class="relative">
                             <input x-model="password" :type="showPass ? 'text' : 'password'" placeholder="Contraseña *"
-                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
-                            <div class="absolute right-8 top-1/2 -translate-y-1/2 text-black dark:text-white cursor-pointer"
+                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-white placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
+                            <div class="absolute right-8 top-1/2 -translate-y-1/2 text-white cursor-pointer"
                                 @click="showPass = !showPass">
                                 <svg x-show="!showPass" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -259,8 +259,8 @@
                         <div class="relative">
                             <input x-model="confirmPassword" :type="showConfirmPass ? 'text' : 'password'"
                                 placeholder="Confirmar Contraseña *"
-                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
-                            <div class="absolute right-8 top-1/2 -translate-y-1/2 text-black dark:text-white cursor-pointer"
+                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-white placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
+                            <div class="absolute right-8 top-1/2 -translate-y-1/2 text-white cursor-pointer"
                                 @click="showConfirmPass = !showConfirmPass">
                                 <svg x-show="!showConfirmPass" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -304,7 +304,7 @@
                         <div class="relative">
                             <input x-model="name" type="text"
                                 :placeholder="role === 'escort' ? 'Nombre Artístico *' : (role === 'establishment' ? 'Nombre del Establecimiento *' : 'Nombre de Usuario *')"
-                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
+                                class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-white placeholder-white/80 focus:border-red-600 outline-none transition-all text-sm">
                         </div>
 
                         <!-- Escort Specific Fields -->
@@ -313,7 +313,7 @@
 
 
                                 <div class="flex items-center w-full bg-transparent border-2 border-red-600 rounded-3xl overflow-hidden focus-within:border-red-600 transition-all">
-                                    <div class="flex items-center gap-2 pl-6 pr-3 border-r border-red-600/30 text-black dark:text-white font-bold text-sm select-none">
+                                    <div class="flex items-center gap-2 pl-6 pr-3 border-r border-red-600/30 text-white font-bold text-sm select-none">
                                         <svg class="w-5 h-3.5 rounded-sm shadow-sm object-cover" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="3" height="6" fill="#D91414"/>
                                             <rect x="3" width="3" height="6" fill="#F5F5F5"/>
@@ -322,17 +322,17 @@
                                         <span>+51</span>
                                     </div>
                                     <input x-model="phone" type="tel" placeholder="Celular de trabajo *"
-                                        class="w-full bg-transparent py-4.5 px-4 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 outline-none text-sm">
+                                        class="w-full bg-transparent py-4.5 px-4 text-white placeholder-white/80 outline-none text-sm">
                                 </div>
 
                                 <div class="relative">
                                     <select x-model="category"
-                                        class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white focus:border-red-600 outline-none appearance-none transition-all text-sm">
-                                        <option value="" class="bg-white dark:bg-black text-gray-500">¿Qué tipo de
+                                        class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-white focus:border-red-600 outline-none appearance-none transition-all text-sm">
+                                        <option value="" class="bg-black text-gray-500">¿Qué tipo de
                                             escort eres? *</option>
-                                        <option value="escort" class="bg-white dark:bg-black">Escort</option>
-                                        <option value="masajista" class="bg-white dark:bg-black">Masajista</option>
-                                        <option value="acompanante" class="bg-white dark:bg-black">Acompañante</option>
+                                        <option value="escort" class="bg-black">Escort</option>
+                                        <option value="masajista" class="bg-black">Masajista</option>
+                                        <option value="acompanante" class="bg-black">Acompañante</option>
                                     </select>
                                     <div
                                         class="absolute right-8 top-1/2 -translate-y-1/2 text-red-600 pointer-events-none">
@@ -350,7 +350,7 @@
                         <template x-if="role === 'establishment'">
                             <div class="space-y-8">
                                 <div class="flex items-center w-full bg-transparent border-2 border-red-600 rounded-3xl overflow-hidden focus-within:border-red-600 transition-all">
-                                    <div class="flex items-center gap-2 pl-6 pr-3 border-r border-red-600/30 text-black dark:text-white font-bold text-sm select-none">
+                                    <div class="flex items-center gap-2 pl-6 pr-3 border-r border-red-600/30 text-white font-bold text-sm select-none">
                                         <svg class="w-5 h-3.5 rounded-sm shadow-sm object-cover" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="3" height="6" fill="#D91414"/>
                                             <rect x="3" width="3" height="6" fill="#F5F5F5"/>
@@ -359,17 +359,17 @@
                                         <span>+51</span>
                                     </div>
                                     <input x-model="phone" type="tel" placeholder="Teléfono del establecimiento *"
-                                        class="w-full bg-transparent py-4.5 px-4 text-black dark:text-white placeholder-black/50 dark:placeholder-white/80 outline-none text-sm">
+                                        class="w-full bg-transparent py-4.5 px-4 text-white placeholder-white/80 outline-none text-sm">
                                 </div>
 
                                 <div class="relative">
                                     <select x-model="establishment_type"
-                                        class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-black dark:text-white focus:border-red-600 outline-none appearance-none transition-all text-sm">
-                                        <option value="" class="bg-white dark:bg-black text-gray-500">¿Qué tipo de
+                                        class="w-full bg-transparent border-2 border-red-600 rounded-3xl py-4.5 px-8 text-white focus:border-red-600 outline-none appearance-none transition-all text-sm">
+                                        <option value="" class="bg-black text-gray-500">¿Qué tipo de
                                             establecimiento tienes? *</option>
-                                        <option value="massage" class="bg-white dark:bg-black">Casa de Masajes</option>
-                                        <option value="whiskeria" class="bg-white dark:bg-black">Whiskería</option>
-                                        <option value="motel" class="bg-white dark:bg-black">Motel / Hotel</option>
+                                        <option value="massage" class="bg-black">Casa de Masajes</option>
+                                        <option value="whiskeria" class="bg-black">Whiskería</option>
+                                        <option value="motel" class="bg-black">Motel / Hotel</option>
                                     </select>
                                     <div
                                         class="absolute right-8 top-1/2 -translate-y-1/2 text-red-600 pointer-events-none">
@@ -387,15 +387,15 @@
                         <label class="flex items-center gap-4 cursor-pointer group">
                             <div class="relative flex items-center justify-center">
                                 <input x-model="terms" type="checkbox"
-                                    class="peer appearance-none w-6 h-6 border-2 border-black dark:border-white bg-transparent rounded focus:ring-0 cursor-pointer checked:bg-black dark:checked:bg-white transition-all">
+                                    class="peer appearance-none w-6 h-6 border-2 border-white bg-transparent rounded focus:ring-0 cursor-pointer checked:bg-white transition-all">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    class="absolute hidden peer-checked:block pointer-events-none text-white dark:text-black">
+                                    class="absolute hidden peer-checked:block pointer-events-none text-black">
                                     <polyline points="20 6 9 17 4 12" />
                                 </svg>
                             </div>
-                            <span class="text-black dark:text-white text-sm font-medium">Soy mayor de edad y acepto los
+                            <span class="text-white text-sm font-medium">Soy mayor de edad y acepto los
                                 términos y condiciones *</span>
                         </label>
                     </div>
