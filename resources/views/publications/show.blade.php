@@ -537,7 +537,7 @@
                                         @endphp
                                         <div @click="openLightbox({{ $actualIndex }})"
                                               class="aspect-[3/4] bg-zinc-900 rounded-lg overflow-hidden group relative cursor-pointer shadow-lg shadow-black/40 border border-zinc-800/50 flex items-center justify-center">
-                                             <video src="{{ $src }}" loop muted autoplay playsinline preload="auto"
+                                             <video src="{{ $src }}#t=1.0" muted playsinline preload="metadata"
                                                     class="w-full h-full object-cover pointer-events-none">
                                              </video>
 
