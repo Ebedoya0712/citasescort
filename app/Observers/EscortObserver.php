@@ -86,8 +86,8 @@ class EscortObserver
             $watermarkWidth = imagesx($watermark);
             $watermarkHeight = imagesy($watermark);
 
-            // Redimensionar marca de agua al 90% del ancho de la imagen
-            $newWatermarkWidth = $imgWidth * 0.90;
+            // Redimensionar marca de agua al 95% del ancho de la imagen
+            $newWatermarkWidth = $imgWidth * 0.95;
             $aspectRatio = $watermarkHeight / $watermarkWidth;
             $newWatermarkHeight = $newWatermarkWidth * $aspectRatio;
 
