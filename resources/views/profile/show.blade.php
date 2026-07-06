@@ -423,7 +423,7 @@
 
                                     @if($isVideo)
                                         <div class="relative w-full h-full">
-                                            <video src="{{ $src }}#t=0.1" autoplay loop muted playsinline preload="auto"
+                                            <video src="{{ $src }}" autoplay loop muted playsinline preload="auto"
                                                 class="w-full h-full object-cover pointer-events-none">
                                             </video>
                                             <!-- Red Play Button Overlay -->
