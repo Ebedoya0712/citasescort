@@ -535,11 +535,6 @@
                                              <video src="{{ $src }}" muted playsinline preload="metadata" controlsList="nodownload" oncontextmenu="return false;"
                                                  class="w-full h-full object-cover pointer-events-none"
                                                  onloadeddata="this.currentTime=0.1"></video>
-                                             
-                                             <!-- Small Watermark -->
-                                             <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                                                 <span class="text-white/40 text-xl font-bold uppercase tracking-wider drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] select-none">citasescorts</span>
-                                             </div>
 
 
                                              
@@ -643,7 +638,10 @@
                                      </video>
                                      <!-- Watermark -->
                                      <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                                         <span class="text-white/40 text-4xl md:text-6xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none">citasescorts</span>
+                                         <div class="text-4xl md:text-6xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none opacity-60 flex">
+                                             <span class="text-red-500">CITAS</span>
+                                             <span class="text-white">ESCORTS</span>
+                                         </div>
                                      </div>
                                 </div>
                             </template>

@@ -145,7 +145,10 @@
                                         @click.stop="togglePause" @timeupdate="updateVideoProgress"></video>
                                     <!-- Watermark -->
                                     <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                                        <span class="text-white/40 text-4xl md:text-5xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none">citasescorts</span>
+                                        <div class="text-4xl md:text-5xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none opacity-60 flex">
+                                            <span class="text-red-500">CITAS</span>
+                                            <span class="text-white">ESCORTS</span>
+                                        </div>
                                     </div>
                                 </div>
                             </template>

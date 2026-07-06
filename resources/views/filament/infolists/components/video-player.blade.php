@@ -61,8 +61,11 @@
                             style="max-height: 90vh; max-width: 90vw; border-radius: 12px; box-shadow: 0 25px 50px rgba(0,0,0,0.5);">
                         </video>
                         <!-- Watermark -->
-                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; z-index: 10;">
-                            <span style="color: rgba(255,255,255,0.4); font-size: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; text-shadow: 0 4px 4px rgba(0,0,0,0.8); user-select: none;">citasescorts</span>
+                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; z-index: 10; opacity: 0.6;">
+                            <div style="font-size: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; text-shadow: 0 4px 4px rgba(0,0,0,0.8); user-select: none; display: flex;">
+                                <span style="color: #ef4444;">CITAS</span>
+                                <span style="color: #ffffff;">ESCORTS</span>
+                            </div>
                         </div>
                     </div>
                 </template>
