@@ -428,9 +428,9 @@
 
                                     @if($isVideo)
                                         <div class="relative w-full h-full">
-                                            <video src="{{ $src }}#t=0.001" muted playsinline preload="metadata" controlsList="nodownload" oncontextmenu="return false;"
+                                            <video src="{{ $src }}" muted playsinline autoplay preload="auto" controlsList="nodownload" oncontextmenu="return false;"
                                                 class="w-full h-full object-cover pointer-events-none"
-                                                onloadeddata="this.currentTime=0.1"></video>
+                                                oncanplay="this.pause(); this.currentTime=0.1;"></video>
                                             <span class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors pointer-events-none">
                                                 <div style="background-color: #dc2626; width: 64px; height: 64px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.4); transform: scale(1); transition: transform 0.2s ease-in-out;" class="group-hover:scale-110">
                                                     <svg class="w-8 h-8 fill-current text-white translate-x-0.5" viewBox="0 0 24 24">
