@@ -16,7 +16,7 @@
 @endphp
 
 <a href="{{ route('publications.show', $publication->id) }}"
-    class="bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl shadow-lg group cursor-pointer transition-all duration-300 hover:-translate-y-2 block relative hover:ring-2 hover:ring-red-600 @if(!$publication->escort || !in_array($publication->escort->level, ['diamante', 'plata'])) hover:shadow-xl @endif">
+    class="bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl shadow-lg group cursor-pointer transition-all duration-300 hover:-translate-y-2 flex flex-col h-full relative hover:ring-2 hover:ring-red-600 @if(!$publication->escort || !in_array($publication->escort->level, ['diamante', 'plata'])) hover:shadow-xl @endif">
     
     <!-- Animated Border Overlay -->
     @if($publication->escort && $publication->escort->level === 'diamante')
@@ -151,7 +151,7 @@
 
     <!-- Info Area -->
     <div
-        class="p-2.5 md:p-4 bg-white dark:bg-zinc-900 rounded-b-xl md:rounded-b-2xl border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300">
+        class="p-2.5 md:p-4 bg-white dark:bg-zinc-900 rounded-b-xl md:rounded-b-2xl border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300 flex-1">
         <div class="space-y-0.5 max-w-[70%] min-w-0">
             <h4 class="text-red-600 font-bold text-xs md:text-sm truncate">{{ $publication->title }}</h4>
             <div class="flex items-center gap-1 md:gap-1.5 text-black dark:text-gray-100 font-bold text-[10px] md:text-xs">

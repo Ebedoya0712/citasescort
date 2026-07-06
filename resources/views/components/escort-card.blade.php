@@ -16,7 +16,7 @@
 @endphp
 
 <a href="{{ route('profile.show', $escort->id) }}"
-    class="bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-300 hover:-translate-y-1 block hover:ring-2 hover:ring-red-600">
+    class="bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-300 hover:-translate-y-1 flex flex-col h-full hover:ring-2 hover:ring-red-600">
     <!-- Image Area -->
     <div class="relative aspect-[4/5] overflow-hidden bg-zinc-900">
         @if(!empty($escort->photos) && isset($escort->photos[0]))
@@ -146,7 +146,7 @@
 
     <!-- Info Area -->
     <div
-        class="p-2.5 md:p-4 bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300">
+        class="p-2.5 md:p-4 bg-white dark:bg-zinc-900 border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300 flex-1">
         <div class="space-y-0.5 max-w-[70%] min-w-0">
             <h4 class="text-red-600 font-bold text-xs md:text-sm truncate">{{ $escort->name }}</h4>
             <div class="flex items-center gap-1 md:gap-1.5 text-black dark:text-gray-100 font-bold text-[10px] md:text-xs">
