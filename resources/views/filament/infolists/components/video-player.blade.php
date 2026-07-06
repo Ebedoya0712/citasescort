@@ -54,10 +54,17 @@
             <!-- Centered video container -->
             <div @click="open = false"
                 style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; padding: 40px;">
+                <!-- Opción 1 (La más usada y eficiente): Le colocamos la marca de agua visualmente encima del reproductor web y bloqueamos el clic derecho / descarga nativa. Así, el usuario no puede descargarlo fácilmente, y si intentan grabar la pantalla con su celular, la marca de agua saldrá -->
                 <template x-if="open">
-                    <video @click.stop controls autoplay :src="activeUrl"
-                        style="max-height: 90vh; max-width: 90vw; border-radius: 12px; box-shadow: 0 25px 50px rgba(0,0,0,0.5);">
-                    </video>
+                    <div style="position: relative; max-height: 90vh; max-width: 90vw; display: flex; align-items: center; justify-content: center;">
+                        <video @click.stop controls autoplay :src="activeUrl" controlsList="nodownload" oncontextmenu="return false;"
+                            style="max-height: 90vh; max-width: 90vw; border-radius: 12px; box-shadow: 0 25px 50px rgba(0,0,0,0.5);">
+                        </video>
+                        <!-- Watermark -->
+                        <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; z-index: 10;">
+                            <span style="color: rgba(255,255,255,0.4); font-size: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; text-shadow: 0 4px 4px rgba(0,0,0,0.8); user-select: none;">citasescorts</span>
+                        </div>
+                    </div>
                 </template>
             </div>
         </div>

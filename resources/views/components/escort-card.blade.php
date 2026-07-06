@@ -23,10 +23,17 @@
             @php
                 $photo = $escort->photos[0];
                 $src = Str::startsWith($photo, ['http://', 'https://']) ? $photo : Storage::url($photo);
+                $firstExt = strtolower(pathinfo($photo, PATHINFO_EXTENSION));
+                $isFirstVideo = in_array($firstExt, ['mp4', 'mov', 'avi', 'webm']);
             @endphp
-            <img src="{{ $src }}" alt="{{ $escort->name }}"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-
+            @if($isFirstVideo)
+                <video src="{{ $src }}" muted playsinline preload="metadata"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onloadeddata="this.currentTime=0.1"></video>
+            @else
+                <img src="{{ $src }}" alt="{{ $escort->name }}"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            @endif
 
         @else
             <div class="w-full h-full flex items-center justify-center text-gray-400">

@@ -137,10 +137,17 @@
                             <template x-if="currentStory && currentStory.media_type === 'image'">
                                 <img :src="getStoryMedia(currentStory)" class="w-full h-full object-cover">
                             </template>
+                            <!-- Opción 1 (La más usada y eficiente): Le colocamos la marca de agua visualmente encima del reproductor web y bloqueamos el clic derecho / descarga nativa. Así, el usuario no puede descargarlo fácilmente, y si intentan grabar la pantalla con su celular, la marca de agua saldrá -->
                             <template x-if="currentStory && currentStory.media_type === 'video'">
-                                <video x-ref="videoPlayer" :src="getStoryMedia(currentStory)"
-                                    class="w-full h-full object-cover" autoplay playsinline @ended="nextStory"
-                                    @click.stop="togglePause" @timeupdate="updateVideoProgress"></video>
+                                <div class="relative w-full h-full flex items-center justify-center">
+                                    <video x-ref="videoPlayer" :src="getStoryMedia(currentStory)" controlsList="nodownload" oncontextmenu="return false;"
+                                        class="w-full h-full object-cover" autoplay playsinline @ended="nextStory"
+                                        @click.stop="togglePause" @timeupdate="updateVideoProgress"></video>
+                                    <!-- Watermark -->
+                                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                                        <span class="text-white/40 text-4xl md:text-5xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none">citasescorts</span>
+                                    </div>
+                                </div>
                             </template>
 
 
