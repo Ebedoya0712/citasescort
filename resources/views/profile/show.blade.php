@@ -533,7 +533,7 @@
                                      </video>
                                      <!-- Watermark -->
                                      <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                                         <div class="text-4xl md:text-6xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none opacity-60 flex">
+                                         <div class="text-2xl md:text-3xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none opacity-60 flex">
                                              <span class="text-red-500">CITAS</span>
                                              <span class="text-white">ESCORTS</span>
                                          </div>

@@ -62,7 +62,7 @@
                         </video>
                         <!-- Watermark -->
                         <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; z-index: 10; opacity: 0.6;">
-                            <div style="font-size: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; text-shadow: 0 4px 4px rgba(0,0,0,0.8); user-select: none; display: flex;">
+                            <div style="font-size: 1.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; text-shadow: 0 4px 4px rgba(0,0,0,0.8); user-select: none; display: flex;">
                                 <span style="color: #ef4444;">CITAS</span>
                                 <span style="color: #ffffff;">ESCORTS</span>
                             </div>
