@@ -434,7 +434,16 @@
 
                                     @if($isVideo)
                                         <div class="relative w-full h-full">
-                                            <video src="{{ $src }}" poster="{{ $posterSrc }}" class="w-full h-full object-cover pointer-events-none" preload="metadata" muted playsinline></video>
+                                            @if($posterSrc)
+                                                <img src="{{ $posterSrc }}" class="w-full h-full object-cover pointer-events-none" alt="Video thumbnail">
+                                            @else
+                                                <div class="w-full h-full bg-zinc-800 flex flex-col items-center justify-center text-zinc-500">
+                                                    <svg class="w-12 h-12 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                                    </svg>
+                                                    <span class="text-sm">Video</span>
+                                                </div>
+                                            @endif
                                             <!-- Red Play Button Overlay -->
                                             <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
                                                 <div style="background-color: #dc2626; width: 64px; height: 64px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.4); transform: scale(1); transition: transform 0.2s ease-in-out;" class="group-hover:scale-110">
