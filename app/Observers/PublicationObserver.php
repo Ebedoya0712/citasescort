@@ -83,8 +83,8 @@ class PublicationObserver
             $watermarkWidth = imagesx($watermark);
             $watermarkHeight = imagesy($watermark);
 
-            // Redimensionar marca de agua al 95% del ancho de la imagen para que sea más grande
-            $newWatermarkWidth = $imgWidth * 0.95;
+            // Redimensionar marca de agua al 80% del ancho de la imagen para que sea más grande
+            $newWatermarkWidth = $imgWidth * 0.80;
             $aspectRatio = $watermarkHeight / $watermarkWidth;
             $newWatermarkHeight = $newWatermarkWidth * $aspectRatio;
 
