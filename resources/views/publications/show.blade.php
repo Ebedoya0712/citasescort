@@ -537,10 +537,8 @@
                                         @endphp
                                         <div @click="openLightbox({{ $actualIndex }})"
                                               class="aspect-[3/4] bg-zinc-900 rounded-lg overflow-hidden group relative cursor-pointer shadow-lg shadow-black/40 border border-zinc-800/50 flex items-center justify-center">
-                                             <video loop muted autoplay playsinline preload="auto"
+                                             <video src="{{ $src }}#t=0.1" loop muted autoplay playsinline preload="metadata"
                                                     class="w-full h-full object-cover pointer-events-none">
-                                                 <source src="{{ $src }}#t=1"
-                                                         type="video/{{ $extension === 'mov' ? 'quicktime' : $extension }}">
                                              </video>
 
 
@@ -639,10 +637,10 @@
                             <!-- Video Display -->
                             <template x-if="currentMedia.type === 'video'">
                                 <div class="relative w-full h-full flex items-center justify-center">
-                                    <video :src="currentMedia.src" controls autoplay loop
-                                        class="lightbox-video max-w-full max-h-full max-w-[90vw] max-h-[90vh]">
-                                        Tu navegador no soporta video.
-                                    </video>
+                                    <video :key="currentIndex" :src="currentMedia.src" controls autoplay loop
+                                         class="lightbox-video max-w-full max-h-full max-w-[90vw] max-h-[90vh]">
+                                         Tu navegador no soporta video.
+                                     </video>
 
 
                                 </div>

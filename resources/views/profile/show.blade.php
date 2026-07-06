@@ -422,11 +422,19 @@
                                     class="aspect-[3/4] bg-zinc-900 rounded-lg overflow-hidden group relative cursor-pointer">
 
                                     @if($isVideo)
-                                        <video autoplay loop muted playsinline
-                                            class="w-full h-full object-cover pointer-events-none">
-                                            <source src="{{ $src }}"
-                                                type="video/{{ $extension === 'mov' ? 'quicktime' : $extension }}">
-                                        </video>
+                                        <div class="relative w-full h-full">
+                                            <video src="{{ $src }}#t=0.1" autoplay loop muted playsinline preload="metadata"
+                                                class="w-full h-full object-cover pointer-events-none">
+                                            </video>
+                                            <!-- Red Play Button Overlay -->
+                                            <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                                                <div style="background-color: #dc2626; width: 64px; height: 64px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.4); transform: scale(1); transition: transform 0.2s ease-in-out;" class="group-hover:scale-110">
+                                                    <svg class="w-8 h-8 fill-current text-white translate-x-0.5" viewBox="0 0 24 24">
+                                                        <path d="M8 5v14l11-7z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     @else
                                         <img src="{{ $src }}" alt="Foto de {{ $escort->name }}"
@@ -514,10 +522,10 @@
                             <!-- Video Display -->
                             <template x-if="currentMedia.type === 'video'">
                                 <div class="w-full h-full flex items-center justify-center">
-                                    <video :src="currentMedia.src" controls autoplay loop
-                                        class="lightbox-video max-w-full max-h-full max-w-[90vw] max-h-[90vh]">
-                                        Tu navegador no soporta video.
-                                    </video>
+                                    <video :key="currentIndex" :src="currentMedia.src" controls autoplay loop
+                                         class="lightbox-video max-w-full max-h-full max-w-[90vw] max-h-[90vh]">
+                                         Tu navegador no soporta video.
+                                     </video>
                                 </div>
                             </template>
 
