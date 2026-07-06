@@ -417,18 +417,24 @@
                                     $src = Str::startsWith($photo, ['http://', 'https://']) ? $photo : Storage::url($photo);
                                     $extension = pathinfo($photo, PATHINFO_EXTENSION);
                                     $isVideo = in_array(strtolower($extension), ['mp4', 'mov', 'avi', 'webm']);
+                                    
+                                    $posterSrc = '';
+                                    if ($isVideo) {
+                                        foreach($escort->photos as $p) {
+                                            $ext = pathinfo($p, PATHINFO_EXTENSION);
+                                            if(!in_array(strtolower($ext), ['mp4', 'mov', 'avi', 'webm'])) {
+                                                $posterSrc = Str::startsWith($p, ['http://', 'https://']) ? $p : Storage::url($p);
+                                                break;
+                                            }
+                                        }
+                                    }
                                 @endphp
                                 <div @click="openLightbox({{ $index }})"
                                     class="aspect-[3/4] bg-zinc-900 rounded-lg overflow-hidden group relative cursor-pointer">
 
                                     @if($isVideo)
                                         <div class="relative w-full h-full">
-                                            @php $thumbId = 'thumb_prof_' . md5($src . $index); @endphp
-                                            <canvas id="{{ $thumbId }}" class="absolute inset-0 w-full h-full object-cover pointer-events-none"></canvas>
-                                            <video src="{{ $src }}" class="absolute w-[1px] h-[1px] opacity-0 pointer-events-none" preload="auto" muted playsinline autoplay
-                                                onloadeddata="this.pause(); this.currentTime = 2;"
-                                                onseeked="let c = document.getElementById('{{ $thumbId }}'); if(c && this.videoWidth){ c.width = this.videoWidth; c.height = this.videoHeight; c.getContext('2d').drawImage(this, 0, 0, c.width, c.height); }">
-                                            </video>
+                                            <video src="{{ $src }}" poster="{{ $posterSrc }}" class="w-full h-full object-cover pointer-events-none" preload="metadata" muted playsinline></video>
                                             <!-- Red Play Button Overlay -->
                                             <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
                                                 <div style="background-color: #dc2626; width: 64px; height: 64px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.4); transform: scale(1); transition: transform 0.2s ease-in-out;" class="group-hover:scale-110">
