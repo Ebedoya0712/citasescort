@@ -551,14 +551,13 @@
 
                                              
                                              <!-- Red Play Button Overlay -->
-                                             <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                                             <span class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors pointer-events-none">
                                                  <div style="background-color: #dc2626; width: 64px; height: 64px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.4); transform: scale(1); transition: transform 0.2s ease-in-out;" class="group-hover:scale-110">
                                                      <svg class="w-8 h-8 fill-current text-white translate-x-0.5" viewBox="0 0 24 24">
                                                          <path d="M8 5v14l11-7z"/>
                                                      </svg>
                                                  </div>
-                                             </div>
-                                         </div>
+                                             </span>         </div>
                                     @endforeach
                                 </div>
                             </div>
