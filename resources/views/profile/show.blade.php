@@ -423,9 +423,11 @@
 
                                     @if($isVideo)
                                         <div class="relative w-full h-full">
-                                            <video src="{{ $src }}" muted playsinline preload="auto"
-                                                class="w-full h-full object-cover pointer-events-none"
-                                                onloadedmetadata="this.currentTime = 0.1;">
+                                            @php $thumbId = 'thumb_prof_' . md5($src . $index); @endphp
+                                            <canvas id="{{ $thumbId }}" class="absolute inset-0 w-full h-full object-cover pointer-events-none"></canvas>
+                                            <video src="{{ $src }}" class="absolute w-[1px] h-[1px] opacity-0 pointer-events-none" preload="auto" muted playsinline
+                                                onloadeddata="this.currentTime = 0.5;"
+                                                onseeked="let c = document.getElementById('{{ $thumbId }}'); if(c && this.videoWidth){ c.width = this.videoWidth; c.height = this.videoHeight; c.getContext('2d').drawImage(this, 0, 0, c.width, c.height); }">
                                             </video>
                                             <!-- Red Play Button Overlay -->
                                             <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
