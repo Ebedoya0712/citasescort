@@ -106,8 +106,8 @@ class PublicationObserver
             $destX = ($imgWidth - $newWatermarkWidth) / 2;
             $destY = ($imgHeight - $newWatermarkHeight) / 2;
 
-            // Truco para aplicar opacidad (20%) a un PNG con canal alfa en GD
-            $opacity = 20;
+            // Truco para aplicar opacidad (30%) a un PNG con canal alfa en GD
+            $opacity = 30;
             $cut = imagecreatetruecolor((int)$newWatermarkWidth, (int)$newWatermarkHeight);
             imagecopy($cut, $img, 0, 0, (int)$destX, (int)$destY, (int)$newWatermarkWidth, (int)$newWatermarkHeight);
             imagecopy($cut, $resizedWatermark, 0, 0, 0, 0, (int)$newWatermarkWidth, (int)$newWatermarkHeight);
