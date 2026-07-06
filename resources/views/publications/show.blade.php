@@ -537,8 +537,9 @@
                                         @endphp
                                         <div @click="openLightbox({{ $actualIndex }})"
                                               class="aspect-[3/4] bg-zinc-900 rounded-lg overflow-hidden group relative cursor-pointer shadow-lg shadow-black/40 border border-zinc-800/50 flex items-center justify-center">
-                                             <video src="{{ $src }}#t=1.0" muted playsinline preload="metadata"
-                                                    class="w-full h-full object-cover pointer-events-none">
+                                             <video src="{{ $src }}" muted playsinline preload="auto"
+                                                    class="w-full h-full object-cover pointer-events-none"
+                                                    onloadedmetadata="this.currentTime = 0.1;">
                                              </video>
 
 

@@ -423,8 +423,9 @@
 
                                     @if($isVideo)
                                         <div class="relative w-full h-full">
-                                            <video src="{{ $src }}#t=1.0" muted playsinline preload="metadata"
-                                                class="w-full h-full object-cover pointer-events-none">
+                                            <video src="{{ $src }}" muted playsinline preload="auto"
+                                                class="w-full h-full object-cover pointer-events-none"
+                                                onloadedmetadata="this.currentTime = 0.1;">
                                             </video>
                                             <!-- Red Play Button Overlay -->
                                             <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
