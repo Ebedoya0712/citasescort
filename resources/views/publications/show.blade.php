@@ -529,24 +529,12 @@
                                             $src = Str::startsWith($video, ['http://', 'https://']) ? $video : Storage::url($video);
                                             $extension = pathinfo($video, PATHINFO_EXTENSION);
                                             $actualIndex = count($photosOnly) + $index;
-                                            $posterSrc = '';
-                                            if (!empty($photosOnly)) {
-                                                $firstPhoto = $photosOnly[0];
-                                                $posterSrc = Str::startsWith($firstPhoto, ['http://', 'https://']) ? $firstPhoto : Storage::url($firstPhoto);
-                                            }
                                         @endphp
                                         <div @click="openLightbox({{ $actualIndex }})"
                                               class="aspect-[3/4] bg-zinc-900 rounded-lg overflow-hidden group relative cursor-pointer shadow-lg shadow-black/40 border border-zinc-800/50 flex items-center justify-center">
-                                             @if($posterSrc)
-                                                 <img src="{{ $posterSrc }}" class="w-full h-full object-cover pointer-events-none" alt="Video thumbnail">
-                                             @else
-                                                 <div class="w-full h-full bg-zinc-800 flex flex-col items-center justify-center text-zinc-500">
-                                                     <svg class="w-12 h-12 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                                     </svg>
-                                                     <span class="text-sm">Video</span>
-                                                 </div>
-                                             @endif
+                                             <video src="{{ $src }}" muted playsinline preload="metadata"
+                                                 class="w-full h-full object-cover pointer-events-none"
+                                                 onloadeddata="this.currentTime=0.1"></video>
 
 
                                              
