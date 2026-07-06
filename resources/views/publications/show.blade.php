@@ -632,8 +632,8 @@
                             <!-- Opción 1 (La más usada y eficiente): Le colocamos la marca de agua visualmente encima del reproductor web y bloqueamos el clic derecho / descarga nativa. Así, el usuario no puede descargarlo fácilmente, y si intentan grabar la pantalla con su celular, la marca de agua saldrá -->
                             <template x-if="currentMedia.type === 'video'">
                                 <div class="relative w-full h-full flex items-center justify-center">
-                                    <video :key="currentIndex" :src="currentMedia.src" controls autoplay loop controlsList="nodownload" oncontextmenu="return false;"
-                                         class="lightbox-video max-w-full max-h-full max-w-[90vw] max-h-[90vh]">
+                                    <video :key="currentIndex" :src="currentMedia.src" controls autoplay loop playsinline preload="auto" controlsList="nodownload" oncontextmenu="return false;"
+                                         class="lightbox-video w-full h-full object-contain max-w-[90vw] max-h-[90vh]">
                                          Tu navegador no soporta video.
                                      </video>
                                      <!-- Watermark -->
