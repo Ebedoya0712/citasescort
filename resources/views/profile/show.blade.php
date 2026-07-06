@@ -40,11 +40,7 @@
                                 @endif
 
                                 @if($escort->profile_photo || ($escort->photos && count($escort->photos) > 0))
-                                    <!-- Watermark -->
-                                    <div
-                                        class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 select-none">
-                                        <span class="text-2xl md:text-3xl font-extrabold tracking-wider drop-shadow-lg uppercase"><span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span></span>
-                                    </div>
+
                                 @endif
                             </div>
                         </div>
@@ -436,11 +432,7 @@
                                         <img src="{{ $src }}" alt="Foto de {{ $escort->name }}"
                                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                                        <!-- Watermark -->
-                                        <div
-                                            class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 select-none">
-                                            <span class="text-xl md:text-2xl font-extrabold tracking-wider drop-shadow-lg uppercase"><span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span></span>
-                                        </div>
+
                                     @endif
                                 </div>
                             @endforeach
@@ -1038,12 +1030,6 @@
                                             autoplay @ended="nextStory()">
                                         </video>
                                     </template>
-
-                                    <!-- Watermark -->
-                                     <div
-                                         class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 z-10 select-none">
-                                         <span class="text-2xl md:text-3xl font-extrabold tracking-wider drop-shadow-lg uppercase"><span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span></span>
-                                     </div>
 
                                     <!-- Caption Badge -->
                                     <div x-show="story.caption"

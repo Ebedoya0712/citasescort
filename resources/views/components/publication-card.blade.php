@@ -36,10 +36,7 @@
             <img src="{{ $src }}" alt="{{ $publication->title }}"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-            <!-- Watermark Frontend -->
-            <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 z-10 select-none">
-                <span class="text-xl md:text-3xl font-extrabold tracking-wider drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] uppercase w-full text-center truncate px-2"><span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span></span>
-            </div>
+
         @else
             <div class="w-full h-full flex items-center justify-center text-gray-400">
                 <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -143,10 +143,7 @@
                                     @click.stop="togglePause" @timeupdate="updateVideoProgress"></video>
                             </template>
 
-                            <!-- Watermark -->
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-35 z-40 select-none">
-                                <span class="text-2xl md:text-3xl font-extrabold tracking-wider drop-shadow-lg uppercase"><span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span></span>
-                            </div>
+
                         </div>
 
                         <!-- Badge -->
