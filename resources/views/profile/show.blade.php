@@ -425,8 +425,8 @@
                                         <div class="relative w-full h-full">
                                             @php $thumbId = 'thumb_prof_' . md5($src . $index); @endphp
                                             <canvas id="{{ $thumbId }}" class="absolute inset-0 w-full h-full object-cover pointer-events-none"></canvas>
-                                            <video src="{{ $src }}" class="absolute w-[1px] h-[1px] opacity-0 pointer-events-none" preload="auto" muted playsinline
-                                                onloadeddata="this.currentTime = 0.5;"
+                                            <video src="{{ $src }}" class="absolute w-[1px] h-[1px] opacity-0 pointer-events-none" preload="auto" muted playsinline autoplay
+                                                onloadeddata="this.pause(); this.currentTime = 2;"
                                                 onseeked="let c = document.getElementById('{{ $thumbId }}'); if(c && this.videoWidth){ c.width = this.videoWidth; c.height = this.videoHeight; c.getContext('2d').drawImage(this, 0, 0, c.width, c.height); }">
                                             </video>
                                             <!-- Red Play Button Overlay -->
