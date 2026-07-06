@@ -15,7 +15,7 @@ class EscortObserver
     {
         // 1. Verificar profile_photo
         if ($escort->isDirty('profile_photo') && !empty($escort->profile_photo)) {
-            // $this->applyWatermark($escort->profile_photo); // Desactivado para usar CSS frontend
+            $this->applyWatermark($escort->profile_photo);
         }
 
         // Procesar galerÃ­a de fotos
@@ -27,7 +27,7 @@ class EscortObserver
             $addedPhotos = array_diff($newPhotos, $originalPhotos);
 
             foreach ($addedPhotos as $photoPath) {
-                // $this->applyWatermark($photoPath); // Desactivado para usar CSS frontend
+                $this->applyWatermark($photoPath);
             }
         }
     }
@@ -86,8 +86,8 @@ class EscortObserver
             $watermarkWidth = imagesx($watermark);
             $watermarkHeight = imagesy($watermark);
 
-            // Redimensionar marca de agua al 50% del ancho de la imagen
-            $newWatermarkWidth = $imgWidth * 0.5;
+            // Redimensionar marca de agua al 90% del ancho de la imagen
+            $newWatermarkWidth = $imgWidth * 0.90;
             $aspectRatio = $watermarkHeight / $watermarkWidth;
             $newWatermarkHeight = $newWatermarkWidth * $aspectRatio;
 
@@ -109,8 +109,8 @@ class EscortObserver
             $destX = ($imgWidth - $newWatermarkWidth) / 2;
             $destY = ($imgHeight - $newWatermarkHeight) / 2;
 
-            // Truco para aplicar opacidad (30%) a un PNG con canal alfa en GD
-            $opacity = 30;
+            // Truco para aplicar opacidad (25%) a un PNG con canal alfa en GD
+            $opacity = 25;
             $cut = imagecreatetruecolor((int)$newWatermarkWidth, (int)$newWatermarkHeight);
             imagecopy($cut, $img, 0, 0, (int)$destX, (int)$destY, (int)$newWatermarkWidth, (int)$newWatermarkHeight);
             imagecopy($cut, $resizedWatermark, 0, 0, 0, 0, (int)$newWatermarkWidth, (int)$newWatermarkHeight);

@@ -88,8 +88,8 @@ class StoryObserver
             $watermarkWidth = imagesx($watermark);
             $watermarkHeight = imagesy($watermark);
 
-            // Redimensionar marca de agua al 85% del ancho de la imagen para que sea más grande
-            $newWatermarkWidth = $imgWidth * 0.85;
+            // Redimensionar marca de agua al 90% del ancho de la imagen para que sea más grande
+            $newWatermarkWidth = $imgWidth * 0.90;
             $aspectRatio = $watermarkHeight / $watermarkWidth;
             $newWatermarkHeight = $newWatermarkWidth * $aspectRatio;
 
@@ -111,8 +111,8 @@ class StoryObserver
             $destX = ($imgWidth - $newWatermarkWidth) / 2;
             $destY = ($imgHeight - $newWatermarkHeight) / 2;
 
-            // Truco para aplicar opacidad (50%) a un PNG con canal alfa en GD
-            $opacity = 50;
+            // Truco para aplicar opacidad (25%) a un PNG con canal alfa en GD
+            $opacity = 25;
             $cut = imagecreatetruecolor((int)$newWatermarkWidth, (int)$newWatermarkHeight);
             imagecopy($cut, $img, 0, 0, (int)$destX, (int)$destY, (int)$newWatermarkWidth, (int)$newWatermarkHeight);
             imagecopy($cut, $resizedWatermark, 0, 0, 0, 0, (int)$newWatermarkWidth, (int)$newWatermarkHeight);
