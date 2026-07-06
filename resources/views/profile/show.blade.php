@@ -428,7 +428,7 @@
 
                                     @if($isVideo)
                                         <div class="relative w-full h-full">
-                                            <video src="{{ $src }}" muted playsinline preload="metadata" controlsList="nodownload" oncontextmenu="return false;"
+                                            <video src="{{ $src }}#t=0.001" muted playsinline preload="metadata" controlsList="nodownload" oncontextmenu="return false;"
                                                 class="w-full h-full object-cover pointer-events-none"
                                                 onloadeddata="this.currentTime=0.1"></video>
                                             <span class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors pointer-events-none">

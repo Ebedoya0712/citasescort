@@ -36,7 +36,7 @@
                 $isFirstVideo = in_array($firstExt, ['mp4', 'mov', 'avi', 'webm']);
             @endphp
             @if($isFirstVideo)
-                <video src="{{ $src }}" muted playsinline preload="metadata"
+                <video src="{{ $src }}#t=0.001" muted playsinline preload="metadata"
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     onloadeddata="this.currentTime=0.1"></video>
             @else
