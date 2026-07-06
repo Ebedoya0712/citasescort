@@ -88,8 +88,8 @@ class StoryObserver
             $watermarkWidth = imagesx($watermark);
             $watermarkHeight = imagesy($watermark);
 
-            // Redimensionar marca de agua al 75% del ancho de la imagen para que sea más grande
-            $newWatermarkWidth = $imgWidth * 0.75;
+            // Redimensionar marca de agua al 85% del ancho de la imagen para que sea más grande
+            $newWatermarkWidth = $imgWidth * 0.85;
             $aspectRatio = $watermarkHeight / $watermarkWidth;
             $newWatermarkHeight = $newWatermarkWidth * $aspectRatio;
 
