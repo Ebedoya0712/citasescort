@@ -10,6 +10,10 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Actions;
+use App\Models\Post;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SubscriptionInvoice;
+use Illuminate\Support\Str;
 
 class PaymentResource extends Resource
 {
@@ -103,10 +107,32 @@ class PaymentResource extends Resource
                         
                         // Update user's escort plan if user is an escort
                         if ($record->user && $record->user->escort && $record->plan) {
+                            $expiresAt = now()->addDays($record->plan->duration_days);
                             $record->user->escort->update([
                                 'level' => strtolower($record->plan->name),
                                 'plan_id' => $record->plan_id,
-                                'plan_expires_at' => now()->addDays($record->plan->duration_days),
+                                'plan_expires_at' => $expiresAt,
+                            ]);
+                            
+                            // Send Invoice Email
+                            Mail::to($record->user->email)->send(new SubscriptionInvoice($record, $record->plan, $record->user->escort, $expiresAt->format('d/m/Y')));
+                            
+                            // Create News Post
+                            $photo = null;
+                            if (!empty($record->user->escort->photos) && is_array($record->user->escort->photos)) {
+                                $photo = $record->user->escort->photos[0];
+                            } elseif ($record->user->escort->profile_photo) {
+                                $photo = $record->user->escort->profile_photo;
+                            }
+                            
+                            Post::create([
+                                'user_id' => $record->user_id,
+                                'title' => $record->user->escort->name . ' - Escort Destacada',
+                                'slug' => Str::slug($record->user->escort->name . '-' . uniqid()),
+                                'content' => '<p>¡Destacamos a <strong>' . $record->user->escort->name . '</strong>! No te pierdas su increíble perfil y descubre todos los servicios que tiene para ofrecer.</p>',
+                                'image' => $photo,
+                                'is_published' => true,
+                                'published_at' => now(),
                             ]);
                         }
                     }),
