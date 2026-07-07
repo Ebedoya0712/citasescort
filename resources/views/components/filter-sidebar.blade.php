@@ -55,7 +55,7 @@
                 <!-- Ubicación y Precio -->
                 <div x-data="{ expanded: true }" class="border-b border-gray-100 dark:border-zinc-800/50 pb-2">
                     <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between px-3 py-3 text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-zinc-800/50 rounded-lg transition-colors">
-                        <span class="font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 text-sm">
+                        <span class="font-semibold text-white flex items-center gap-2 text-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                             Ubicación y Precio
                         </span>
@@ -72,7 +72,7 @@
                                             return (this.maxPrice / this.max) * 100;
                                         }
                                     }">
-                                <label class="flex items-center justify-between text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
+                                <label class="flex items-center justify-between text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">
                                     <span>Precio por hora</span>
                                     <span class="bg-red-600 text-white px-2 py-0.5 rounded-full font-bold text-[10px]"
                                           x-text="'0$ a ' + maxPrice + '$'"></span>
@@ -195,7 +195,7 @@
                 @endphp
                 <div x-data="{ expanded: {{ !empty($selectedCategories) ? 'true' : 'false' }} }" class="border-b border-gray-100 dark:border-zinc-800/50 pb-2">
                     <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between px-3 py-3 text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-zinc-800/50 rounded-lg transition-colors">
-                        <span class="font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 text-sm">
+                        <span class="font-semibold text-white flex items-center gap-2 text-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
                             Clasificación
                         </span>
@@ -225,7 +225,7 @@
                 @endphp
                 <div x-data="{ expanded: {{ !empty($selectedServices) ? 'true' : 'false' }} }" class="border-b border-gray-100 dark:border-zinc-800/50 pb-2">
                     <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between px-3 py-3 text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-zinc-800/50 rounded-lg transition-colors">
-                        <span class="font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 text-sm">
+                        <span class="font-semibold text-white flex items-center gap-2 text-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                             Servicios
                         </span>
@@ -254,7 +254,7 @@
                 @endphp
                 <div x-data="{ expanded: {{ !empty($selectedAttendsIn) ? 'true' : 'false' }} }" class="border-b border-gray-100 dark:border-zinc-800/50 pb-2">
                     <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between px-3 py-3 text-left focus:outline-none hover:bg-gray-50 dark:hover:bg-zinc-800/50 rounded-lg transition-colors">
-                        <span class="font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 text-sm">
+                        <span class="font-semibold text-white flex items-center gap-2 text-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-600"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                             Atiende en
                         </span>

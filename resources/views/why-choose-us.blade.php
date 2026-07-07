@@ -98,9 +98,9 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-600 transition-colors">
+                            class="text-2xl font-bold text-white mb-3 group-hover:text-red-600 transition-colors">
                             Verificación Rigurosa</h3>
-                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        <p class="text-gray-300 leading-relaxed">
                             No dejamos nada al azar. Cada perfil pasa por un proceso de validación manual. Garantizamos
                             que quien ves en las fotos es quien realmente conocerás.
                         </p>
@@ -128,9 +128,9 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-600 transition-colors">
+                            class="text-2xl font-bold text-white mb-3 group-hover:text-red-600 transition-colors">
                             Privacidad Absoluta</h3>
-                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        <p class="text-gray-300 leading-relaxed">
                             Navega con tranquilidad. Implementamos tecnologías de cifrado y anonimato para que tu
                             experiencia sea segura, privada y libre de rastros.
                         </p>
@@ -157,9 +157,9 @@
                             </svg>
                         </div>
                         <h3
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-600 transition-colors">
+                            class="text-2xl font-bold text-white mb-3 group-hover:text-red-600 transition-colors">
                             Reseñas Verificadas</h3>
-                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        <p class="text-gray-300 leading-relaxed">
                             Una comunidad activa que comparte experiencias reales. Las reseñas te ayudan a elegir con
                             confianza, manteniendo la calidad en cada encuentro.
                         </p>
@@ -218,8 +218,8 @@
                         :class="active === 1 ? 'border-red-600 shadow-lg shadow-red-600/10' : 'border-gray-200 dark:border-zinc-800 hover:border-red-600/30'">
                         <button @click="active === 1 ? active = null : active = 1"
                             class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors">
-                            <span class="font-bold text-lg transition-colors"
-                                :class="active === 1 ? 'text-red-600' : 'dark:text-white'">¿Cómo verifican los
+                            <span class="font-bold text-lg text-white transition-colors"
+                                :class="active === 1 ? 'text-red-600' : 'text-white'">¿Cómo verifican los
                                 perfiles?</span>
                             <span class="transform transition-transform duration-300"
                                 :class="active === 1 ? 'rotate-180 text-red-600' : 'text-gray-400'">
@@ -230,7 +230,7 @@
                             </span>
                         </button>
                         <div x-show="active === 1" x-collapse>
-                            <div class="p-6 pt-0 text-gray-600 dark:text-gray-400">
+                            <div class="p-6 pt-0 text-gray-300">
                                 Solicitamos foto de documento y una selfi en tiempo real con un gesto específico. Esto
                                 garantiza que la persona detrás del perfil es real y coincide con las fotos publicadas.
                             </div>
@@ -242,8 +242,8 @@
                         :class="active === 2 ? 'border-red-600 shadow-lg shadow-red-600/10' : 'border-gray-200 dark:border-zinc-800 hover:border-red-600/30'">
                         <button @click="active === 2 ? active = null : active = 2"
                             class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors">
-                            <span class="font-bold text-lg transition-colors"
-                                :class="active === 2 ? 'text-red-600' : 'dark:text-white'">¿Es seguro navegar por el
+                            <span class="font-bold text-lg text-white transition-colors"
+                                :class="active === 2 ? 'text-red-600' : 'text-white'">¿Es seguro navegar por el
                                 sitio?</span>
                             <span class="transform transition-transform duration-300"
                                 :class="active === 2 ? 'rotate-180 text-red-600' : 'text-gray-400'">
@@ -254,7 +254,7 @@
                             </span>
                         </button>
                         <div x-show="active === 2" x-collapse>
-                            <div class="p-6 pt-0 text-gray-600 dark:text-gray-400">
+                            <div class="p-6 pt-0 text-gray-300">
                                 Absolutamente. Utilizamos encriptación SSL de grado bancario y no almacenamos registros
                                 de actividad de nuestros usuarios.
                             </div>
@@ -266,8 +266,8 @@
                         :class="active === 3 ? 'border-red-600 shadow-lg shadow-red-600/10' : 'border-gray-200 dark:border-zinc-800 hover:border-red-600/30'">
                         <button @click="active === 3 ? active = null : active = 3"
                             class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors">
-                            <span class="font-bold text-lg transition-colors"
-                                :class="active === 3 ? 'text-red-600' : 'dark:text-white'">¿Cómo contacto a una
+                            <span class="font-bold text-lg text-white transition-colors"
+                                :class="active === 3 ? 'text-red-600' : 'text-white'">¿Cómo contacto a una
                                 escort?</span>
                             <span class="transform transition-transform duration-300"
                                 :class="active === 3 ? 'rotate-180 text-red-600' : 'text-gray-400'">
@@ -278,7 +278,7 @@
                             </span>
                         </button>
                         <div x-show="active === 3" x-collapse>
-                            <div class="p-6 pt-0 text-gray-600 dark:text-gray-400">
+                            <div class="p-6 pt-0 text-gray-300">
                                 Puedes contactarlas directamente a través de WhatsApp o llamada telefónica usando los
                                 botones disponibles en cada perfil. No cobramos comisión ni intermediamos.
                             </div>

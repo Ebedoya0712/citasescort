@@ -12,10 +12,10 @@
                     class="inline-block px-4 py-1.5 rounded-full border border-[#e11d48]/30 bg-[#e11d48]/10 text-[#e11d48] text-sm font-bold tracking-widest uppercase mb-4">
                     Contacto
                 </span>
-                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
                     ¡Hablemos!
                 </h1>
-                <p class="text-gray-600 dark:text-gray-400 text-lg">
+                <p class="text-gray-300 text-lg">
                     Déjanos tu mensaje y te responderemos a la brevedad.
                 </p>
                 <!-- Divider -->
@@ -42,7 +42,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Name -->
                     <div class="space-y-2">
-                        <label for="name" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
+                        <label for="name" class="block text-sm font-semibold text-gray-300 ml-1">
                             Nombre
                         </label>
                         <div class="relative">
@@ -65,7 +65,7 @@
 
                     <!-- Email -->
                     <div class="space-y-2">
-                        <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
+                        <label for="email" class="block text-sm font-semibold text-gray-300 ml-1">
                             E-mail
                         </label>
                         <div class="relative">
@@ -91,7 +91,7 @@
 
                 <!-- Phone -->
                 <div class="space-y-2">
-                    <label for="phone" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
+                    <label for="phone" class="block text-sm font-semibold text-gray-300 ml-1">
                         Teléfono <span class="text-gray-500 font-normal">(Opcional)</span>
                     </label>
                     <div class="relative">
@@ -115,7 +115,7 @@
 
                 <!-- Message -->
                 <div class="space-y-2">
-                    <label for="message" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
+                    <label for="message" class="block text-sm font-semibold text-gray-300 ml-1">
                         Mensaje
                     </label>
                     <div class="relative">
@@ -150,7 +150,7 @@
                 </div>
             </form>
 
-            <p class="text-center text-gray-500 text-xs mt-8">
+            <p class="text-center text-gray-400 text-xs mt-8">
                 Al enviar este formulario, aceptas nuestra Política de Privacidad y Términos de Uso.
             </p>
         </div>
