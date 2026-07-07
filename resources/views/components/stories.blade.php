@@ -134,24 +134,26 @@
 
                         <!-- Media -->
                         <div class="relative w-full h-full flex items-center justify-center bg-black">
-                            <template x-if="currentStory && currentStory.media_type === 'image'">
-                                <img :src="getStoryMedia(currentStory)" class="w-full h-full object-cover">
-                            </template>
-                            <!-- Opción 1 (La más usada y eficiente): Le colocamos la marca de agua visualmente encima del reproductor web y bloqueamos el clic derecho / descarga nativa. Así, el usuario no puede descargarlo fácilmente, y si intentan grabar la pantalla con su celular, la marca de agua saldrá -->
-                            <template x-if="currentStory && currentStory.media_type === 'video'">
-                                <div class="relative w-full h-full flex items-center justify-center">
-                                    <video x-ref="videoPlayer" :src="getStoryMedia(currentStory)" controlsList="nodownload" oncontextmenu="return false;"
-                                        class="w-full h-full object-cover" autoplay playsinline @ended="nextStory"
-                                        @click.stop="togglePause" @timeupdate="updateVideoProgress"></video>
-                                    <!-- Watermark -->
-                                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                                        <div class="text-2xl md:text-3xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none opacity-60 flex">
-                                            <span class="text-red-500">CITAS</span>
-                                            <span class="text-white">ESCORTS</span>
-                                        </div>
+                            <!-- Image -->
+                            <img x-show="currentStory && currentStory.media_type === 'image'" 
+                                :src="currentStory && currentStory.media_type === 'image' ? getStoryMedia(currentStory) : ''" 
+                                class="w-full h-full object-cover">
+
+                            <!-- Video -->
+                            <div x-show="currentStory && currentStory.media_type === 'video'" class="relative w-full h-full flex items-center justify-center">
+                                <video x-ref="videoPlayer" 
+                                    :src="currentStory && currentStory.media_type === 'video' ? getStoryMedia(currentStory) : ''" 
+                                    controlsList="nodownload" oncontextmenu="return false;"
+                                    class="w-full h-full object-cover" playsinline @ended="nextStory"
+                                    @timeupdate="updateVideoProgress"></video>
+                                <!-- Watermark -->
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                                    <div class="text-2xl md:text-3xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none opacity-60 flex">
+                                        <span class="text-red-500">CITAS</span>
+                                        <span class="text-white">ESCORTS</span>
                                     </div>
                                 </div>
-                            </template>
+                            </div>
 
 
                         </div>
@@ -331,7 +333,14 @@
                             if (this.currentStory && this.currentStory.media_type === 'video') {
                                 if (this.$refs.videoPlayer) {
                                     this.$refs.videoPlayer.currentTime = 0;
-                                    this.$refs.videoPlayer.play();
+                                    let playPromise = this.$refs.videoPlayer.play();
+                                    if (playPromise !== undefined) {
+                                        playPromise.catch(error => {
+                                            console.warn("Autoplay blocked, falling back to muted", error);
+                                            this.$refs.videoPlayer.muted = true;
+                                            this.$refs.videoPlayer.play();
+                                        });
+                                    }
                                 }
                             } else {
                                 this.startImageTimer();
@@ -360,7 +369,17 @@
                     togglePause() {
                         this.paused = !this.paused;
                         if (this.currentStory && this.currentStory.media_type === 'video') {
-                            this.paused ? this.$refs.videoPlayer.pause() : this.$refs.videoPlayer.play();
+                            if (this.paused) {
+                                this.$refs.videoPlayer.pause();
+                            } else {
+                                let playPromise = this.$refs.videoPlayer.play();
+                                if (playPromise !== undefined) {
+                                    playPromise.catch(error => {
+                                        this.$refs.videoPlayer.muted = true;
+                                        this.$refs.videoPlayer.play();
+                                    });
+                                }
+                            }
                         } else {
                             if (this.paused) {
                             } else {
