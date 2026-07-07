@@ -144,9 +144,8 @@
                             <div x-show="currentStory && currentStory.media_type === 'video'"
                                 style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;">
                                 <video x-ref="videoPlayer"
-                                    muted
                                     playsinline
-                                    controls
+                                    oncontextmenu="return false;"
                                     style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;z-index:2;"
                                     @ended="nextStory"
                                     @timeupdate="updateVideoProgress">
@@ -158,16 +157,8 @@
                                         <span class="text-white">ESCORTS</span>
                                     </div>
                                 </div>
-                                <!-- Unmute/Mute Toggle Button -->
-                                <button @click.stop="toggleMute" style="position:absolute;bottom:6rem;right:1rem;z-index:60;background:rgba(0,0,0,0.5);color:white;padding:0.5rem;border-radius:9999px;border:1px solid rgba(255,255,255,0.2);">
-                                    <template x-if="isMuted">
-                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" /></svg>
-                                    </template>
-                                    <template x-if="!isMuted">
-                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
-                                    </template>
-                                </button>
                             </div>
+
                         </div>
 
 
@@ -359,38 +350,20 @@
                         if (this.currentStory && this.currentStory.media_type === 'video') {
                             this.$nextTick(() => {
                                 const video = this.$refs.videoPlayer;
+                                if (!video) return;
                                 const url = this.getStoryMedia(this.currentStory);
-                                console.log('[startStory] video ref:', video ? 'FOUND' : 'NOT FOUND');
-                                console.log('[startStory] url:', url);
-                                if (!video) {
-                                    console.error('[startStory] $refs.videoPlayer is null! Retrying in 200ms...');
-                                    setTimeout(() => {
-                                        const v2 = this.$refs.videoPlayer;
-                                        if (v2) {
-                                            v2.src = url;
-                                            v2.load();
-                                            v2.muted = true;
-                                            this.isMuted = true;
-                                            v2.play().catch(e => console.error('[startStory-retry] play error:', e));
-                                        } else {
-                                            console.error('[startStory-retry] still no video ref!');
-                                        }
-                                    }, 200);
-                                    return;
-                                }
                                 if (video.getAttribute('src') !== url) {
                                     video.src = url;
                                     video.load();
                                 }
-                                video.muted = true;
-                                this.isMuted = true;
+                                // Try to play with audio (user clicked to open story = valid interaction)
+                                video.muted = false;
                                 const p = video.play();
                                 if (p !== undefined) {
-                                    p.then(() => console.log('[startStory] play() OK - video is playing'))
-                                     .catch(err => {
-                                        console.error('[startStory] play() FAILED:', err.message);
+                                    p.catch(() => {
+                                        // Fallback: muted if browser blocks audio autoplay
                                         video.muted = true;
-                                        video.play().catch(e2 => console.error('[startStory] muted retry failed:', e2.message));
+                                        video.play();
                                     });
                                 }
                             });
