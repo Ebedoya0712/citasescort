@@ -74,8 +74,26 @@
         </div>
     </div>
 
-    <!-- Related Posts -->
-    @if($recentPosts->count() > 0)
+    <!-- Related Posts / Escort Ads -->
+    @php
+        $escortPublications = collect();
+        if ($post->user && $post->user->escort) {
+            $escortPublications = $post->user->escort->publications()->where('is_active', true)->take(8)->get();
+        }
+    @endphp
+
+    @if($escortPublications->count() > 0)
+        <div class="bg-black py-16 border-t border-zinc-800">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <h3 class="text-2xl font-bold text-white mb-8">Anuncios de {{ $post->user->escort->name }}</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
+                    @foreach($escortPublications as $publication)
+                        <x-publication-card :publication="$publication" />
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @elseif($recentPosts->count() > 0)
         <div class="bg-zinc-900 py-16">
             <div class="max-w-7xl mx-auto px-4 lg:px-8">
                 <h3 class="text-2xl font-bold text-white mb-8">También te puede interesar</h3>
