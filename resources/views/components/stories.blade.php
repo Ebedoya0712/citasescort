@@ -254,15 +254,18 @@
                                         paths.forEach((p, i) => {
                                             let s = { ...story };
                                             s.media_path = p;
-                                            s.id = `${story.id}_${i}`; // Unique ID for Alpine key
-
-                                            // Determine media type for this specific file
-                                            let ext = p.split('.').pop().toLowerCase();
-                                            s.media_type = ['mp4', 'mov', 'avi', 'webm'].includes(ext) ? 'video' : 'image';
+                                            s.id = `${story.id}_${i}`;
+                                            let ext = p.split('.').pop().toLowerCase().split('?')[0];
+                                            s.media_type = ['mp4', 'mov', 'avi', 'webm', 'ogg'].includes(ext) ? 'video' : 'image';
+                                            console.log('[Story flat]', s.media_type, this.resolveUrl(p));
                                             flatStories.push(s);
                                         });
-                                    } else {
-                                        flatStories.push(story);
+                                    } else if (typeof paths === 'string' && paths.length > 0) {
+                                        let s = { ...story };
+                                        let ext = paths.split('.').pop().toLowerCase().split('?')[0];
+                                        s.media_type = ['mp4', 'mov', 'avi', 'webm', 'ogg'].includes(ext) ? 'video' : 'image';
+                                        console.log('[Story string]', s.media_type, this.resolveUrl(paths));
+                                        flatStories.push(s);
                                     }
                                 });
                                 escort.stories = flatStories;
