@@ -25,10 +25,10 @@
                             
                             <!-- Greeting -->
                             <p style="color: #e4e4e7; font-size: 16px; margin: 0 0 8px 0;">Hola,</p>
-                            <h2 style="color: #ffffff; font-size: 24px; margin: 0 0 24px 0; font-weight: 700;">{{ $escort->name }} ðŸ‘‹</h2>
+                            <h2 style="color: #ffffff; font-size: 24px; margin: 0 0 24px 0; font-weight: 700;">{{ $escort->name }} 👋</h2>
                             
                             <p style="color: #a1a1aa; font-size: 15px; line-height: 1.6; margin: 0 0 30px 0;">
-                                ¡Tu pago ha sido procesado exitosamente! A continuaciÃ³n te presentamos los detalles de tu factura.
+                                ¡Tu pago ha sido procesado exitosamente! A continuación te presentamos los detalles de tu factura.
                             </p>
 
                             <!-- Plan Badge -->
@@ -38,9 +38,9 @@
                                         <div style="display: inline-block; background: linear-gradient(135deg, #ff2a7a, #e91e63); padding: 12px 32px; border-radius: 50px;">
                                             <span style="color: #ffffff; font-size: 18px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;">
                                                 @if(strtolower($plan->name) === 'diamante')
-                                                    ðŸ’Ž Plan {{ $plan->name }}
+                                                    💎 Plan {{ $plan->name }}
                                                 @elseif(strtolower($plan->name) === 'plata')
-                                                    ðŸ¥ˆ Plan {{ $plan->name }}
+                                                    🥈 Plan {{ $plan->name }}
                                                 @else
                                                     Plan {{ $plan->name }}
                                                 @endif
@@ -77,7 +77,7 @@
                                         <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td style="color: #a1a1aa; font-size: 14px;">Método de Pago</td>
-                                                <td align="right" style="color: #ffffff; font-size: 14px; font-weight: 600;">PayPal</td>
+                                                <td align="right" style="color: #ffffff; font-size: 14px; font-weight: 600;">{{ ucfirst($payment->gateway) }}</td>
                                             </tr>
                                         </table>
                                     </td>
@@ -87,7 +87,7 @@
                                         <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td style="color: #a1a1aa; font-size: 14px;">ID Transacción</td>
-                                                <td align="right" style="color: #71717a; font-size: 12px; font-weight: 600; font-family: monospace;">{{ $payment->transaction_id }}</td>
+                                                <td align="right" style="color: #71717a; font-size: 12px; font-weight: 600; font-family: monospace;">{{ $payment->transaction_id ?: 'PAG-'.str_pad($payment->id, 5, '0', STR_PAD_LEFT) }}</td>
                                             </tr>
                                         </table>
                                     </td>
@@ -106,18 +106,18 @@
 
                             <!-- Benefits -->
                             <div style="background-color: #27272a; border-radius: 12px; padding: 24px; margin-bottom: 30px; border-left: 4px solid #ff2a7a;">
-                                <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 16px 0; font-weight: 700;">âœ¨ Beneficios Activos</h3>
+                                <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 16px 0; font-weight: 700;">✨ Beneficios Activos</h3>
                                 <table role="presentation" cellspacing="0" cellpadding="0">
                                     <tr>
-                                        <td style="padding: 6px 0; color: #10b981; font-size: 14px;">âœ“</td>
+                                        <td style="padding: 6px 0; color: #10b981; font-size: 14px;">✓</td>
                                         <td style="padding: 6px 0 6px 10px; color: #e4e4e7; font-size: 14px;">Posicionamiento VIP en la página principal</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 6px 0; color: #10b981; font-size: 14px;">âœ“</td>
+                                        <td style="padding: 6px 0; color: #10b981; font-size: 14px;">✓</td>
                                         <td style="padding: 6px 0 6px 10px; color: #e4e4e7; font-size: 14px;">Badge y bordes especiales en tu anuncio</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 6px 0; color: #10b981; font-size: 14px;">âœ“</td>
+                                        <td style="padding: 6px 0; color: #10b981; font-size: 14px;">✓</td>
                                         <td style="padding: 6px 0 6px 10px; color: #e4e4e7; font-size: 14px;">Atención y soporte 24/7 prioritario</td>
                                     </tr>
                                 </table>
@@ -128,7 +128,7 @@
                                 <tr>
                                     <td align="center">
                                         <a href="{{ config('app.url') }}" style="display: inline-block; background: linear-gradient(135deg, #ff2a7a, #e91e63); color: #ffffff; text-decoration: none; padding: 14px 40px; border-radius: 50px; font-size: 15px; font-weight: 700; letter-spacing: 0.5px;">
-                                            Ir a mi Escritorio â†’
+                                            Ir a mi Escritorio →
                                         </a>
                                     </td>
                                 </tr>

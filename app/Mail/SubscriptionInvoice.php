@@ -31,7 +31,7 @@ class SubscriptionInvoice extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Factura de SuscripciÃ³n - Citasescort (' . $this->plan->name . ')',
+            subject: 'Factura de Suscripción - Citasescort (' . $this->plan->name . ')',
         );
     }
 
