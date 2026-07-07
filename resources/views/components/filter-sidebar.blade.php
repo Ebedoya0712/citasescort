@@ -93,6 +93,7 @@
 
 
                             <!-- Moneda -->
+                            {{--
                             <div>
                                 <label class="block text-xs text-gray-500 dark:text-gray-400 mb-1 flex items-center gap-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="12" y1="2" x2="12" y2="6"></line></svg>
@@ -103,6 +104,7 @@
                                     <option value="USD" {{ request('currency') == 'USD' ? 'selected' : '' }}>USD ($)</option>
                                 </select>
                             </div>
+                            --}}
 
                             <!-- Ubicación -->
                             @php
