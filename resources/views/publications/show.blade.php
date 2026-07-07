@@ -631,23 +631,95 @@
                             <!-- Video Display -->
                             <!-- Opción 1 (La más usada y eficiente): Le colocamos la marca de agua visualmente encima del reproductor web y bloqueamos el clic derecho / descarga nativa. Así, el usuario no puede descargarlo fácilmente, y si intentan grabar la pantalla con su celular, la marca de agua saldrá -->
                             <template x-if="currentMedia.type === 'video'">
-                                <div class="relative w-full h-full flex items-center justify-center">
-                                    <style>
-                                        video::-webkit-media-controls-fullscreen-button {
-                                            display: none !important;
-                                        }
-                                    </style>
-                                    <video :key="currentIndex" :src="currentMedia.src" controls autoplay loop playsinline preload="auto" controlsList="nodownload nofullscreen noremoteplayback" oncontextmenu="return false;"
-                                         class="lightbox-video w-full h-full object-contain max-w-[90vw] max-h-[90vh]">
-                                         Tu navegador no soporta video.
-                                     </video>
-                                     <!-- Watermark -->
-                                     <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                                         <div class="text-2xl md:text-3xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none opacity-60 flex">
-                                             <span class="text-red-500">CITAS</span>
-                                             <span class="text-white">ESCORTS</span>
-                                         </div>
-                                     </div>
+                                <div x-data="{ 
+                                         playing: true, 
+                                         currentTime: 0, 
+                                         duration: 0, 
+                                         muted: true,
+                                         formatTime(time) {
+                                             if (isNaN(time)) return '0:00';
+                                             let m = Math.floor(time / 60);
+                                             let s = Math.floor(time % 60);
+                                             return m + ':' + (s < 10 ? '0' : '') + s;
+                                         }
+                                     }" 
+                                     class="relative w-full h-full flex items-center justify-center group bg-black"
+                                     @click="playing = !playing; if(playing) { $refs.vid.play() } else { $refs.vid.pause() }">
+                                     
+                                     <video x-ref="vid" 
+                                            :key="currentIndex" 
+                                            :src="currentMedia.src" 
+                                            autoplay loop playsinline preload="auto" muted
+                                            oncontextmenu="return false;"
+                                            class="lightbox-video w-full h-full object-contain max-w-[90vw] max-h-[90vh]"
+                                            @timeupdate="currentTime = $refs.vid.currentTime"
+                                            @loadedmetadata="duration = $refs.vid.duration"
+                                            @click.stop="playing = !playing; if(playing) { $refs.vid.play() } else { $refs.vid.pause() }">
+                                          Tu navegador no soporta video.
+                                      </video>
+                                      
+                                      <!-- Watermark -->
+                                      <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                                          <div class="text-2xl md:text-3xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none opacity-60 flex">
+                                              <span class="text-red-500">CITAS</span>
+                                              <span class="text-white">ESCORTS</span>
+                                          </div>
+                                      </div>
+
+                                      <!-- Big Play Button Center -->
+                                      <div x-show="!playing" class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                                          <div class="w-16 h-16 bg-black/60 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
+                                              <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                          </div>
+                                      </div>
+
+                                      <!-- Custom Controls Bar -->
+                                      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[95%] md:w-[70%] bg-black/70 backdrop-blur-md rounded-2xl p-3 flex items-center gap-3 md:gap-4 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" @click.stop>
+                                          
+                                          <!-- Play/Pause -->
+                                          <button @click="playing = !playing; if(playing) { $refs.vid.play() } else { $refs.vid.pause() }" class="text-white hover:text-red-500 transition-colors shrink-0">
+                                              <svg x-show="!playing" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                              <svg x-show="playing" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                                          </button>
+                                          
+                                          <!-- Time -->
+                                          <span class="text-white text-xs font-mono w-10 shrink-0 text-center" x-text="formatTime(currentTime)"></span>
+
+                                          <!-- Progress Bar -->
+                                          <div class="flex-1 relative h-2 bg-gray-600 rounded-full cursor-pointer group/slider"
+                                               @click="$refs.vid.currentTime = ($event.offsetX / $el.offsetWidth) * duration">
+                                              <div class="absolute top-0 left-0 h-full bg-red-600 rounded-full pointer-events-none"
+                                                   :style="`width: ${ duration > 0 ? (currentTime / duration) * 100 : 0 }%`"></div>
+                                              <!-- Thumb -->
+                                              <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-md opacity-0 group-hover/slider:opacity-100 transition-opacity pointer-events-none"
+                                                   :style="`left: calc(${ duration > 0 ? (currentTime / duration) * 100 : 0 }% - 6px)`"></div>
+                                          </div>
+
+                                          <!-- Duration -->
+                                          <span class="text-gray-300 text-xs font-mono w-10 shrink-0 text-center" x-text="formatTime(duration)"></span>
+
+                                          <!-- Mute/Unmute -->
+                                          <button @click="$refs.vid.muted = !$refs.vid.muted; muted = $refs.vid.muted" class="text-white hover:text-red-500 transition-colors shrink-0">
+                                              <svg x-show="muted" class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" /></svg>
+                                              <svg x-show="!muted" class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.899a9 9 0 010 12.728M5 12h4l4-4v12l-4-4H5z" /></svg>
+                                          </button>
+
+                                          <!-- Fullscreen wrapper -->
+                                          <button @click="
+                                                  let el = $el.closest('.relative.w-full.h-full');
+                                                  if (document.fullscreenElement) {
+                                                      document.exitFullscreen();
+                                                  } else if (el.requestFullscreen) {
+                                                      el.requestFullscreen();
+                                                  } else if (el.webkitRequestFullscreen) {
+                                                      el.webkitRequestFullscreen();
+                                                  }
+                                              " class="text-white hover:text-red-500 transition-colors shrink-0 hidden md:block">
+                                              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+                                              </svg>
+                                          </button>
+                                      </div>
                                 </div>
                             </template>
 
