@@ -40,6 +40,24 @@
                 class="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-red-600 prose-a:no-underline hover:prose-a:underline">
                 {!! $post->content !!}
             </div>
+            
+            @if($post->user && $post->user->escort)
+                @php
+                    $activePublications = $post->user->escort->publications->where('is_active', true);
+                @endphp
+                
+                @if($activePublications->isNotEmpty())
+                    @php
+                        $randomPublication = $activePublications->random();
+                    @endphp
+                    <div class="mt-12 mb-4 text-center">
+                        <a href="{{ route('publications.show', $randomPublication->id) }}" class="inline-block bg-red-600 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-red-600/30 hover:bg-red-700 hover:shadow-red-600/50 hover:-translate-y-1 transition-all duration-300">
+                            Saber más de la escort
+                        </a>
+                    </div>
+                @endif
+            @endif
+
 
             <!-- Share / Tags -->
             <div class="mt-12 pt-12 border-t border-zinc-800 flex justify-between items-center">
