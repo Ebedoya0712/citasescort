@@ -631,14 +631,16 @@
                             <!-- Video Display -->
                             <!-- Opción 1 (La más usada y eficiente): Le colocamos la marca de agua visualmente encima del reproductor web y bloqueamos el clic derecho / descarga nativa. Así, el usuario no puede descargarlo fácilmente, y si intentan grabar la pantalla con su celular, la marca de agua saldrá -->
                             <template x-if="currentMedia.type === 'video'">
-                                <div x-data="{ playing: true, muted: true }" 
+                                <div x-data="{ playing: false, muted: false }" 
+                                     x-init="playing = !$refs.vid.paused"
                                      class="relative w-full h-full flex items-center justify-center group bg-black cursor-pointer"
-                                     @click="playing = !playing; if(playing) { $refs.vid.play() } else { $refs.vid.pause() }">
+                                     @click="if($refs.vid.paused) { $refs.vid.play() } else { $refs.vid.pause() }">
                                      
                                      <video x-ref="vid" 
                                             :key="currentIndex" 
                                             :src="currentMedia.src" 
-                                            autoplay loop playsinline preload="auto" muted
+                                            autoplay loop playsinline preload="auto"
+                                            @play="playing = true" @pause="playing = false"
                                             oncontextmenu="return false;"
                                             class="lightbox-video w-full h-full object-contain max-w-[90vw] max-h-[90vh]">
                                           Tu navegador no soporta video.
@@ -660,7 +662,7 @@
                                       </div>
 
                                       <!-- Bottom Controls Container (reusing existing lightbox styles) -->
-                                      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 bg-black/50 rounded-full px-4 py-2 backdrop-blur-sm z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" @click.stop>
+                                      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 bg-black/50 rounded-full px-4 py-2 backdrop-blur-sm z-30 opacity-100" @click.stop>
                                           
                                           <!-- Mute/Unmute Toggle -->
                                           <button @click.stop="$refs.vid.muted = !$refs.vid.muted; muted = $refs.vid.muted" class="text-white hover:text-gray-300 flex items-center gap-2" title="Sonido">
