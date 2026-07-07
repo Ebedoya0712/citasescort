@@ -9,7 +9,7 @@
                 @else
                     @if(config('settings.site_name'))
                         @php
-                            $name = config('settings.site_name');
+                            $name = str_replace(' ', '', config('settings.site_name'));
                             $splitAt = min(5, strlen($name));
                         @endphp
                         <span class="text-red-600">{{ strtoupper(substr($name, 0, $splitAt)) }}</span><span class="text-white">{{ strtoupper(substr($name, $splitAt)) }}</span>
