@@ -1035,24 +1035,23 @@
                         <!-- Media Content -->
                         <div class="relative w-full h-full flex items-center justify-center bg-black">
                             <template x-for="(story, index) in stories" :key="index">
-                                <div x-show="currentIndex === index"
-                                    class="absolute inset-0 flex items-center justify-center w-full h-full">
+                                <div class="absolute inset-0 flex items-center justify-center w-full h-full">
 
                                     <!-- Image -->
-                                    <template x-if="story.media_type === 'image'">
-                                        <img :src="getMediaUrl(story.media_path[0])" class="w-full h-full object-cover"
+                                    <template x-if="showStories && story.media_type === 'image' && currentIndex === index">
+                                        <img :src="getMediaUrl(Array.isArray(story.media_path) ? story.media_path[0] : story.media_path)" class="w-full h-full object-cover"
                                             :alt="story.caption || 'Story'">
                                     </template>
 
                                     <!-- Video -->
-                                    <template x-if="story.media_type === 'video'">
-                                        <video :src="getMediaUrl(story.media_path[0])" class="w-full h-full object-cover"
-                                            autoplay @ended="nextStory()">
+                                    <template x-if="showStories && story.media_type === 'video' && currentIndex === index">
+                                        <video :src="getMediaUrl(Array.isArray(story.media_path) ? story.media_path[0] : story.media_path)" class="w-full h-full object-cover"
+                                            autoplay playsinline oncontextmenu="return false;" controlsList="nodownload nofullscreen noremoteplayback" @ended="nextStory()">
                                         </video>
                                     </template>
 
                                     <!-- Caption Badge -->
-                                    <div x-show="story.caption"
+                                    <div x-show="showStories && story.caption && currentIndex === index"
                                         class="absolute bottom-8 left-0 right-0 p-4 flex justify-center z-40">
                                         <div class="backdrop-blur-md px-6 py-3 rounded-xl shadow-lg border border-white/20 hover:scale-105 transition-transform max-w-[90%]"
                                             style="background-color: #ec4899 !important;">
