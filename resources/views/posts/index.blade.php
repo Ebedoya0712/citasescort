@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
             <h1 class="text-4xl font-bold text-white mb-4">Blog & Noticias</h1>
             <p class="text-gray-400 max-w-2xl mx-auto">
-                Mantente al dÃ­a con las últimas novedades, eventos y consejos de Citasescort.
+                Mantente al día con las últimas novedades, eventos y consejos de Citasescort.
             </p>
         </div>
     </div>
@@ -34,7 +34,7 @@
                                 </a>
                             </h2>
                             <p class="text-gray-400 text-sm line-clamp-3 leading-relaxed mb-4">
-                                {{ Str::limit($post->content, 120) }}
+                                {{ Str::limit(strip_tags($post->content), 120) }}
                             </p>
                             <a href="{{ route('posts.show', $post->slug) }}"
                                 class="inline-flex items-center text-sm font-medium text-white group-hover:text-red-600 transition-colors">
