@@ -133,51 +133,46 @@
                         </div>
 
                         <!-- Media -->
-                        <div class="relative w-full h-full flex items-center justify-center bg-black">
-                            <template x-if="currentStory">
-                                <div class="w-full h-full" :key="currentStory ? currentStory.id : 'none'">
-                                    <!-- Image -->
-                                    <template x-if="currentStory.media_type === 'image'">
-                                        <img :src="getStoryMedia(currentStory)" class="w-full h-full object-cover" style="display:block;width:100%;height:100%;object-fit:cover;">
-                                    </template>
-                                    
-                                    <!-- Video -->
-                                    <template x-if="currentStory.media_type === 'video'">
-                                        <div class="relative w-full h-full flex items-center justify-center" style="width:100%;height:100%;">
-                                            <video 
-                                                x-ref="videoPlayer"
-                                                :src="getStoryMedia(currentStory)"
-                                                muted
-                                                autoplay
-                                                playsinline
-                                                controlsList="nodownload"
-                                                oncontextmenu="return false;"
-                                                style="width:100%;height:100%;object-fit:cover;display:block;"
-                                                @ended="nextStory"
-                                                @timeupdate="updateVideoProgress"
-                                                @canplay="$el.play()">
-                                            </video>
-                                            <!-- Watermark -->
-                                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                                                <div class="text-2xl md:text-3xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none opacity-60 flex">
-                                                    <span class="text-red-500">CITAS</span>
-                                                    <span class="text-white">ESCORTS</span>
-                                                </div>
-                                            </div>
-                                            <!-- Unmute/Mute Toggle Button -->
-                                            <button @click.stop="toggleMute" class="absolute bottom-24 right-4 z-[60] bg-black/50 text-white p-2 rounded-full backdrop-blur-sm border border-white/20 hover:scale-110 transition-transform">
-                                                <template x-if="isMuted">
-                                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" /></svg>
-                                                </template>
-                                                <template x-if="!isMuted">
-                                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
-                                                </template>
-                                            </button>
-                                        </div>
-                                    </template>
+                        <div class="relative w-full h-full bg-black" style="position:relative;overflow:hidden;">
+
+                            <!-- Image (always in DOM, shown via x-show) -->
+                            <img x-show="currentStory && currentStory.media_type === 'image'"
+                                :src="currentStory && currentStory.media_type === 'image' ? getStoryMedia(currentStory) : ''"
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
+
+                            <!-- Video container (always in DOM) -->
+                            <div x-show="currentStory && currentStory.media_type === 'video'"
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                <video x-ref="videoPlayer"
+                                    muted
+                                    playsinline
+                                    controlsList="nodownload"
+                                    oncontextmenu="return false;"
+                                    style="width:100%;height:100%;object-fit:cover;display:block;"
+                                    @ended="nextStory"
+                                    @timeupdate="updateVideoProgress">
+                                </video>
+                                <!-- Watermark -->
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;">
+                                    <div class="text-2xl md:text-3xl font-black uppercase tracking-widest drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)] select-none opacity-60 flex">
+                                        <span class="text-red-500">CITAS</span>
+                                        <span class="text-white">ESCORTS</span>
+                                    </div>
                                 </div>
-                            </template>
+                                <!-- Unmute/Mute Toggle Button -->
+                                <button @click.stop="toggleMute" style="position:absolute;bottom:6rem;right:1rem;z-index:60;background:rgba(0,0,0,0.5);color:white;padding:0.5rem;border-radius:9999px;border:1px solid rgba(255,255,255,0.2);">
+                                    <template x-if="isMuted">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" /></svg>
+                                    </template>
+                                    <template x-if="!isMuted">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
+                                    </template>
+                                </button>
+                            </div>
                         </div>
+
+
+
 
                         <!-- Badge -->
                         <div class="absolute bottom-8 left-0 right-0 p-4 flex justify-center z-40">
@@ -362,12 +357,35 @@
                         this.progress = 0;
                         this.paused = false;
 
-                        if (this.currentStory && this.currentStory.media_type !== 'video') {
-                            // For images: start the timer immediately (no $nextTick needed)
+                        if (this.currentStory && this.currentStory.media_type === 'video') {
+                            // Use $nextTick so x-show has updated and the video element is visible
+                            this.$nextTick(() => {
+                                const video = this.$refs.videoPlayer;
+                                if (!video) return;
+                                const url = this.getStoryMedia(this.currentStory);
+                                // Only reload if src changed
+                                if (video.getAttribute('src') !== url) {
+                                    video.src = url;
+                                    video.load();
+                                }
+                                video.muted = this.isMuted;
+                                const p = video.play();
+                                if (p !== undefined) {
+                                    p.catch(() => {
+                                        video.muted = true;
+                                        this.isMuted = true;
+                                        video.play();
+                                    });
+                                }
+                            });
+                        } else {
+                            // Stop video if it was playing
+                            if (this.$refs.videoPlayer) {
+                                this.$refs.videoPlayer.pause();
+                                this.$refs.videoPlayer.removeAttribute('src');
+                            }
                             this.startImageTimer();
                         }
-                        // For video: the <video> element's @canplay event fires .play() automatically
-                        // and updateVideoProgress() drives the progress bar via @timeupdate
                     },
 
                     startImageTimer() {
