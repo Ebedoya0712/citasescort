@@ -631,16 +631,16 @@
                             <!-- Video Display -->
                             <!-- Opción 1 (La más usada y eficiente): Le colocamos la marca de agua visualmente encima del reproductor web y bloqueamos el clic derecho / descarga nativa. Así, el usuario no puede descargarlo fácilmente, y si intentan grabar la pantalla con su celular, la marca de agua saldrá -->
                             <template x-if="currentMedia.type === 'video'">
-                                <div class="relative w-full h-full flex items-center justify-center group bg-black">
-                                     <style>
-                                         video::-webkit-media-controls-fullscreen-button {
-                                             display: none !important;
-                                         }
-                                     </style>
-                                     <video :key="currentIndex" :src="currentMedia.src" controls autoplay loop playsinline preload="auto" 
-                                          controlsList="nodownload nofullscreen noremoteplayback" oncontextmenu="return false;"
-                                          @dblclick.prevent.stop=""
-                                          class="lightbox-video w-full h-full object-contain max-w-[90vw] max-h-[90vh]">
+                                <div x-data="{ playing: true, muted: true }" 
+                                     class="relative w-full h-full flex items-center justify-center group bg-black cursor-pointer"
+                                     @click="playing = !playing; if(playing) { $refs.vid.play() } else { $refs.vid.pause() }">
+                                     
+                                     <video x-ref="vid" 
+                                            :key="currentIndex" 
+                                            :src="currentMedia.src" 
+                                            autoplay loop playsinline preload="auto" muted
+                                            oncontextmenu="return false;"
+                                            class="lightbox-video w-full h-full object-contain max-w-[90vw] max-h-[90vh]">
                                           Tu navegador no soporta video.
                                       </video>
                                       
@@ -652,8 +652,23 @@
                                           </div>
                                       </div>
 
-                                      <!-- Fullscreen Lightbox Button -->
-                                      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 bg-black/50 rounded-full px-4 py-2 backdrop-blur-sm z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex">
+                                      <!-- Big Play Button Center (Inline styled for safety) -->
+                                      <div x-show="!playing" class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                                          <div style="width: 4rem; height: 4rem; background-color: rgba(0,0,0,0.6); border-radius: 9999px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.2);">
+                                              <svg style="width: 2rem; height: 2rem; color: white; margin-left: 0.25rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                          </div>
+                                      </div>
+
+                                      <!-- Bottom Controls Container (reusing existing lightbox styles) -->
+                                      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 bg-black/50 rounded-full px-4 py-2 backdrop-blur-sm z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" @click.stop>
+                                          
+                                          <!-- Mute/Unmute Toggle -->
+                                          <button @click.stop="$refs.vid.muted = !$refs.vid.muted; muted = $refs.vid.muted" class="text-white hover:text-gray-300 flex items-center gap-2" title="Sonido">
+                                              <svg x-show="muted" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" /></svg>
+                                              <svg x-show="!muted" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.899a9 9 0 010 12.728M5 12h4l4-4v12l-4-4H5z" /></svg>
+                                          </button>
+
+                                          <!-- Fullscreen Lightbox Button (Desktop Only) -->
                                           <button @click.stop="
                                                   let el = $el.closest('.fixed.inset-0.z-50'); /* Full Lightbox container */
                                                   if (!el) el = $el.closest('.relative.w-full.h-full');
@@ -665,7 +680,7 @@
                                                       el.webkitRequestFullscreen();
                                                   }
                                               " 
-                                              class="text-white hover:text-gray-300 flex items-center gap-2" title="Pantalla Completa">
+                                              class="text-white hover:text-gray-300 items-center gap-2 hidden md:flex" title="Pantalla Completa">
                                               <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
                                               </svg>
