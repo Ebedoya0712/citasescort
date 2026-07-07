@@ -25,7 +25,7 @@ class StatsOverview extends BaseWidget
                 ->chart([1, 0, 2, 0, 1, 5, 0])
                 ->color('warning'),
 
-            Stat::make('Ingresos Totales', '$' . number_format(Payment::where('status', 'completed')->sum('amount'), 2))
+            Stat::make('Ingresos Totales', '$' . number_format(Payment::whereIn('status', ['completed', 'approved'])->sum('amount'), 2))
                 ->description('Pagos completados')
                 ->descriptionIcon('heroicon-m-currency-dollar')
                 ->chart([15, 4, 10, 2, 12, 4, 12])

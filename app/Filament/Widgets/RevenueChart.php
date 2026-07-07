@@ -22,7 +22,7 @@ class RevenueChart extends ChartWidget
         // For simplicity and no extra dependencies errors, raw query to get last 6 months.
         
         $data = Payment::selectRaw('SUM(amount) as aggregate, DATE_FORMAT(created_at, "%Y-%m") as month')
-            ->where('status', 'completed')
+            ->whereIn('status', ['completed', 'approved'])
             ->where('created_at', '>=', now()->subMonths(6))
             ->groupBy('month')
             ->orderBy('month')
