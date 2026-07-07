@@ -327,7 +327,7 @@
                                 {{ $escort->phone ?? '099 123 456' }}
                             </a>
 
-                            <a href="https://wa.me/{{ $escort->whatsapp }}" target="_blank"
+                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $escort->whatsapp) }}?text={{ urlencode('Hola ' . $escort->name . ' vi tu anuncio en citasescort.com y estoy interesado en tus servicios') }}" target="_blank"
                                 onclick="trackWhatsappClick(event)"
                                 class="bg-green-600 hover:bg-green-500 text-white py-2.5 px-6 rounded-lg font-bold flex items-center gap-2 transition-all min-w-[160px] justify-center shadow-lg shadow-green-900/20 whatsapp-btn">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
