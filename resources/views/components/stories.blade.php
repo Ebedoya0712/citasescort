@@ -358,28 +358,44 @@
                         this.paused = false;
 
                         if (this.currentStory && this.currentStory.media_type === 'video') {
-                            // Use $nextTick so x-show has updated and the video element is visible
                             this.$nextTick(() => {
                                 const video = this.$refs.videoPlayer;
-                                if (!video) return;
                                 const url = this.getStoryMedia(this.currentStory);
-                                // Only reload if src changed
+                                console.log('[startStory] video ref:', video ? 'FOUND' : 'NOT FOUND');
+                                console.log('[startStory] url:', url);
+                                if (!video) {
+                                    console.error('[startStory] $refs.videoPlayer is null! Retrying in 200ms...');
+                                    setTimeout(() => {
+                                        const v2 = this.$refs.videoPlayer;
+                                        if (v2) {
+                                            v2.src = url;
+                                            v2.load();
+                                            v2.muted = true;
+                                            this.isMuted = true;
+                                            v2.play().catch(e => console.error('[startStory-retry] play error:', e));
+                                        } else {
+                                            console.error('[startStory-retry] still no video ref!');
+                                        }
+                                    }, 200);
+                                    return;
+                                }
                                 if (video.getAttribute('src') !== url) {
                                     video.src = url;
                                     video.load();
                                 }
-                                video.muted = this.isMuted;
+                                video.muted = true;
+                                this.isMuted = true;
                                 const p = video.play();
                                 if (p !== undefined) {
-                                    p.catch(() => {
+                                    p.then(() => console.log('[startStory] play() OK - video is playing'))
+                                     .catch(err => {
+                                        console.error('[startStory] play() FAILED:', err.message);
                                         video.muted = true;
-                                        this.isMuted = true;
-                                        video.play();
+                                        video.play().catch(e2 => console.error('[startStory] muted retry failed:', e2.message));
                                     });
                                 }
                             });
                         } else {
-                            // Stop video if it was playing
                             if (this.$refs.videoPlayer) {
                                 this.$refs.videoPlayer.pause();
                                 this.$refs.videoPlayer.removeAttribute('src');
