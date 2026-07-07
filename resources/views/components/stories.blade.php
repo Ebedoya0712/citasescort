@@ -142,13 +142,12 @@
 
                             <!-- Video container (always in DOM) -->
                             <div x-show="currentStory && currentStory.media_type === 'video'"
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;">
                                 <video x-ref="videoPlayer"
                                     muted
                                     playsinline
-                                    controlsList="nodownload"
-                                    oncontextmenu="return false;"
-                                    style="width:100%;height:100%;object-fit:cover;display:block;"
+                                    controls
+                                    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;z-index:2;"
                                     @ended="nextStory"
                                     @timeupdate="updateVideoProgress">
                                 </video>
