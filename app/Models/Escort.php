@@ -80,6 +80,16 @@ class Escort extends Model
                 $model->is_active = true;
             }
         });
+
+        static::updated(function ($model) {
+            if ($model->wasChanged('verified') && $model->verified && $model->user && $model->user->email) {
+                try {
+                    \Illuminate\Support\Facades\Mail::to($model->user->email)->send(new \App\Mail\EscortVerifiedMail($model));
+                } catch (\Exception $e) {
+                    \Illuminate\Support\Facades\Log::error('Error sending EscortVerifiedMail: ' . $e->getMessage());
+                }
+            }
+        });
     }
 
     public function isVerified(): bool
