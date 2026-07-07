@@ -56,12 +56,12 @@
                     <path d="M15 18h-5" />
                     <path d="M10 6h8v4h-8Z" />
                 </svg>
-                <div class="relative flex items-center pr-3">
+                <div class="flex items-center gap-1.5">
                     Noticias
                     @if($hasNewPosts)
-                        <span class="absolute -top-1 -right-0 flex h-2.5 w-2.5">
+                        <span class="relative flex h-2 w-2">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
                         </span>
                     @endif
                 </div>
@@ -206,12 +206,12 @@
             </a>
             <a href="{{ route('posts.index') }}" class="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:text-red-600 hover:bg-gray-50 dark:hover:bg-zinc-900 rounded-lg transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" /><path d="M18 14h-8" /><path d="M15 18h-5" /><path d="M10 6h8v4h-8Z" /></svg>
-                <div class="relative flex items-center pr-3">
+                <div class="flex items-center gap-1.5">
                     Noticias
                     @if($hasNewPosts)
-                        <span class="absolute -top-1 -right-0 flex h-2.5 w-2.5">
+                        <span class="relative flex h-2 w-2">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
                         </span>
                     @endif
                 </div>
