@@ -3,6 +3,12 @@
         ->where('created_at', '>=', now()->subDays(7))
         ->exists();
 @endphp
+<style>
+    @keyframes custom-ping {
+        75%, 100% { transform: scale(2); opacity: 0; }
+    }
+    .custom-animate-ping { animation: custom-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; }
+</style>
 <header class="bg-brand-dark text-white px-4 lg:px-8 transition-colors duration-300" x-data="{ mobileMenu: false }">
     <div class="max-w-7xl mx-auto flex items-center justify-between h-16 md:h-20">
         <!-- Left Side: Logo -->
@@ -60,7 +66,7 @@
                     Noticias
                     @if($hasNewPosts)
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span class="custom-animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
                         </span>
                     @endif
@@ -210,7 +216,7 @@
                     Noticias
                     @if($hasNewPosts)
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span class="custom-animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
                         </span>
                     @endif
