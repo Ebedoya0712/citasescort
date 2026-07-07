@@ -99,7 +99,6 @@
                                     Moneda
                                 </label>
                                 <select name="currency" class="w-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-200 dark:border-zinc-800 rounded-lg outline-none px-3 py-2 text-sm text-gray-700 dark:text-gray-200 focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors">
-                                    <option value="">Cualquier moneda</option>
                                     <option value="PEN" {{ request('currency') == 'PEN' ? 'selected' : '' }}>PEN (S/)</option>
                                     <option value="USD" {{ request('currency') == 'USD' ? 'selected' : '' }}>USD ($)</option>
                                 </select>
