@@ -87,7 +87,7 @@
                                         <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td style="color: #a1a1aa; font-size: 14px;">ID Transacción</td>
-                                                <td align="right" style="color: #71717a; font-size: 12px; font-weight: 600; font-family: monospace;">{{ $payment->transaction_id ?: 'PAG-'.str_pad($payment->id, 5, '0', STR_PAD_LEFT) }}</td>
+                                                <td align="right" style="color: #71717a; font-size: 12px; font-weight: 600; font-family: monospace;">{{ $payment->transaction_id ?: str_pad($payment->id, 2, '0', STR_PAD_LEFT) }}</td>
                                             </tr>
                                         </table>
                                     </td>
