@@ -18,6 +18,12 @@
 <a href="{{ route('publications.show', $publication->id) }}"
     class="bg-white dark:bg-zinc-900 rounded-xl md:rounded-2xl shadow-lg group cursor-pointer transition-all duration-300 hover:-translate-y-2 flex flex-col h-full relative hover:ring-2 hover:ring-red-600 @if(!$publication->escort || !in_array($publication->escort->level, ['diamante', 'plata'])) hover:shadow-xl @endif">
     
+    @if($publication->created_at && $publication->created_at->diffInDays(now()) <= 7)
+        <div class="absolute -top-3 -left-3 z-40 w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(220,38,38,0.6)] border-[3px] border-white transform -rotate-12 transition-transform group-hover:scale-110">
+            <span class="text-white font-black text-xs uppercase tracking-wider shadow-sm">Nueva</span>
+        </div>
+    @endif
+
     <!-- Animated Border Overlay -->
     @if($publication->escort && $publication->escort->level === 'diamante')
         <div class="absolute inset-0 rounded-2xl border-4 border-red-600 shadow-[inset_0_0_20px_rgba(220,38,38,0.4),0_0_25px_rgba(220,38,38,0.8)] pointer-events-none z-20 animate-[pulse_1.5s_ease-in-out_infinite]"></div>
