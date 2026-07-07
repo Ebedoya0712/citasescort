@@ -155,10 +155,10 @@
 
     <!-- Info Area -->
     <div
-        class="p-2.5 md:p-4 bg-white dark:bg-zinc-900 rounded-b-xl md:rounded-b-2xl border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300 flex-1">
-        <div class="space-y-0.5 max-w-[70%] min-w-0">
+        class="px-2.5 pt-2.5 pb-3.5 md:px-4 md:pt-4 md:pb-5 bg-white dark:bg-zinc-900 rounded-b-xl md:rounded-b-2xl border-t border-gray-100 dark:border-zinc-800 flex justify-between items-start transition-colors duration-300 flex-1 relative z-10">
+        <div class="space-y-1 max-w-[75%] min-w-0">
             <h4 class="text-red-600 font-bold text-xs md:text-sm truncate">{{ $publication->title }}</h4>
-            <div class="flex items-center gap-1 md:gap-1.5 text-black dark:text-gray-100 font-bold text-[10px] md:text-xs">
+            <div class="flex items-center gap-1 md:gap-1.5 text-black dark:text-gray-100 font-bold text-[10px] md:text-xs min-w-0 leading-tight">
                 <!-- Gender Icon -->
                 @if($publication->gender === 'Mujer' || $publication->gender === 'female')
                     <span class="text-red-600" title="Mujer">
