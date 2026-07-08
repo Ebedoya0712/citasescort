@@ -67,7 +67,7 @@
                                         <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td style="color: #a1a1aa; font-size: 14px;">Monto Pagado</td>
-                                                <td align="right" style="color: #ff2a7a; font-size: 20px; font-weight: 800;">${{ number_format($plan->price, 2) }} USD</td>
+                                                <td align="right" style="color: #ff2a7a; font-size: 20px; font-weight: 800;">S/ {{ number_format($plan->price, 2) }}</td>
                                             </tr>
                                         </table>
                                     </td>
