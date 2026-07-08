@@ -36,14 +36,21 @@ class SettingsSeeder extends Seeder
             [
                 'key' => 'seo_title',
                 'label' => 'TÃ­tulo SEO (Meta Title)',
-                'value' => 'Citasescort - Escorts VIP en Uruguay',
+                'value' => 'Citas Escort Perú | Kines VIP, Escorts y Kinesiologas 24/7',
                 'type' => 'text',
                 'group' => 'seo',
             ],
             [
                 'key' => 'seo_description',
                 'label' => 'DescripciÃ³n SEO',
-                'value' => 'Encuentra las mejores escorts verificadas en Uruguay.',
+                'value' => 'El mejor portal de escorts en Perú. Encuentra kines VIP, kinesiologas y acompañantes de lujo en Lima y provincias. Fotos reales, contacto directo y discreción garantizada.',
+                'type' => 'textarea',
+                'group' => 'seo',
+            ],
+            [
+                'key' => 'seo_keywords',
+                'label' => 'Palabras Clave SEO',
+                'value' => 'Escorts en Perú, Escorts en Lima, Kines VIP, Putas de lujo, Kinesiologas, Masajes eróticos, Putas en Perú, Citas Escorts',
                 'type' => 'textarea',
                 'group' => 'seo',
             ],
