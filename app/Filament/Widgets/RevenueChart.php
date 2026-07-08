@@ -40,7 +40,7 @@ class RevenueChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Ingresos ($)',
+                    'label' => 'Ingresos (S/)',
                     'data' => $values,
                     'fill' => 'start',
                     'borderColor' => '#dc2626', // Pink-600ish
