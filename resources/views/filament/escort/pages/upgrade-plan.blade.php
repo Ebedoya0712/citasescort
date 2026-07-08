@@ -57,9 +57,9 @@
                     @php 
                         $priceSoles = $plan->price;
                     @endphp
-                    <div style="display: flex; align-items: baseline;">
-                        <span style="font-size: 3.5rem; font-weight: 900; color: #ef4444; line-height: 1;">S/ {{ number_format($priceSoles, 0) }}</span>
-                        <span style="margin-left: 0.5rem; font-size: 1.2rem; color: #a1a1aa; font-weight: 600;">PEN {{ $plan->duration_days == 90 ? '/ 3 meses' : '/ mes' }}</span>
+                    <div style="display: flex; align-items: baseline; white-space: nowrap;">
+                        <span style="font-size: clamp(2.5rem, 8vw, 3.5rem); font-weight: 900; color: #ef4444; line-height: 1;">S/&nbsp;{{ number_format($priceSoles, 0) }}</span>
+                        <span style="margin-left: 0.5rem; font-size: clamp(1rem, 4vw, 1.2rem); color: #a1a1aa; font-weight: 600;">PEN {{ $plan->duration_days == 90 ? '/ 3 meses' : '/ mes' }}</span>
                     </div>
                 </div>
 
