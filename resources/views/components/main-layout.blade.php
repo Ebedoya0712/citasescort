@@ -4,10 +4,69 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? config('settings.seo_title') ?? config('settings.site_name') ?? config('app.name', 'Laravel') }}</title>
-    @if(config('settings.seo_description'))
-        <meta name="description" content="{{ config('settings.seo_description') }}">
+    @php
+        $siteName = config('settings.site_name') ?? config('app.name', 'Laravel');
+        $seoTitle = $title ?? config('settings.seo_title') ?? 'Citas Escort Perú | Kines VIP, Escorts y Kinesiologas 24/7';
+        $seoDescription = config('settings.seo_description') ?? 'El mejor portal de escorts en Perú. Encuentra kines VIP, kinesiologas y acompañantes de lujo en Lima y provincias. Fotos reales, contacto directo y discreción garantizada.';
+        $seoKeywords = config('settings.seo_keywords') ?? 'Escorts en Perú, Escorts en Lima, Kines VIP, Putas de lujo, Kinesiologas, Masajes eróticos, Putas en Perú, Citas Escorts';
+        $currentUrl = request()->url();
+    @endphp
+    
+    <title>{{ $seoTitle }}</title>
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="keywords" content="{{ $seoKeywords }}">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="{{ $currentUrl }}" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $currentUrl }}">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDescription }}">
+    <meta property="og:site_name" content="{{ $siteName }}">
+    @if(config('settings.site_logo'))
+    <meta property="og:image" content="{{ asset('storage/' . config('settings.site_logo')) }}">
     @endif
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ $currentUrl }}">
+    <meta name="twitter:title" content="{{ $seoTitle }}">
+    <meta name="twitter:description" content="{{ $seoDescription }}">
+    @if(config('settings.site_logo'))
+    <meta name="twitter:image" content="{{ asset('storage/' . config('settings.site_logo')) }}">
+    @endif
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{ $siteName }}",
+      "url": "{{ url('/') }}",
+      "description": "{{ $seoDescription }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ url('/search') }}?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "{{ $siteName }}",
+      "url": "{{ url('/') }}",
+      @if(config('settings.site_logo'))
+      "logo": "{{ asset('storage/' . config('settings.site_logo')) }}",
+      @endif
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support"
+      }
+    }
+    </script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Fonts -->
