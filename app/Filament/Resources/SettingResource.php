@@ -42,29 +42,25 @@ class SettingResource extends Resource
                     ->label('Valor')
                     ->visible(fn (Get $get, ?Setting $record) => $record?->type === 'text' || $record === null)
                     ->formatStateUsing(fn ($state, ?Setting $record) => $record?->type === 'text' ? $record->value : null)
-                    ->required()
-                    ->dehydrated(false),
+                    ->required(),
 
                 Forms\Components\Textarea::make('value_textarea')
                     ->label('Valor')
                     ->visible(fn (Get $get, ?Setting $record) => $record?->type === 'textarea')
                     ->formatStateUsing(fn ($state, ?Setting $record) => $record?->type === 'textarea' ? $record->value : null)
-                    ->required()
-                    ->dehydrated(false),
+                    ->required(),
 
                 Forms\Components\FileUpload::make('value_image')
                     ->label('Imagen')
                     ->visible(fn (Get $get, ?Setting $record) => $record?->type === 'image')
                     ->image()
                     ->directory('settings')
-                    ->formatStateUsing(fn ($state, ?Setting $record) => $record?->type === 'image' ? $record->value : null)
-                    ->dehydrated(false),
+                    ->formatStateUsing(fn ($state, ?Setting $record) => $record?->type === 'image' ? $record->value : null),
                 
                 Forms\Components\Toggle::make('value_boolean')
                     ->label('Activo')
                     ->visible(fn (Get $get, ?Setting $record) => $record?->type === 'boolean')
-                    ->formatStateUsing(fn ($state, ?Setting $record) => $record?->type === 'boolean' ? (bool) $record->value : false)
-                    ->dehydrated(false),
+                    ->formatStateUsing(fn ($state, ?Setting $record) => $record?->type === 'boolean' ? (bool) $record->value : false),
             ]);
     }
 
