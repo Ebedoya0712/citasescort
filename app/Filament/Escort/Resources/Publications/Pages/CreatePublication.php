@@ -16,13 +16,15 @@ class CreatePublication extends CreateRecord
         parent::mount();
 
         $escort = \Illuminate\Support\Facades\Auth::user()->escort;
-        if ($escort && $escort->publications()->count() === 0 && !$escort->isVerified()) {
+        if ($escort && !$escort->isVerified()) {
             \Filament\Notifications\Notification::make()
-                ->title('Aviso Importante')
-                ->body('Ya que no has verificado tu perfil, solo podrás subir un anuncio por ahora. Cuando el administrador apruebe tu verificación, podrás crear más anuncios y hacerlos públicos.')
+                ->title('Verificación Requerida')
+                ->body('Debes verificar tu identidad antes de poder subir anuncios. Una vez que el administrador apruebe tu perfil, podrás publicar.')
                 ->warning()
                 ->persistent()
                 ->send();
+            
+            $this->redirect(\App\Filament\Escort\Pages\VerifyProfile::getUrl());
         }
     }
 

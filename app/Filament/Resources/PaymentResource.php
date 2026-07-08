@@ -37,7 +37,7 @@ class PaymentResource extends Resource
                 Forms\Components\TextInput::make('amount')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('S/ '),
                 Forms\Components\Select::make('status')
                     ->options([
                         'pending' => 'Pendiente',
@@ -75,7 +75,7 @@ class PaymentResource extends Resource
                     ->label('Plan'),
                 Tables\Columns\TextColumn::make('amount')
                     ->numeric()
-                    ->prefix('$')
+                    ->prefix('S/ ')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status')
                     ->badge()

@@ -18,7 +18,7 @@ class EscortInfolist
                         TextEntry::make('description')->placeholder('-')->columnSpanFull()->label('Descripción'),
                         TextEntry::make('age')->numeric()->placeholder('-')->label('Edad'),
                         TextEntry::make('city')->placeholder('-')->label('Ciudad'),
-                        TextEntry::make('price')->numeric()->prefix('$')->placeholder('-')->label('Precio'),
+                        TextEntry::make('price')->numeric()->prefix('S/ ')->placeholder('-')->label('Precio'),
                         IconEntry::make('is_active')->boolean()->label('Activo'),
                         \Filament\Infolists\Components\ViewEntry::make('profile_photo')
                             ->label('Foto de Perfil')

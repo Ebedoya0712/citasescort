@@ -15,13 +15,15 @@ class CreateStory extends CreateRecord
         parent::mount();
 
         $escort = \Illuminate\Support\Facades\Auth::user()->escort;
-        if ($escort && $escort->stories()->count() === 0 && !$escort->isVerified()) {
+        if ($escort && !$escort->isVerified()) {
             \Filament\Notifications\Notification::make()
-                ->title('Aviso Importante')
-                ->body('Ya que no has verificado tu perfil, solo podrás subir una historia por ahora. Cuando el administrador apruebe tu verificación, podrás subir más historias libremente.')
+                ->title('Verificación Requerida')
+                ->body('Debes verificar tu identidad antes de poder subir historias. Una vez que el administrador apruebe tu perfil, podrás publicar historias libremente.')
                 ->warning()
                 ->persistent()
                 ->send();
+            
+            $this->redirect(\App\Filament\Escort\Pages\VerifyProfile::getUrl());
         }
     }
     
