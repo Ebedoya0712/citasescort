@@ -40,13 +40,13 @@
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
+      "@@context": "https://schema.org",
+      "@@type": "WebSite",
       "name": "{{ $siteName }}",
       "url": "{{ url('/') }}",
       "description": "{{ $seoDescription }}",
       "potentialAction": {
-        "@type": "SearchAction",
+        "@@type": "SearchAction",
         "target": "{{ url('/search') }}?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
@@ -54,15 +54,15 @@
     </script>
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "Organization",
+      "@@context": "https://schema.org",
+      "@@type": "Organization",
       "name": "{{ $siteName }}",
       "url": "{{ url('/') }}",
       @if(config('settings.site_logo'))
       "logo": "{{ asset('storage/' . config('settings.site_logo')) }}",
       @endif
       "contactPoint": {
-        "@type": "ContactPoint",
+        "@@type": "ContactPoint",
         "contactType": "customer support"
       }
     }
