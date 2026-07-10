@@ -57,7 +57,7 @@ class VerifyProfile extends Page implements HasForms
                     // Step 1: Frente del Documento
                     \Filament\Schemas\Components\Wizard\Step::make('Frente del Documento')
                         ->icon('heroicon-o-identification')
-                        ->description('SubÃ­ una foto clara del frente de tu CI')
+                        ->description('Sube una foto clara del frente de tu CI')
                         ->schema([
                             Forms\Components\Placeholder::make('instrucciones_frente')
                                 ->hiddenLabel()
@@ -69,8 +69,8 @@ class VerifyProfile extends Page implements HasForms
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 class="text-lg font-bold text-white leading-tight">Foto Frontal de la CÃ©dula</h3>
-                                            <p class="text-sm text-gray-400 mt-1">Asegurate de que haya buena iluminaciÃ³n y que todos los datos sean legibles. No cortes los bordes de la tarjeta.</p>
+                                            <h3 class="text-lg font-bold text-white leading-tight">Foto Frontal de la Cédula</h3>
+                                            <p class="text-sm text-gray-400 mt-1">Asegúrate de que haya buena iluminación y que todos los datos sean legibles. No cortes los bordes de la tarjeta.</p>
                                         </div>
                                     </div>
                                 ')),
@@ -85,7 +85,7 @@ class VerifyProfile extends Page implements HasForms
                     // Step 2: Dorso del Documento
                     \Filament\Schemas\Components\Wizard\Step::make('Dorso del Documento')
                         ->icon('heroicon-o-credit-card')
-                        ->description('SubÃ­ una foto del reverso de tu CI')
+                        ->description('Sube una foto del reverso de tu CI')
                         ->schema([
                             Forms\Components\Placeholder::make('instrucciones_dorso')
                                 ->hiddenLabel()
@@ -98,8 +98,8 @@ class VerifyProfile extends Page implements HasForms
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 class="text-lg font-bold text-white leading-tight">Foto Trasera de la CÃ©dula</h3>
-                                            <p class="text-sm text-gray-400 mt-1">Acordate de enfocar bien para que podamos ver claramente el reverso de tu documento de identidad.</p>
+                                            <h3 class="text-lg font-bold text-white leading-tight">Foto Trasera de la Cédula</h3>
+                                            <p class="text-sm text-gray-400 mt-1">Recuerda enfocar bien para que podamos ver claramente el reverso de tu documento de identidad.</p>
                                         </div>
                                     </div>
                                 ')),
@@ -111,10 +111,10 @@ class VerifyProfile extends Page implements HasForms
                                 ->maxSize(10240) // 10MB
                         ]),
 
-                    // Step 3: Video de VerificaciÃ³n
+                    // Step 3: Video de Verificación
                     \Filament\Schemas\Components\Wizard\Step::make('Prueba de Vida')
                         ->icon('heroicon-o-video-camera')
-                        ->description('GrabÃ¡ un video corto')
+                        ->description('Graba un video corto')
                         ->schema([
                             Forms\Components\Placeholder::make('instrucciones_video')
                                 ->hiddenLabel()
@@ -182,7 +182,7 @@ class VerifyProfile extends Page implements HasForms
                                     </style>
                                     <div style="background:rgba(17,17,27,0.5); padding:24px; border-radius:16px; border:1px solid rgba(255,255,255,0.08);">
                                         <h3 style="font-size:1rem; font-weight:700; color:#fff; text-align:center; margin:0 0 6px;">Instrucciones del Video</h3>
-                                        <p style="font-size:0.75rem; color:#9ca3af; text-align:center; margin:0 0 20px;">SostenÃ©s tu documento cerca de tu cara y hacÃ©s estos movimientos:</p>
+                                        <p style="font-size:0.75rem; color:#9ca3af; text-align:center; margin:0 0 20px;">Sostén tu documento cerca de tu cara y haz estos movimientos:</p>
                                         <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
 
                                             <!-- Card Izquierda/Derecha -->
@@ -213,11 +213,11 @@ class VerifyProfile extends Page implements HasForms
                                                     <path d="M40 75 Q50 81 60 75" stroke="#9ca3af" stroke-width="2.5" fill="none" stroke-linecap="round"/>
                                                   </g>
                                                   <!-- Arrows left/right -->
-                                                  <text x="8" y="60" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">â†</text>
-                                                  <text x="78" y="60" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">â†’</text>
+                                                  <text x="8" y="60" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">&larr;</text>
+                                                  <text x="78" y="60" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">&rarr;</text>
                                                 </svg>
-                                                <span style="font-size:14px; font-weight:700; color:#fff; text-align:center;">1. NegÃ¡ con la cabeza</span>
-                                                <span style="font-size:12px; color:#6b7280; text-align:center; line-height:1.4;">GirÃ¡ lentamente hacia la izquierda y luego hacia la derecha</span>
+                                                <span style="font-size:14px; font-weight:700; color:#fff; text-align:center;">1. Niega con la cabeza</span>
+                                                <span style="font-size:12px; color:#6b7280; text-align:center; line-height:1.4;">Gira lentamente hacia la izquierda y luego hacia la derecha</span>
                                             </div>
 
                                             <!-- Card Arriba/Abajo -->
@@ -246,11 +246,11 @@ class VerifyProfile extends Page implements HasForms
                                                     <path d="M40 75 Q50 81 60 75" stroke="#9ca3af" stroke-width="2.5" fill="none" stroke-linecap="round"/>
                                                   </g>
                                                   <!-- Arrows up/down -->
-                                                  <text x="44" y="12" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">â†‘</text>
-                                                  <text x="44" y="116" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">â†“</text>
+                                                  <text x="44" y="12" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">&uarr;</text>
+                                                  <text x="44" y="116" font-size="16" fill="#ec4899" opacity="0.9" style="animation: label-fade 4s ease-in-out infinite;">&darr;</text>
                                                 </svg>
-                                                <span style="font-size:14px; font-weight:700; color:#fff; text-align:center;">2. AsentÃ­ con la cabeza</span>
-                                                <span style="font-size:12px; color:#6b7280; text-align:center; line-height:1.4;">MovÃ© lentamente hacia arriba y luego hacia abajo</span>
+                                                <span style="font-size:14px; font-weight:700; color:#fff; text-align:center;">2. Asiente con la cabeza</span>
+                                                <span style="font-size:12px; color:#6b7280; text-align:center; line-height:1.4;">Mueve lentamente hacia arriba y luego hacia abajo</span>
                                             </div>
 
                                         </div>
@@ -262,10 +262,10 @@ class VerifyProfile extends Page implements HasForms
                                 ->directory('escort-verifications')
                                 ->required()
                                 ->maxSize(51200) // 50MB
-                                ->helperText('SubÃ­ tu video en formato MP4, WebM o MOV. MÃ¡ximo 50MB.')
+                                ->helperText('Sube tu video en formato MP4, WebM o MOV. Máximo 50MB.')
                         ]),
                 ])
-                ->submitAction(new HtmlString('<button type="submit" class="fi-btn relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus-visible:ring-2 rounded-lg fi-color-primary fi-btn-color-primary bg-primary-600 text-white hover:bg-primary-500 dark:bg-primary-500 dark:hover:bg-primary-400 fi-size-md px-3 py-2 text-sm inline-grid shadow-sm gap-1.5 mt-4"><span class="fi-btn-label">Enviar para RevisiÃ³n</span></button>'))
+                ->submitAction(new HtmlString('<button type="submit" class="fi-btn relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus-visible:ring-2 rounded-lg fi-color-primary fi-btn-color-primary bg-primary-600 text-white hover:bg-primary-500 dark:bg-primary-500 dark:hover:bg-primary-400 fi-size-md px-3 py-2 text-sm inline-grid shadow-sm gap-1.5 mt-4"><span class="fi-btn-label">Enviar para Revisión</span></button>'))
             ])
             ->statePath('data');
     }
@@ -301,8 +301,8 @@ class VerifyProfile extends Page implements HasForms
 
         Notification::make()
             ->success()
-            ->title('VerificaciÃ³n enviada')
-            ->body('Tus documentos han sido enviados y estÃ¡n en revisiÃ³n por un administrador.')
+            ->title('Verificación enviada')
+            ->body('Tus documentos han sido enviados y están en revisión por un administrador.')
             ->send();
     }
 }
