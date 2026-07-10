@@ -9,10 +9,10 @@ $kernel->bootstrap();
 use App\Models\Setting;
 
 $updates = [
-    'site_name' => 'Uruguapas',
-    'footer_text' => '© 2026 Uruguapas. Todos los derechos reservados.',
-    'seo_title' => 'Uruguapas - Escorts VIP en Uruguay',
-    'seo_description' => 'Encuentra las mejores escorts verificadas en Uruguay. Perfiles exclusivos, verificados y de alta calidad.',
+    'site_name' => 'Citas Escort',
+    'footer_text' => '© 2026 Citas Escort. Todos los derechos reservados.',
+    'seo_title' => 'Citas Escort - Escorts VIP en Perú',
+    'seo_description' => 'Encuentra las mejores escorts verificadas en Perú. Perfiles exclusivos, verificados y de alta calidad.',
     'facebook_url' => '',
     'instagram_url' => '',
     'enable_payments' => '0',

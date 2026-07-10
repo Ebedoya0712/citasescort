@@ -17,6 +17,7 @@
     <meta name="keywords" content="{{ $seoKeywords }}">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="{{ $currentUrl }}" />
+    <meta name="google-site-verification" content="833GlyCFJwaHCw9VGlijfo3BY3iVEr54kbYk9yetOK4" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
