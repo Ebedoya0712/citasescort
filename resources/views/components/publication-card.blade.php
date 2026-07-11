@@ -21,8 +21,8 @@
 
     <!-- Animated Border Overlay -->
     @if($publication->escort && $publication->escort->level === 'diamante')
-        <div class="absolute inset-0 rounded-2xl border-4 border-red-600 shadow-[inset_0_0_20px_rgba(220,38,38,0.4),0_0_25px_rgba(220,38,38,0.8)] pointer-events-none z-20 animate-[pulse_1.5s_ease-in-out_infinite]"></div>
-        <div class="absolute inset-0 rounded-2xl ring-4 ring-red-600/60 ring-offset-2 ring-offset-zinc-900 pointer-events-none z-10"></div>
+        <div class="absolute inset-0 rounded-2xl border-4 border-yellow-500 shadow-[inset_0_0_20px_rgba(234,179,8,0.4),0_0_25px_rgba(234,179,8,0.8)] pointer-events-none z-20 animate-[pulse_1.5s_ease-in-out_infinite]"></div>
+        <div class="absolute inset-0 rounded-2xl ring-4 ring-yellow-500/60 ring-offset-2 ring-offset-zinc-900 pointer-events-none z-10"></div>
     @elseif($publication->escort && $publication->escort->level === 'plata')
         <div class="absolute inset-0 rounded-2xl border-4 border-gray-300 shadow-[inset_0_0_20px_rgba(209,213,219,0.4),0_0_20px_rgba(209,213,219,0.7)] pointer-events-none z-20 animate-[pulse_2s_ease-in-out_infinite]"></div>
         <div class="absolute inset-0 rounded-2xl ring-4 ring-gray-400/60 ring-offset-2 ring-offset-zinc-900 pointer-events-none z-10"></div>
