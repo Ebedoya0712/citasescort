@@ -37,6 +37,7 @@ class UpgradePlan extends Page implements HasActions
         return Action::make('payWithYape')
             ->label('Pagar con Yape')
             ->modalHeading('Datos de Yape / Transferencia')
+            ->modalDescription(function(array $arguments) {
                 $priceSoles = '';
                 if (isset($arguments['amount'])) {
                     $converted = number_format($arguments['amount'], 2);
