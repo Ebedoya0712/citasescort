@@ -37,20 +37,17 @@ class UpgradePlan extends Page implements HasActions
         return Action::make('payWithYape')
             ->label('Pagar con Yape')
             ->modalHeading('Datos de Yape / Transferencia')
-            ->modalDescription(function(array $arguments) {
-                $number = '+51 921 519 687';
-                
                 $priceSoles = '';
                 if (isset($arguments['amount'])) {
                     $converted = number_format($arguments['amount'], 2);
                     $priceSoles = "<br><br>Monto a pagar: <strong>S/. {$converted}</strong>";
                 }
 
-                return new HtmlString("Transfiere al número <strong>{$number}</strong>. Luego sube tu comprobante aquí.{$priceSoles}");
+                return new HtmlString("Envia un Plin al 921519687 o escanea el QR y luego subes el comprobante aqui{$priceSoles}");
             })
             ->form([
-                // ViewField::make('qr')
-                //     ->view('filament.forms.components.yape-qr'),
+                ViewField::make('qr')
+                    ->view('filament.forms.components.yape-qr'),
                 FileUpload::make('receipt_image')
                     ->label('Sube tu captura de pantalla o comprobante')
                     ->image()
