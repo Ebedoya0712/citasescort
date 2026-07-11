@@ -11,7 +11,7 @@
             </p>
             <div style="margin-bottom: 2.5rem; display: flex; align-items: baseline; justify-content: center; border-bottom: 1px solid #3f3f46; padding-bottom: 2rem;">
                 <span style="font-size: 3.5rem; font-weight: 700; color: #d4d4d8; line-height: 1;">$0</span>
-                <span style="margin-left: 0.5rem; font-size: 1.2rem; color: #71717a; font-weight: 600;">/ mes</span>
+                <span style="margin-left: 0.5rem; font-size: 1.2rem; color: #71717a; font-weight: 600;"></span>
             </div>
             <ul style="margin-bottom: 2.5rem; list-style: none; padding: 0; font-size: 0.95rem; color: #71717a; flex-grow: 1;">
                 <li style="display: flex; align-items: flex-start; margin-bottom: 1.25rem;">
@@ -59,7 +59,7 @@
                     @endphp
                     <div style="display: flex; align-items: baseline; white-space: nowrap;">
                         <span style="font-size: clamp(2.5rem, 8vw, 3.5rem); font-weight: 900; color: #ef4444; line-height: 1;">S/&nbsp;{{ number_format($priceSoles, 0) }}</span>
-                        <span style="margin-left: 0.5rem; font-size: clamp(1rem, 4vw, 1.2rem); color: #a1a1aa; font-weight: 600;">PEN {{ $plan->duration_days == 90 ? '/ 3 meses' : '/ mes' }}</span>
+                        <span style="margin-left: 0.5rem; font-size: clamp(1rem, 4vw, 1.2rem); color: #a1a1aa; font-weight: 600;">PEN</span>
                     </div>
                 </div>
 
