@@ -65,11 +65,20 @@
         
         <div class="flex items-center gap-4">
             <span class="text-gray-500 text-xs hidden sm:block font-medium">{{ $publications->count() }} publicaciones</span>
+            @php
+                if (str_contains(strtolower($title), 'diamante')) {
+                    $btnStyle = 'background-color: #FFD700; border-color: #FFD700; color: black;';
+                } elseif (str_contains(strtolower($title), 'plata')) {
+                    $btnStyle = 'background-color: #C0C0C0; border-color: #C0C0C0; color: black;';
+                } else {
+                    $btnStyle = 'background-color: #f3f4f6; color: #1f2937;'; // fallback
+                }
+            @endphp
             <div class="flex gap-2">
-                <button @click="prev()" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:bg-red-600 hover:border-red-600 hover:text-white transition-all shadow-sm hover:shadow-red-600/20 hover:-translate-x-0.5 active:scale-95 cursor-pointer">
+                <button @click="prev()" style="{{ $btnStyle }}" class="w-10 h-10 flex items-center justify-center rounded-full transition-all shadow-sm hover:opacity-80 hover:-translate-x-0.5 active:scale-95 cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button @click="next()" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:bg-red-600 hover:border-red-600 hover:text-white transition-all shadow-sm hover:shadow-red-600/20 hover:translate-x-0.5 active:scale-95 cursor-pointer">
+                <button @click="next()" style="{{ $btnStyle }}" class="w-10 h-10 flex items-center justify-center rounded-full transition-all shadow-sm hover:opacity-80 hover:translate-x-0.5 active:scale-95 cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
