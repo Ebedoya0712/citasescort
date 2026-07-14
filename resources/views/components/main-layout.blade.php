@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @php
         $siteName = config('settings.site_name') ?? config('app.name', 'Laravel');
-        $seoTitle = $title ?? config('settings.seo_title') ?? 'Citas Escort Perú | Kines VIP, Escorts y Kinesiologas 24/7';
-        $seoDescription = config('settings.seo_description') ?? 'El mejor portal de escorts en Perú. Encuentra kines VIP, kinesiologas y acompañantes de lujo en Lima y provincias. Fotos reales, contacto directo y discreción garantizada.';
-        $seoKeywords = config('settings.seo_keywords') ?? 'Escorts en Perú, Escorts en Lima, Kines VIP, Putas de lujo, Kinesiologas, Masajes eróticos, Putas en Perú, Citas Escorts';
+        $seoTitle = $title ?? config('settings.seo_title') ?? 'Kinesiologas en Lima y Perú | Kines VIP, Escorts y Putas de Lujo';
+        $seoDescription = config('settings.seo_description') ?? 'El mejor portal de escorts en Perú. Encuentra kines VIP, kinesiologas, photokinesiologas y acompañantes de lujo en Lima Metropolitana y provincias. Fotos reales, contacto directo y discreción garantizada 24/7.';
+        $seoKeywords = config('settings.seo_keywords') ?? 'kinesiologas en lima, kines en lima metropolitana, photokinesiologas, escorts en peru, putas en peru, kines vip, putas de lujo 24/7, kines lima, escorts lima, skokka lima, masajes eroticos, kines peruanas';
         $currentUrl = request()->url();
     @endphp
     
