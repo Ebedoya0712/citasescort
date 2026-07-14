@@ -216,7 +216,7 @@
         <div class="space-y-6">
             <a href="/" class="inline-flex items-center gap-0.5 font-black text-xl tracking-tighter select-none">
                 @if(config('settings.site_logo'))
-                    <img src="{{ asset('storage/' . config('settings.site_logo')) }}" alt="{{ config('settings.site_name', 'CITASESCORTS') }}" class="h-8 w-auto object-contain">
+                    <img src="{{ asset('storage/' . config('settings.site_logo')) }}" alt="{{ config('settings.site_name', 'CITASESCORT') }}" class="h-8 w-auto object-contain">
                 @else
                     @if(config('settings.site_name'))
                         @php
@@ -225,7 +225,7 @@
                         @endphp
                         <span class="text-red-600">{{ strtoupper(substr($name, 0, $splitAt)) }}</span><span class="text-black dark:text-white">{{ strtoupper(substr($name, $splitAt)) }}</span>
                     @else
-                        <span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span>
+                        <span class="text-red-600">CITAS</span><span class="text-white">ESCORT</span>
                     @endif
                 @endif
             </a>

@@ -76,7 +76,7 @@
                  <!-- Title -->
                  <div class="space-y-4">
                      <div class="text-4xl md:text-5xl font-black tracking-widest uppercase">
-                         <span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span>
+                         <span class="text-red-600">CITAS</span><span class="text-white">ESCORT</span>
                      </div>
                      <div class="space-y-1">
                          <h1 class="text-white text-xl font-medium tracking-tight">Crear nueva cuenta</h1>

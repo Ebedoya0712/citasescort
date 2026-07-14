@@ -30,7 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->profile()
             ->brandLogo(fn () => view('filament.logo'))
             ->homeUrl('/')
-            ->brandName('CitasEscorts')
+            ->brandName('CITASESCORT')
             ->colors([
                 'primary' => '#dc2626',
             ])

@@ -7,7 +7,7 @@
         <div class="w-full max-w-2xl relative z-10 flex flex-col items-center">
             
             <a href="/" class="inline-flex items-center gap-0.5 font-black text-4xl tracking-tighter select-none mb-10">
-                <span class="text-red-600">CITAS</span><span class="text-white">ESCORTS</span>
+                <span class="text-red-600">CITAS</span><span class="text-white">ESCORT</span>
             </a>
 
             <!-- Card -->
